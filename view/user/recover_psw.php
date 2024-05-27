@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +11,7 @@
     <style>
         body {
             font-family: 'Roboto', sans-serif;
-            background-color: #f8f9fa;
+            background-color: #f0ead6;
             margin: 0;
             padding: 0;
         }
@@ -33,17 +34,69 @@
             box-shadow: none;
             border-color: #007bff;
         }
+
+        .header-text {
+            color: #222;
+            font-size: 24px;
+            font-weight: 500;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .btn-primary {
+            background-color: #ffcc00;
+            border-color: #ffcc00;
+            color: #000;
+        }
+
+        .btn-primary:hover {
+            background-color: #ff9900;
+            border-color: #ff9900;
+        }
+
+        .form-group label {
+            font-weight: 500;
+        }
     </style>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light navbar-laravel">
         <div class="container">
-            <a class="navbar-brand" href="#">User Password Recover</a>
+            <a class="navbar-brand" href="#">
+                <img src="../../img/logo1.png" alt="Logo" style="height: 40px;">
+            </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">หน้าแรก</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">การจอง</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">รายการจอง</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">ประวัติ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">สมัครงาน</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">เข้าสู่ระบบ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-warning" href="#">ลงทะเบียน</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
 
@@ -52,12 +105,11 @@
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="card">
-                        <div class="card-header">Password Recover</div>
+                        <div class="card-header header-text">ลืมรหัสผ่าน</div>
                         <div class="card-body">
                             <form action="#" method="POST" name="recover_psw" onsubmit="return validateForm()">
                                 <div class="form-group row">
-                                    <label for="email_address" class="col-md-4 col-form-label text-md-right">E-Mail
-                                        Address</label>
+                                    <label for="email_address" class="col-md-4 col-form-label text-md-right">กรุณาใส่ Email ที่คุณใช้ล็อคอิน</label>
                                     <div class="col-md-6">
                                         <input type="email" id="email_address" class="form-control" name="email"
                                             required autofocus>
@@ -65,7 +117,7 @@
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-md-6 offset-md-4">
-                                        <button type="submit" class="btn btn-primary" name="recover">Recover</button>
+                                        <button type="submit" class="btn btn-primary" name="recover">ตรวจสอบ</button>
                                     </div>
                                 </div>
                                 <div id="error-message" class="text-danger text-center"></div>
@@ -87,7 +139,7 @@
             const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
 
             if (!emailPattern.test(email)) {
-                errorMessage.textContent = 'Please enter a valid email address.';
+                errorMessage.textContent = 'กรุณาใส่อีเมลที่ถูกต้อง';
                 return false;
             }
 
@@ -98,9 +150,8 @@
 </body>
 
 </html>
-<?php
-session_start();
 
+<?php
 if (isset($_POST["recover"])) {
     include ('../../connect/connection.php');
     $email = $_POST["email"];
