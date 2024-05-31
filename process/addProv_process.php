@@ -38,7 +38,7 @@
 
     if ($conn->query($sql) === TRUE) {
         echo "<script>alert('Record Inserted Successfully!');</script>";
-        echo "<script>window.location.href='../view/provider/prov_display.php'</script>";
+        echo "<script>window.location.href='../view/admin/prov_display.php'</script>";
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }

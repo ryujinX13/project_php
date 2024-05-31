@@ -77,7 +77,7 @@ $update_query .= " WHERE Prov_id = '$Prov_id'";
 // ทำการอัปเดตในฐานข้อมูล
 if ($conn->query($update_query) === TRUE) {
     echo "<script>alert('Update Successfully!');</script>";
-    echo "<script>window.location.href='../view/provider/prov_display.php'</script>";
+    echo "<script>window.location.href='../view/admin/prov_display.php'</script>";
 } else {
     echo "Error: " . $update_query . "<br>" . $conn->error;
 }
