@@ -223,10 +223,10 @@ $conn->close();
     <div class="tab-bar">
         <img src="../../img/logo1.png" alt="Logo">
         <a href="index.php" class="tab-link">หน้าแรก</a>
-        <a href="booking.php" class="tab-link">การจอง</a>
+        <a href="select_provider.php" class="tab-link">การจอง</a>
         <a href="booking_list.php" class="tab-link">รายการจอง</a>
         <a href="history.php" class="tab-link">ประวัติ</a>
-        <a href="careers.php" class="tab-link">สมัครงาน</a>
+        <a href="applyProvider.php" class="tab-link">สมัครงาน</a>
         <a href="login.php" class="tab-link login">เข้าสู่ระบบ</a>
         <a href="register.php" class="tab-link register">ลงทะเบียน</a>
     </div>
