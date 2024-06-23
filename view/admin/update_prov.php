@@ -122,16 +122,15 @@ $conn->close();
     <div class="tab-bar">
         <img src="../../img/logo1.png" alt="Logo">
         <a href="index.html" class="tab-link">หน้าแรก</a>
-        <a href="booking.html" class="tab-link">การจอง</a>
-        <a href="booking_list.html" class="tab-link">รายการจอง</a>
-        <a href="history.html" class="tab-link">ประวัติ</a>
-        <a href="careers.html" class="tab-link">สมัครงาน</a>
+        <a href="booking.html" class="tab-link">ข้อมูลพนักงาน</a>
+        <a href="booking_list.html" class="tab-link">การอบรม</a>
+        <a href="history.html" class="tab-link">รายงาน</a>  
         <a href="login.html" class="tab-link login">เข้าสู่ระบบ</a>
         <a href="register.html" class="tab-link register">ลงทะเบียน</a>
     </div>
 
     <div class="container">
-        <h2>Update Provider</h2>
+        <h2>อัปเดตผู้ให้บริการ</h2>
         <form method="post" action="../../process/updateProv_process.php">
             <label for="Prov_id">รหัสบัตรประชาชน:</label>
             <input type="text" name="Prov_id"><br>
@@ -166,7 +165,7 @@ $conn->close();
             <input type="text" name="Prov_phone"><br>
             <label for="Prov_study">วุฒิการศึกษา:</label>
             <input type="text" name="Prov_study"><br>
-            <input type="submit" value="Update Provider">
+            <input type="submit" value="อัปเดต">
         </form>
     </div>
 </body>

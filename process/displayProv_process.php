@@ -38,21 +38,21 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     echo "<table>
             <tr>
-                <th>Prov ID</th>
-                <th>Username</th>
-                <th>Password</th>
-                <th>Name</th>
-                <th>Gender</th>
-                <th>Birthday</th>
-                <th>Date of Job</th>
-                <th>Address</th>
-                <th>Current Address</th>
-                <th>Nationality</th>
-                <th>Religion</th>
-                <th>Training</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th>Study</th>
+                <th>รหัสบัตรประชาชน</th>
+                <th>ชื่อผู้ใช้งาน</th>
+                <th>รหัสผ่าน</th>
+                <th>ชื่อ-สกุล</th>
+                <th>เพศ</th>
+                <th>วันเกิด</th>
+                <th>วันที่เข้าทำงาน</th>
+                <th>ที่อยู่ตามทะเบียนบ้าน</th>
+                <th>ที่อยู่ปัจจุบัน</th>
+                <th>สัญชาติ</th>
+                <th>ศาสนา</th>
+                <th>สถานะการอบรม</th>
+                <th>อีเมลล์</th>
+                <th>เบอร์โทรศัพท์</th>
+                <th>วุฒิการศึกษา</th>
             </tr>";
     while($row = $result->fetch_assoc()) {
         echo "<tr>";

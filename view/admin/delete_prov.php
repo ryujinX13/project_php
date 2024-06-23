@@ -16,67 +16,117 @@ $conn->close();
 <html lang="th">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>การจัดการผู้ให้บริการ</title>
+    <title>Provider Management</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f9f9f9; /* เปลี่ยนสีพื้นหลัง */
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
             margin: 0;
             padding: 0;
         }
 
-        .container {
-            width: 50%;
-            margin: 50px auto;
-            background-color: #ffffff;
-            padding: 20px;
+        .tab-bar {
+            display: flex;
+            align-items: center;
+            background-color: #96B6C5;
+            padding: 10px 0;
+            justify-content: center;
+        }
+
+        .tab-bar img {
+            height: 70px;
+            margin-right: 500px;
+        }
+
+        .tab-link {
+            padding: 10px 20px;
+            text-decoration: none;
+            color: black;
+            border: 1px solid transparent;
+            border-radius: 3px;
+            margin: 0 10px;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        .tab-link:hover {
+            background-color: #ccc;
+            border-color: #bbb;
+        }
+
+        .tab-link.login {
+            background-color: #F4CE14;
+            color: black;
             border-radius: 10px;
-            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+        }
+
+        .tab-link.register {
+            background-color: #007bff;
+            color: white;
+            border-radius: 10px;
+        }
+
+        .tab-link.login:hover,
+        .tab-link.register:hover {
+            background-color: #F4CE14;
+            color: white;
+        }
+
+        .container {
+            width: 45%;
+            margin: auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 15px;
         }
 
         h2 {
             text-align: center;
-            margin-bottom: 20px;
-            color: #000000; /* เปลี่ยนสีข้อความเป็นสีน้ำเงิน */
-            text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
         }
 
-        form {
-            text-align: center;
-        }
-
-        input[type="text"] {
+        input[type="text"],
+        input[type="email"],
+        input[type="date"],
+        select {
+            width: calc(100% - 20px);
             padding: 10px;
-            margin-bottom: 20px;
-            width: 60%;
-            border: 2px solid #e5e5e5; /* เปลี่ยนสีเส้นขอบเป็นสีน้ำเงิน */
-            border-radius: 5px;
-            transition: border-color 0.9s;
-        }
-
-        input[type="text"]:focus {
-            border-color: #e5e5e5; /* เปลี่ยนสีเส้นขอบเมื่อได้รับการโฟกัส */
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
         }
 
         input[type="submit"] {
-            padding: 10px 20px;
-            background-color: #007bff;
+            width: 20%;
+            padding: 15px;
+            background-color: #F4CE14;
             border: none;
-            border-radius: 5px;
-            color: #ffffff;
+            border-radius: 20px;
+            color: white;
             cursor: pointer;
+            display: block;
+            margin: 20px auto;
             transition: background-color 0.3s;
+            font-size: 16px;
         }
 
         input[type="submit"]:hover {
-            background-color: #0056b3;
+            background-color: #45a049;
         }
     </style>
 </head>
 
 <body>
+    <div class="tab-bar">
+        <img src="../../img/logo1.png" alt="Logo">
+        <a href="index.html" class="tab-link">หน้าแรก</a>
+        <a href="booking.html" class="tab-link">ข้อมูลพนักงาน</a>
+        <a href="booking_list.html" class="tab-link">การอบรม</a>
+        <a href="history.html" class="tab-link">รายงาน</a>
+        <a href="login.html" class="tab-link login">เข้าสู่ระบบ</a>
+        <a href="register.html" class="tab-link register">ลงทะเบียน</a>
+    </div>
     <div class="container">
         <h2>ลบผู้ให้บริการ</h2>
         <form method="post" action="../../process/deleteProv_process.php">

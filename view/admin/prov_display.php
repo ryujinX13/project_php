@@ -118,13 +118,12 @@
     </style>
 </head>
 <body>
-    <div class="tab-bar">
+<div class="tab-bar">
         <img src="../../img/logo1.png" alt="Logo">
         <a href="index.html" class="tab-link">หน้าแรก</a>
-        <a href="booking.html" class="tab-link">การจอง</a>
-        <a href="booking_list.html" class="tab-link">รายการจอง</a>
-        <a href="history.html" class="tab-link">ประวัติ</a>
-        <a href="careers.html" class="tab-link">สมัครงาน</a>
+        <a href="booking.html" class="tab-link">ข้อมูลพนักงาน</a>
+        <a href="booking_list.html" class="tab-link">การอบรม</a>
+        <a href="history.html" class="tab-link">รายงาน</a>  
         <a href="login.html" class="tab-link login">เข้าสู่ระบบ</a>
         <a href="register.html" class="tab-link register">ลงทะเบียน</a>
     </div>

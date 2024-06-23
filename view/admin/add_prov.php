@@ -1,4 +1,3 @@
-
 <?php
 include ('../../connect/connection.php');
 session_start();
@@ -25,7 +24,7 @@ $conn->close();
             padding: 0;
             background-color: #f4f4f4;
         }
-        
+
         .tab-bar {
             display: flex;
             align-items: center;
@@ -53,18 +52,21 @@ $conn->close();
             background-color: #ccc;
             border-color: #bbb;
         }
+
         .tab-link.login {
             background-color: #F4CE14;
             color: black;
             border-radius: 10px;
         }
+
         .tab-link.register {
             background-color: #007bff;
             color: white;
             border-radius: 10px;
         }
 
-        .tab-link.login:hover, .tab-link.register:hover {
+        .tab-link.login:hover,
+        .tab-link.register:hover {
             background-color: #F4CE14;
             color: white;
         }
@@ -116,14 +118,13 @@ $conn->close();
 </head>
 
 <body>
-    
+
     <div class="tab-bar">
         <img src="../../img/logo1.png" alt="Logo">
         <a href="index.html" class="tab-link">หน้าแรก</a>
-        <a href="booking.html" class="tab-link">การจอง</a>
-        <a href="booking_list.html" class="tab-link">รายการจอง</a>
-        <a href="history.html" class="tab-link">ประวัติ</a>
-        <a href="careers.html" class="tab-link">สมัครงาน</a>
+        <a href="booking.html" class="tab-link">ข้อมูลพนักงาน</a>
+        <a href="booking_list.html" class="tab-link">การอบรม</a>
+        <a href="history.html" class="tab-link">รายงาน</a>
         <a href="login.html" class="tab-link login">เข้าสู่ระบบ</a>
         <a href="register.html" class="tab-link register">ลงทะเบียน</a>
     </div>
@@ -136,12 +137,12 @@ $conn->close();
             Email: <input type="email" name="Prov_email"><br>
             ชื่อ-สกุล <input type="text" name="Prov_name"><br>
             เพศ:<br>
-                <input type="radio" id="male" name="Prov_gender" value="male" required>
-                <label for="male">ชาย</label>
-                <input type="radio" id="female" name="Prov_gender" value="female" required>
-                <label for="female">หญิง</label>
-                <br>
-                <br>
+            <input type="radio" id="male" name="Prov_gender" value="male" required>
+            <label for="male">ชาย</label>
+            <input type="radio" id="female" name="Prov_gender" value="female" required>
+            <label for="female">หญิง</label>
+            <br>
+            <br>
             วันเกิด: <input type="date" name="Prov_birthday"><br>
             วันที่เริ่มงาน: <input type="date" name="Prov_datejob"><br>
             ที่อยู่: <input type="text" name="Prov_address"><br>
