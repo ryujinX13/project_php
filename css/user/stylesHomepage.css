@@ -1,0 +1,77 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F1F0E8;
+}
+
+.tab-bar {
+    display: flex;
+    align-items: center;
+    background-color: #96B6C5;
+    padding: 10px 0;
+    justify-content: center;
+}
+
+.tab-bar img {
+    height: 70px;
+    margin-right: 500px;
+}
+
+.tab-link {
+    padding: 10px 20px;
+    text-decoration: none;
+    color: black;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    margin: 0 10px;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.tab-link:hover {
+    background-color: #ccc;
+    border-color: #bbb;
+}
+
+.tab-link.login {
+    background-color: #F4CE14;
+    color: black;
+    border-radius: 10px;
+}
+
+.tab-link.register {
+    background-color: #007bff;
+    color: white;
+    border-radius: 10px;
+}
+
+.tab-link.login:hover,
+.tab-link.register:hover {
+    background-color: #F4CE14;
+    color: white;
+}
+
+h1 {
+    text-align: center;
+    font-size: 30px;
+}
+
+p {
+    text-align: center;
+    font-size: 16px;
+}
+
+.home-image {
+    width: 50%;
+    /* ปรับขนาดรูปให้เล็กลง */
+    padding: 30px;
+
+    margin-right: 20px;
+    /* จัดรูปตรงกลาง */
+    border-radius: 30px;
+    /* เพิ่มขอบมน */
+    margin-bottom: 20px;
+    /* เพิ่มระยะห่างระหว่างรูปกับข้อความ */
+
+
+}
