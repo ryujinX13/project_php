@@ -92,7 +92,7 @@
 
     <div class="tab-bar">
         <img src="../../img/logo1.png" alt="Logo">
-        <a href="../../index.php" class="tab-link">หน้าแรก</a>
+        <a href="../../index.php" class="tab-link">หน้าแรก.</a>
         <a href="select_provider.php" class="tab-link">การจอง</a>
         <a href="booking_list.php" class="tab-link">รายการจอง</a>
         <a href="history.php" class="tab-link">ประวัติ</a>
