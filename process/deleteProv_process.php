@@ -17,7 +17,7 @@ $Prov_id = $_POST['Prov_id'];
 $sql = "DELETE FROM provider WHERE Prov_id='$Prov_id'";
 
 if ($conn->query($sql) === TRUE) {
-    echo "<script>alert('ลบข้อมูลเรียบร้อยแล้ว!!');</script>";
+    echo "<script>alert('ลบข้อมูลเรียบร้อยแล้ว!');</script>";
     echo "<script>window.location.href='../view/admin/prov_display.php'</script>";
 } else {
     echo "เกิดข้อผิดพลาด: " . $conn->error;
