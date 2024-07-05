@@ -63,17 +63,17 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-        document.getElementById('booking-link').addEventListener('click', function(event) {
+        document.getElementById('booking-link').addEventListener('click', function (event) {
             event.preventDefault();
             $('#loginModal').modal('show');
         });
 
-        document.getElementById('booking-list-link').addEventListener('click', function(event) {
+        document.getElementById('booking-list-link').addEventListener('click', function (event) {
             event.preventDefault();
             $('#loginModal').modal('show');
         });
 
-        document.getElementById('history-link').addEventListener('click', function(event) {
+        document.getElementById('history-link').addEventListener('click', function (event) {
             event.preventDefault();
             $('#loginModal').modal('show');
         });
