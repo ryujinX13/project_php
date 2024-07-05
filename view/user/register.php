@@ -125,7 +125,7 @@ $conn->close();
 
             <input type="submit" value="ลงทะเบียน">
         </form>
-        <p>มีบัญชีผู้ใช้อยู่แล้ว? <a href="login.html">เข้าสู่ระบบที่นี่</a>.</p>
+        <p>มีบัญชีผู้ใช้อยู่แล้ว? <a href="login.php">เข้าสู่ระบบที่นี่</a>.</p>
     </div>
 </body>
 
