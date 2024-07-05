@@ -1,0 +1,137 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.tab-bar {
+    display: flex;
+    align-items: center;
+    background-color: #96B6C5;
+    padding: 10px 0;
+    justify-content: center;
+}
+
+.tab-bar img {
+    height: 70px;
+    margin-right: 500px;
+}
+
+.tab-link {
+    padding: 10px 20px;
+    text-decoration: none;
+    color: black;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    margin: 0 10px;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.tab-link:hover {
+    background-color: #ccc;
+    border-color: #bbb;
+}
+.tab-link.login {
+    background-color: #F4CE14;
+    color: black;
+    border-radius: 10px;
+}
+
+.tab-link.register {
+    background-color: #007bff;
+    color: white;
+    border-radius: 10px;
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 10px;
+    margin-left: auto;
+}
+
+button.login, button.register {
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+}
+
+button.login {
+    background-color: #4CAF50;
+    color: white;
+}
+
+button.register {
+    background-color: #FFA500;
+    color: white;
+}
+
+main .announcement {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.announcement h1 {
+    color: #333;
+    text-align: center;
+}
+
+.announcement p {
+    color: #666;
+    text-align: center;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.image {
+    position: relative;
+    text-align: center;
+    width: 45%;
+}
+
+.image img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.apply-button {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    background-color: #FFA500;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.qualifications {
+    width: 45%;
+    background-color: #ffeecf;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.qualifications h2 {
+    color: #333;
+}
+
+.qualifications ul {
+    list-style: none;
+    padding: 0;
+}
+
+.qualifications ul li {
+    background: url('checkmark.png') no-repeat left center;
+    padding-left: 20px;
+    margin-bottom: 10px;
+    color: #666;
+}

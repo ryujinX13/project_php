@@ -8,58 +8,9 @@
     <title>ลูกหลานสำรองบริการพาไปหาหมอ - ลืมรหัสผ่าน</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #f0ead6;
-            margin: 0;
-            padding: 0;
-        }
-
-        .navbar-laravel {
-            background-color: #ffffff;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        }
-
-        .login-form {
-            padding-top: 50px;
-        }
-
-        .card {
-            margin-top: 20px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .form-control:focus {
-            box-shadow: none;
-            border-color: #007bff;
-        }
-
-        .header-text {
-            color: #222;
-            font-size: 24px;
-            font-weight: 500;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .btn-primary {
-            background-color: #ffcc00;
-            border-color: #ffcc00;
-            color: #000;
-        }
-
-        .btn-primary:hover {
-            background-color: #ff9900;
-            border-color: #ff9900;
-        }
-
-        .form-group label {
-            font-weight: 500;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="../../css/user/stylesrecover_psw.css.css">
+        
 </head>
-
 <body>
     <nav class="navbar navbar-expand-lg navbar-light navbar-laravel">
         <div class="container">
