@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../../css/user/stylesHomepage.css">
-   
+
 </head>
 
 <body>
@@ -19,7 +19,7 @@
         <a href="select_provider.php" class="tab-link">การจอง</a>
         <a href="booking_list.php" class="tab-link">รายการจอง</a>
         <a href="history.php" class="tab-link">ประวัติ</a>
-        <a href="applyProvider.php" class="tab-link">สมัครงาน</a>
+        <a href="../provider/announce.php" class="tab-link">สมัครงาน</a>
         <a href="login.php" class="tab-link login">เข้าสู่ระบบ</a>
         <a href="register.php" class="tab-link register">ลงทะเบียน</a>
     </div>

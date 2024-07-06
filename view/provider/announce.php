@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ประกาศรับสมัครพนักงานให้บริการ</title>
     <link rel="stylesheet" type="text/css" href="../../css/provider/stylesannounce.css">
 </head>
+
 <body>
     <div class="tab-bar">
         <img src="../../img/logo1.png" alt="Logo">
@@ -13,37 +15,60 @@
         <a href="select_provider.php" class="tab-link">การจอง</a>
         <a href="booking_list.php" class="tab-link">รายการจอง</a>
         <a href="history.php" class="tab-link">ประวัติ</a>
-        <a href="applyProvider.php" class="tab-link">สมัครงาน</a>
+        <a href="announce.php" class="tab-link">สมัครงาน</a>
         <a href="login.php" class="tab-link login">เข้าสู่ระบบ</a>
         <a href="register.php" class="tab-link register">ลงทะเบียน</a>
     </div>
-            </nav>
-        </header>
 
-        <main>
-            <section class="announcement">
-                <h1>ประกาศรับสมัครพนักงานให้บริการ</h1>
-                <p>สำหรับบุคคลใดที่สนใจสามารถได้สมัคร อุคลินกล้บบารอเปิดรับสมัครตั้งแต่บัดนี้ จนถึงวันที่ 31 กุมภาพันธ์ พ.ศ.2567</p>
-                <div class="content">
-                    <div class="image">
-                        <img src="../../img/04.jpg" alt="Logo">
+    <main>
+        <section class="announcement">
+            <h1>ประกาศรับสมัครพนักงานให้บริการ</h1>
+            <?php
+            include ('../../connect/connection.php');
+            session_start();
+
+            $conn = new mysqli($servername, $username, $password, $dbname);
+
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            }
+
+            $sql = "SELECT Ajob_opening, Ajob_closing, Ajob_details FROM job_announcement WHERE Ajob_id=1";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+                while($row = $result->fetch_assoc()) {
+                    $Ajob_opening = $row["Ajob_opening"];
+                    $Ajob_closing = $row["Ajob_closing"];
+                    $Ajob_details = $row["Ajob_details"];
+                }
+            } else {
+                echo "0 results";
+            }
+            $conn->close();
+            ?>
+            <p>เปิดรับสมัครตั้งแต่วันที่ <?php echo $Ajob_opening; ?> จนถึงวันที่ <?php echo $Ajob_closing; ?></p>
+            <div class="content">
+                <div class="image">
+                    <img src="../../img/04.jpg" alt="Logo">
+                    <a href="../user/applyProvider.php">
                         <button class="apply-button">คลิกเพื่อสมัคร</button>
-                    </div>
-                    <div class="qualifications">
-                        <h2>คุณสมบัติ</h2>
-                        <ul>
-                            <li>นักศึกษาที่ยังศึกษาอยู่ ณ ปัจจุบัน</li>
-                            <li>มีความรู้ความสามารถในการทำงาน</li>
-                            <li>ตรงต่อเวลา</li>
-                            <li>ควบคุมอารมณ์ได้ดี ให้เกียรติผู้อื่น</li>
-                            <li>ทุกเพศ อายุ 18 ปี ขึ้นไป</li>
-                            <li>มีทักษะในการวางแผน แต่แก้ปัญหาเฉพาะหน้าได้ดี</li>
-                            <li>ถ้ามีประวัติการทำงานจะพิจารณาเป็นพิเศษ</li>
-                        </ul>
-                    </div>
+                    </a>
                 </div>
-            </section>
-        </main>
-    </div>
+                <div class="qualifications">
+                    <h2>คุณสมบัติ</h2>
+                    <ul>
+                        <?php
+                        $qualifications = explode("\n", $Ajob_details);
+                        foreach ($qualifications as $qualification) {
+                            echo "<li>{$qualification}</li>";
+                        }
+                        ?>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
 </body>
+
 </html>
