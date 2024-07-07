@@ -23,7 +23,7 @@
 
     <div class="login-container">
         <div class="login-logo">
-            <img src="img/logo1.png" alt="Logo">
+            <img src="../../img/logo1.png" alt="Logo">
         </div>
         <h3>ลงชื่อเข้าใช้ผู้ให้บริการ</h3>
         <form action="../../process/provlogin_process.php" method="post">
@@ -33,7 +33,7 @@
             <input type="password" id="password" name="password" required>
             <input type="submit" value="Login">
         </form>
-        <div class="forgot-password">
+        <div class="forgot-password"> 
             <a href="recover_psw.php">ลืมรหัสผ่าน?</a>
         </div>
     </div>
