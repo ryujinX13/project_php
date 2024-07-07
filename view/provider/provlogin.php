@@ -33,7 +33,7 @@
             <input type="password" id="password" name="password" required>
             <input type="submit" value="Login">
         </form>
-        <div class="forgot-password">
+        <div class="forgot-password"> 
             <a href="recover_psw.php">ลืมรหัสผ่าน?</a>
         </div>
     </div>
