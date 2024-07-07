@@ -18,9 +18,9 @@
         <a href="#" class="tab-link" id="booking-link">การจอง</a>
         <a href="#" class="tab-link" id="booking-list-link">รายการจอง</a>
         <a href="#" class="tab-link" id="history-link">ประวัติ</a>
-        <a href="view/user/applyProvider.php" class="tab-link">สมัครงาน</a>
+        <a href="view/user/announce.php" class="tab-link">สมัครงาน</a>
         <a href="view/user/login.php" class="tab-link login">เข้าสู่ระบบ</a>
-        <a href="view/user/register.php" class="tab-link register">ลงทะเบียน</a>
+        <a href="view/user/register.php" class="tab-link register ">ลงทะเบียน</a>
     </div>
     
     <div class="container mt-5">

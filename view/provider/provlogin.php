@@ -23,7 +23,7 @@
 
     <div class="login-container">
         <div class="login-logo">
-            <img src="img/logo1.png" alt="Logo">
+            <img src="../../img/logo1.png" alt="Logo">
         </div>
         <h3>ลงชื่อเข้าใช้ผู้ให้บริการ</h3>
         <form action="../../process/provlogin_process.php" method="post">
