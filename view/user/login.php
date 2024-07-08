@@ -26,11 +26,11 @@
         <div class="login-container">
             <h2>เข้าสู่ระบบ</h2>
             <form action="../../process/login_process.php" method="post">
-                <label for="username">E-mail:</label>
-                <input type="text" id="username" name="username" required placeholder="กรุณากรอก E-mail">
+                <label for="username">ชื่อผู้ใช้:</label>
+                <input type="text" id="username" name="username" required placeholder="กรุณากรอก ชื่อผู้ใช้">
                 <label for="password">รหัสผ่าน:</label>
                 <input type="password" id="password" name="password" required placeholder="กรุณากรอกรหัสผ่าน">
-                <input type="submit" value="Login">
+                <input type="submit" value="เข้าสู่ระบบ">
             </form>
             <div class="forgot-password">
                 <a href="recover_psw.php">ลืมรหัสผ่าน?</a>
