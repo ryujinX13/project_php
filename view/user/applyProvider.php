@@ -10,8 +10,6 @@ if ($conn->connect_error) {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $prov_id = mysqli_real_escape_string($conn, $_POST['prov_id']);
-    $prov_username = mysqli_real_escape_string($conn, $_POST['prov_username']);
-    $prov_password = $_POST['prov_password'];
     $prov_name = mysqli_real_escape_string($conn, $_POST['prov_name']);
     $prov_gender = mysqli_real_escape_string($conn, $_POST['prov_gender']);
     $prov_birthday = mysqli_real_escape_string($conn, $_POST['prov_birthday']);
@@ -27,10 +25,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("เกิดข้อผิดพลาด: เพศไม่ถูกต้อง");
     }
 
-    $sql = "INSERT INTO Provider (Prov_id, Prov_username, Prov_password, Prov_name, Prov_gender, Prov_birthday, Prov_address, Prov_addressnow, Prov_nationality, Prov_religion, Prov_email, Prov_phone, Prov_study) 
-        VALUES ('$prov_id', '$prov_username', '$prov_password', '$prov_name', '$prov_gender', '$prov_birthday', '$prov_address', '$prov_addressnow', '$prov_nationality', '$prov_religion', '$prov_email', '$prov_phone', '$prov_study')";
+    // Handle the image file
+    if (isset($_FILES['prov_img']) && $_FILES['prov_img']['error'] == 0) {
+        $image = $_FILES['prov_img']['tmp_name'];
+        $imgContent = addslashes(file_get_contents($image));
+    } else {
+        $imgContent = null;
+    }
 
-    if ($conn->query($sql) == TRUE) {
+    $sql = "INSERT INTO Provider (Prov_id, Prov_name, Prov_gender, Prov_birthday, Prov_address, Prov_addressnow, Prov_nationality, Prov_religion, Prov_email, Prov_phone, Prov_study, Prov_img) 
+        VALUES ('$prov_id', '$prov_name', '$prov_gender', '$prov_birthday', '$prov_address', '$prov_addressnow', '$prov_nationality', '$prov_religion', '$prov_email', '$prov_phone', '$prov_study', '$imgContent')";
+
+    if ($conn->query($sql) === TRUE) {
         echo '<script>alert("ลงทะเบียนสำเร็จ");</script>';
     } else {
         echo "เกิดข้อผิดพลาด: " . $sql . "<br>" . $conn->error;
@@ -39,7 +45,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 $conn->close();
 ?>
-
 <!DOCTYPE html>
 <html lang="th">
 
@@ -65,15 +70,10 @@ $conn->close();
     <div class="container">
         <h1>สมัครงาน</h1>
 
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post"
+            enctype="multipart/form-data">
             <label for="prov_id">รหัสบัตรประจำตัวประชาชนผู้ให้บริการ :</label>
             <input type="text" id="prov_id" name="prov_id" required>
-
-            <label for="prov_username">ชื่อผู้ใช้งาน :</label>
-            <input type="text" id="prov_username" name="prov_username" required>
-
-            <label for="prov_password">รหัสผ่าน :</label>
-            <input type="password" id="prov_password" name="prov_password" required>
 
             <label for="prov_name">ชื่อสกุล :</label>
             <input type="text" id="prov_name" name="prov_name" required>
@@ -89,9 +89,7 @@ $conn->close();
             <label for="prov_birthday" class="form-label">วันเกิด :</label>
             <div class="input-wrapper">
                 <input type="date" id="prov_birthday" name="prov_birthday" class="input-field" required>
-
             </div>
-
 
             <label for="prov_address">ที่อยู่ :</label>
             <input type="text" id="prov_address" name="prov_address" required>
@@ -114,9 +112,8 @@ $conn->close();
             <label for="prov_study">สถาบันการศึกษา :</label>
             <input type="text" id="prov_study" name="prov_study" required>
 
-            <label for="prov_image">รูปภาพ:</label>
-            <input type="file" id="prov_image" name="prov_image" accept="image/*" required>
-
+            <label for="prov_img">รูปภาพ:</label>
+            <input type="file" id="prov_img" name="prov_img" accept="image/*" required>
 
             <input type="submit" value="สมัครงาน">
         </form>

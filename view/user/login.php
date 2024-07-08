@@ -13,9 +13,9 @@
     <div class="tab-bar">
         <img src="../../img/logo1.png" alt="Logo">
         <a href="../../index.php" class="tab-link">หน้าแรก</a>
-        <a href="select_provider.php" class="tab-link">การจอง</a>
-        <a href="booking_list.php" class="tab-link">รายการจอง</a>
-        <a href="history.php" class="tab-link">ประวัติ</a>
+        <a href="select_provider.php" class="tab-link booking-link">การจอง</a>
+        <a href="booking_list.php" class="tab-link booking-list-link">รายการจอง</a>
+        <a href="history.php" class="tab-link history-link">ประวัติ</a>
         <a href="../user/announce.php" class="tab-link">สมัครงาน</a>
         <a href="login.php" class="tab-link login">เข้าสู่ระบบ</a>
         <a href="register.php" class="tab-link register">ลงทะเบียน</a>
@@ -63,22 +63,13 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-        document.getElementById('booking-link').addEventListener('click', function (event) {
-            event.preventDefault();
-            $('#loginModal').modal('show');
-        });
-
-        document.getElementById('booking-list-link').addEventListener('click', function (event) {
-            event.preventDefault();
-            $('#loginModal').modal('show');
-        });
-
-        document.getElementById('history-link').addEventListener('click', function (event) {
-            event.preventDefault();
-            $('#loginModal').modal('show');
+        document.querySelectorAll('.booking-link, .booking-list-link, .history-link').forEach(function (link) {
+            link.addEventListener('click', function (event) {
+                event.preventDefault();
+                $('#loginModal').modal('show');
+            });
         });
     </script>
-
 </body>
 
 </html>
