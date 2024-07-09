@@ -8,14 +8,14 @@ body {
 .tab-bar {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     background-color: #96B6C5;
-    padding: 10px;
+    padding: 10px 0;
+    justify-content: center;
 }
 
 .tab-bar img {
-    height: 50px;
-    margin-left: 20px;
+    height: 70px;
+    margin-right: 500px;
 }
 
 .tab-link {
@@ -36,14 +36,17 @@ body {
 .tab-link.login {
     background-color: #F4CE14;
     color: black;
+    border-radius: 10px;
 }
 
 .tab-link.register {
     background-color: #007bff;
     color: white;
+    border-radius: 10px;
 }
 
-.tab-link.login:hover, .tab-link.register:hover {
+.tab-link.login:hover,
+.tab-link.register:hover {
     background-color: #F4CE14;
     color: white;
 }

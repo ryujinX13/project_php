@@ -18,7 +18,7 @@
 </div>
 
 <div class="container">
-    <h2>Provider Information</h2>
+    <h2>ตารางข้อมูลผู้ให้บริการ</h2>
     <?php include '../../process/displayProv_process.php'; ?>
     <div class="button-container">
         <a class="button" href="add_prov.php">เพิ่มผู้ให้บริการ</a>
