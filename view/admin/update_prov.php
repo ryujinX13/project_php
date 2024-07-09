@@ -9,7 +9,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$Prov_id = "";
+$Prov_id = $_GET['Prov_id'] ?? ''; // รับค่า Prov_id จาก URL parameter หรือกำหนดให้เป็นค่าว่างถ้าไม่มี
 $Prov_Username = "";
 $Prov_password = "";
 $Prov_email = "";
@@ -25,9 +25,7 @@ $Prov_train = "";
 $Prov_phone = "";
 $Prov_study = "";
 
-if (isset($_POST['search_Prov_id'])) {
-    $Prov_id = $_POST['search_Prov_id'];
-
+if (!empty($Prov_id)) {
     $sql = "SELECT * FROM provider WHERE Prov_id = '$Prov_id'";
     $result = $conn->query($sql);
 
@@ -53,6 +51,7 @@ if (isset($_POST['search_Prov_id'])) {
         exit();
     }
 } else {
+    echo "<script>alert('ไม่พบรหัสบัตรประชาชน');</script>";
     echo "<script>window.location.href='search_update.php';</script>";
     exit();
 }

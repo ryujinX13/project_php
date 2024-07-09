@@ -8,14 +8,14 @@ body {
 .tab-bar {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     background-color: #96B6C5;
-    padding: 10px 0;
-    justify-content: center;
+    padding: 10px;
 }
 
 .tab-bar img {
-    height: 70px;
-    margin-right: 500px;
+    height: 50px;
+    margin-left: 20px;
 }
 
 .tab-link {
@@ -32,15 +32,15 @@ body {
     background-color: #ccc;
     border-color: #bbb;
 }
+
 .tab-link.login {
     background-color: #F4CE14;
     color: black;
-    border-radius: 10px;
 }
+
 .tab-link.register {
     background-color: #007bff;
     color: white;
-    border-radius: 10px;
 }
 
 .tab-link.login:hover, .tab-link.register:hover {
@@ -49,10 +49,9 @@ body {
 }
 
 .container {
-    width: auto; /* ปรับขนาดความกว้างให้กว้างขึ้นเล็กน้อย */
-    max-width: 100%;
-    margin: 50px ; /* จัดกลางตามแนวนอน */
-    padding: 50px; /* ปรับให้มีพื้นที่เพิ่มขึ้น */
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -60,19 +59,19 @@ body {
 
 h2 {
     color: #007bff;
-    text-align: center; /* จัดข้อความให้กลาง */
+    text-align: center;
 }
 
 table {
-    width: 80%; /* ทำให้ตารางเต็มขนาดของคอนเทนเนอร์ */
+    width: 100%;
     border-collapse: collapse;
     margin: 20px auto;
 }
 
 th, td {
-    padding: 5px;
+    padding: 10px;
     border: 1px solid #ddd;
-    text-align: center; /* จัดข้อความในเซลล์ตารางให้กลาง */
+    text-align: center;
 }
 
 th {
@@ -90,7 +89,7 @@ tr:hover {
 }
 
 .button-container {
-    margin-top: 20px; /* เพิ่มระยะห่างระหว่างปุ่มกับตาราง */
+    margin-top: 20px;
     text-align: center;
 }
 
@@ -101,7 +100,7 @@ tr:hover {
     color: #fff;
     text-decoration: none;
     border-radius: 20px;
-    margin: 0 5px; /* ปรับระยะห่างของปุ่ม */
+    margin: 5px;
     transition: background-color 0.3s ease;
 }
 
