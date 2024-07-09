@@ -51,7 +51,8 @@ if (!empty($Prov_id)) {
         exit();
     }
 } else {
-    echo "<script>alert('ไม่พบรหัสบัตรประชาชน');</script>";
+    // หากไม่ได้รับ Prov_id ให้ redirect กลับไปที่ search_update.php
+    echo "<script>alert('กรุณากรอกข้อมูลรหัสบัตรประชาชน');</script>";
     echo "<script>window.location.href='search_update.php';</script>";
     exit();
 }

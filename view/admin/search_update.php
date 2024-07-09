@@ -23,9 +23,9 @@ session_start();
 
     <div class="container">
         <h2>ค้นหาผู้ให้บริการ</h2>
-        <form method="post" action="update_prov.php">
-            <label for="search_Prov_id">รหัสบัตรประชาชน:</label>
-            <input type="text" name="search_Prov_id"><br>
+        <form method="get" action="update_prov.php"> <!-- เปลี่ยน method เป็น get -->
+            <label for="Prov_id">รหัสบัตรประชาชน:</label>
+            <input type="text" name="Prov_id"><br> <!-- ลบ attribute name ที่ไม่จำเป็นออก -->
             <input type="submit" value="ค้นหา">
         </form>
     </div>
