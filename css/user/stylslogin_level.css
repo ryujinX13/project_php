@@ -1,33 +1,58 @@
+/* styleslogin_level.css */
 body {
     font-family: Arial, sans-serif;
-    text-align: center;
-    padding: 50px;
-    background-color: #f4f4f4;
+    background-color: #FFE4CF;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-header h1 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
+.tab-bar {
+    display: flex;
+    align-items: center;
+    background-color: #96B6C5;
+    padding: 20px 20px; /* เพิ่ม padding */
+    justify-content: center;
+    height: 90px; /* กำหนดความสูง */
+}
+
+.tab-bar img {
+    height: 90px; /* กำหนดความสูงของรูปภาพ */
+    margin-left: 50px; /* เพิ่ม margin-left เพื่อขยับรูปไปทางซ้าย */
+}
+
+.tab-bar h1 {
+    margin: 0;
+    color: black;
+    margin-bottom: 10px; /* เพิ่ม margin-bottom เพื่อระยะห่างกับปุ่ม */
 }
 
 .button-container {
     display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 30px;
+    flex-direction: column; /* จัดเรียงปุ่มในแนวตั้ง */
+    align-items: center;
+    gap: 30px;
+    margin-top: 90px;
 }
 
 .login-button {
     padding: 15px 25px;
     font-size: 1.2em;
-    color: white;
-    background-color: #007BFF;
+    color: black;
+    background-color: #F4CE14;
     border: none;
     border-radius: 5px;
     text-decoration: none;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    width: 200px; /* กำหนดความกว้างของปุ่ม */
+    text-align: center;
 }
 
 .login-button:hover {
-    background-color: #0056b3;
+    background-color: white;
+    transform: scale(1.05);
+}
+
+.login-button:active {
+    background-color: black;
 }

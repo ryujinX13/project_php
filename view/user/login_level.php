@@ -5,20 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
-    <link rel="stylesheet" type="text/css" href="../../css/user/styleslogin_level.css">
+    <link rel="stylesheet" type="text/css" href="../../css/user/stylslogin_level.css">
 </head>
 
 <body>
-    <header>
-        <h1>Login Selection</h1>
-        <nav>
-            <ul>
-                <li><a href="login.php">User Login</a></li>
-                <li><a href="../provider/prov_login.php">Provider Login</a></li>
-                <li><a href="staff_login.php">Staff Login</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="tab-bar">
+        <img src="../../img/logo1.png" alt="Logo" style="margin-left: 10px;">
+        <h1>สิทธิ์ในการเข้าใช้งาน</h1>
+    </div>
+
+    <div class="button-container">
+        <a href="login.php" class="login-button">ผู้ใช้งาน</a>
+        <a href="../provider/prov_login.php" class="login-button">ผู้ให้บริการ</a>
+        <a href="staff_login.php" class="login-button">เจ้าหน้าที่</a>
+    </div>
 </body>
 
 </html>
