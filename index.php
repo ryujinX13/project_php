@@ -35,7 +35,6 @@
         <img src="img/p3.png" class="home-image" alt="home image">
     </div>
 
-    <!-- Modal -->
     <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
