@@ -11,14 +11,12 @@ body {
     display: flex;
     align-items: center;
     background-color: #96B6C5;
-    padding: 20px 20px; /* เพิ่ม padding */
+    padding: 10px 0;
     justify-content: center;
-    height: 70px; /* กำหนดความสูง */
 }
 
 .tab-bar img {
-    height: 100px; /* กำหนดความสูงของรูปภาพ */
-    margin-left: 50px; /* เพิ่ม margin-left เพื่อขยับรูปไปทางซ้าย */
+    height: 100px; /* ขยายรูปภาพ */
 }
 
 .tab-link {
@@ -41,15 +39,13 @@ body {
     justify-content: center;
     align-items: center;
     height: 80vh;
-    padding: 20px;
-    box-sizing: border-box;
 }
 
 .login-container {
     background-color: #F5F7F8;
     width: 600px;
     padding: 40px;
-    margin-left: 20px; /* เพิ่ม margin-left เพื่อระยะห่างจากรูป */
+    margin-right: 20px;
     border-radius: 10px;
 }
 
@@ -60,6 +56,7 @@ h2 {
 .login-image {
     width: 600px;
     padding: 30px;
+    margin-right: 20px;
     border-radius: 30px;
 }
 
@@ -87,7 +84,7 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    background-color: #0056b3;
+    background-color: #006fb9;
 }
 
 .forgot-password {
@@ -98,7 +95,7 @@ input[type="submit"]:hover {
 .forgot-password a {
     color: #007bff;
     text-decoration: none;
-}
+} 
 
 .forgot-password a:hover {
     text-decoration: underline;

@@ -39,11 +39,6 @@ body {
     border-radius: 10px;
 }
 
-.tab-link.register {
-    background-color: #007bff;
-    color: white;
-    border-radius: 10px;
-}
 
 .tab-link.login:hover,
 .tab-link.register:hover {

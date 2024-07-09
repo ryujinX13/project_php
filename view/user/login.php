@@ -10,15 +10,8 @@
 </head>
 
 <body>
-    <div class="tab-bar">
+<div class="tab-bar">
         <img src="../../img/logo1.png" alt="Logo">
-        <a href="../../index.php" class="tab-link">หน้าแรก</a>
-        <a href="select_provider.php" class="tab-link booking-link">การจอง</a>
-        <a href="booking_list.php" class="tab-link booking-list-link">รายการจอง</a>
-        <a href="history.php" class="tab-link history-link">ประวัติ</a>
-        <a href="../user/announce.php" class="tab-link">สมัครงาน</a>
-        <a href="login_level.php" class="tab-link login">เข้าสู่ระบบ</a>
-        <a href="register.php" class="tab-link register">ลงทะเบียน</a>
     </div>
 
     <div class="content-wrapper">
@@ -27,7 +20,7 @@
             <h2>เข้าสู่ระบบ</h2>
             <form action="../../process/login_process.php" method="post">
                 <label for="username">ชื่อผู้ใช้:</label>
-                <input type="text" id="username" name="username" required placeholder="กรุณากรอก ชื่อผู้ใช้">
+                <input type="text" id="username" name="username" required placeholder="กรุณากรอกชื่อผู้ใช้">
                 <label for="password">รหัสผ่าน:</label>
                 <input type="password" id="password" name="password" required placeholder="กรุณากรอกรหัสผ่าน">
                 <input type="submit" value="เข้าสู่ระบบ">

@@ -33,7 +33,7 @@
                         <a class="nav-link" href="#">รายการจอง</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">ประวัติ</a>
+                        <a class="nav-link" href="#">ประวัติการจอง</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">สมัครงาน</a>

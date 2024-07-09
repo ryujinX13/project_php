@@ -14,7 +14,7 @@
         <a href="../../index.php" class="tab-link">หน้าแรก</a>
         <a href="select_provider.php" class="tab-link">การจอง</a>
         <a href="booking_list.php" class="tab-link">รายการจอง</a>
-        <a href="history.php" class="tab-link">ประวัติ</a>
+        <a href="history.php" class="tab-link">ประวัติการจอง</a>
         <a href="announce.php" class="tab-link">สมัครงาน</a>
         <a href="login_level.php" class="tab-link login">เข้าสู่ระบบ</a>
         <a href="register.php" class="tab-link register">ลงทะเบียน</a>

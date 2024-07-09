@@ -15,8 +15,7 @@ body {
 }
 
 .tab-bar img {
-    height: 70px;
-    margin-right: 500px;
+    height: 100px; /* ขยายรูปภาพ */
 }
 
 .tab-link {
@@ -84,7 +83,7 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    background-color: #0056b3;
+    background-color: #006fb9;
 }
 
 .forgot-password {
