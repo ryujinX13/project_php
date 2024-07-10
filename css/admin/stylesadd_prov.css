@@ -14,8 +14,9 @@ body {
 }
 
 .tab-bar img {
-    height: 70px;
-    margin-right: 500px;
+    height: 80px;
+    margin-right: auto;
+    margin-left: 20px;
 }
 
 .tab-link {
@@ -35,7 +36,7 @@ body {
 
 .tab-link.login {
     background-color: #F4CE14;
-    color: black;
+    color: rgb(255, 252, 252);
     border-radius: 10px;
 }
 
@@ -45,8 +46,19 @@ body {
     border-radius: 10px;
 }
 
+.tab-link.logout {
+    background-color: #F4CE14;
+    color: black;
+    border-radius: 10px;
+}
+
 .tab-link.login:hover,
 .tab-link.register:hover {
+    background-color: #F4CE14;
+    color: white;
+}
+
+.tab-link.logout:hover {
     background-color: #F4CE14;
     color: white;
 }
@@ -59,6 +71,53 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-top: 15px;
+}
+
+/* เพิ่มสไตล์สำหรับ dropdown */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown .tab-button {
+    background-color: #F4CE14;
+    color: black;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.dropdown .tab-button:hover {
+    background-color: #F4CE14;
+    color: white;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #96B6C5;
+    border-radius: 10px;
+    padding: 10px;
+    z-index: 1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-item {
+    color: black;
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+}
+
+.dropdown-item:hover {
+    background-color: #F4CE14;
+    color: white;
 }
 
 h2 {

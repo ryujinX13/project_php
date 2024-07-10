@@ -12,6 +12,8 @@ $isLoggedIn = isset($_SESSION['username']);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ประกาศรับสมัครพนักงานให้บริการ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../../css/user/stylesannounce.css">
 </head>
 
@@ -21,7 +23,7 @@ $isLoggedIn = isset($_SESSION['username']);
         <a href="../../index.php" class="tab-link">หน้าแรก</a>
         <a href="booking.php" class="tab-link">การจอง</a>
         <a href="booking_list.php" class="tab-link">รายการจอง</a>
-        <a href="history.php" class="tab-link">ประวัติ</a>
+        <a href="history.php" class="tab-link">ประวัติการจอง</a>
         <a href="../user/announce.php" class="tab-link announce">สมัครงาน</a>
 
         <!-- แสดงปุ่มตามสถานะการเข้าสู่ระบบ -->
@@ -45,7 +47,7 @@ $isLoggedIn = isset($_SESSION['username']);
         <section class="announcement">
             <h1>ประกาศรับสมัครพนักงานให้บริการ</h1>
             <?php
-            include ('../../connect/connection.php');
+            include('../../connect/connection.php');
 
             $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -98,9 +100,9 @@ $isLoggedIn = isset($_SESSION['username']);
             <p>📧 ucliniclab@gmail.com</p>
         </div>
         <div class="address">
-            <p>ที่อยู่ กังสดาร ใกล้รพ.ศรีนครินทร์  มหาวิทยาลัยขอนแก่น</p>
+            <p>ที่อยู่ กังสดาร ใกล้รพ.ศรีนครินทร์ มหาวิทยาลัยขอนแก่น</p>
             <p>- กังสดาล วงเวียนสามแยก เลยบึงหนองแวงตราชู</p>
-            <p>- มาจากในเมืองขอนแก่น  ให้ขับผ่าน รพ.ราชพฤกษ์ แล้วเลี้ยวซ้าย</p>
+            <p>- มาจากในเมืองขอนแก่น ให้ขับผ่าน รพ.ราชพฤกษ์ แล้วเลี้ยวซ้าย</p>
             <p>ก่อนถึงปั้ม ปตท. เข้าซอยสวัสดี ขับเรื่อยๆจนเจอวงเวียนสามแยก</p>
         </div>
     </footer>

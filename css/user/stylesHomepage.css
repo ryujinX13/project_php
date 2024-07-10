@@ -14,8 +14,9 @@ body {
 }
 
 .tab-bar img {
-    height: 70px;
-    margin-right: 500px;
+    height: 80px;
+    margin-right: auto;
+    margin-left: 20px;
 }
 
 .tab-link {
@@ -35,9 +36,10 @@ body {
 
 .tab-link.login {
     background-color: #F4CE14;
-    color: black;
+    color: rgb(255, 252, 252);
     border-radius: 10px;
 }
+
 .tab-link.register {
     background-color: #007bff;
     color: white;
@@ -55,11 +57,15 @@ body {
     background-color: #F4CE14;
     color: white;
 }
+
 .tab-link.logout:hover {
     background-color: #F4CE14;
     color: white;
 }
 
+
+
+/* เพิ่มสไตล์สำหรับ dropdown */
 .dropdown {
     position: relative;
     display: inline-block;
@@ -88,6 +94,8 @@ body {
     border-radius: 10px;
     padding: 10px;
     z-index: 1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .dropdown-item {
@@ -96,6 +104,7 @@ body {
     text-decoration: none;
     display: block;
     transition: background-color 0.3s;
+    border-radius: 5px;
 }
 
 .dropdown-item:hover {
@@ -103,7 +112,7 @@ body {
     color: white;
 }
 
-h1 {
+h3 {
     text-align: center;
     font-size: 30px;
 }
@@ -120,3 +129,51 @@ p {
     border-radius: 30px;
     margin-bottom: 20px;
 }
+/*ทำให้ขยายเเละลดตามหน้าเว็บ*/
+@media only screen and (max-width: 991px) {
+    .home-image {
+        width: 100%;
+        margin: 0;
+    }
+
+    .tab-bar {
+        padding: 2rem;
+    }
+
+    .tab-bar img {
+        margin: 0 auto 20px;
+    }
+
+    .tab-link {
+        margin: 5px;
+    }
+
+    .dropdown .tab-button,
+    .tab-link {
+        font-size: 55%;
+    }
+}
+
+
+@media only screen and (min-width: 768px) {
+    .home-image {
+        width: 50%;
+        margin-right: 20px;
+        margin-bottom: 20px;
+    }
+
+    .tab-bar {
+        justify-content: center;
+    }
+
+    .tab-link {
+        padding: 10px 20px;
+        margin: 0 10px;
+    }
+
+    .dropdown .tab-button {
+        padding: 10px 20px;
+        margin: 0 10px;
+    }
+}
+
