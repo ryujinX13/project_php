@@ -23,14 +23,22 @@ $isLoggedIn = isset($_SESSION['username']);
     <div class="tab-bar">
         <img src="../../img/logo1.png" alt="Logo">
         <a href="../../index.php" class="tab-link">หน้าแรก</a>
-        <a href="select_provider.php" class="tab-link">การจอง</a>
+        <a href="booking.php" class="tab-link">การจอง</a>
         <a href="booking_list.php" class="tab-link">รายการจอง</a>
         <a href="history.php" class="tab-link">ประวัติ</a>
         <a href="../user/announce.php" class="tab-link announce">สมัครงาน</a>
         
         <!-- แสดงปุ่มตามสถานะการเข้าสู่ระบบ -->
         <?php if ($isLoggedIn): ?>
-            <button class="tab-button"><?php echo $_SESSION['username']; ?></button>
+            <div class="dropdown">
+                <button class="tab-button dropdown-toggle" type="button" id="dropdownMenuButton">
+                    <?php echo $_SESSION['username']; ?>
+                </button>
+                <div class="dropdown-menu" id="dropdownMenu">
+                    <a class="dropdown-item" href="account_details.php">รายละเอียดบัญชี</a>
+                    <a class="dropdown-item" href="../../process/logout.php">ล็อคเอ้าท์</a>
+                </div>
+            </div>
         <?php else: ?>
             <a href="login_level.php" class="tab-link login">เข้าสู่ระบบ</a>
             <a href="register.php" class="tab-link register">ลงทะเบียน</a>
@@ -53,6 +61,25 @@ $isLoggedIn = isset($_SESSION['username']);
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('dropdownMenuButton').addEventListener('click', function () {
+            var dropdownMenu = document.getElementById('dropdownMenu');
+            dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+        });
+
+        // Close the dropdown menu if the user clicks outside of it
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropdown-toggle')) {
+                var dropdowns = document.getElementsByClassName("dropdown-menu");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.style.display === 'block') {
+                        openDropdown.style.display = 'none';
+                    }
+                }
+            }
+        }
+    </script>
 
 </body>
 

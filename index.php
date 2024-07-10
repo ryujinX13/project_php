@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+// ตรวจสอบว่าผู้ใช้เข้าสู่ระบบหรือยัง
+if (isset($_SESSION['username'])) {
+    // ถ้าเข้าสู่ระบบอยู่ ให้เปลี่ยนเส้นทางไปยังหน้า homepage.php
+    header("Location: view/user/homepage.php");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,9 +26,9 @@
     <div class="tab-bar">
         <img src="img/logo1.png" alt="Logo">
         <a href="index.php" class="tab-link">หน้าแรก</a>
-        <a href="#" class="tab-link" id="booking-link">การจอง</a>
-        <a href="#" class="tab-link" id="booking-list-link">รายการจอง</a>
-        <a href="#" class="tab-link" id="history-link">ประวัติ</a>
+        <a href="view/user/booking.php" class="tab-link" id="booking-link">การจอง</a>
+        <a href="view/user/booking_list.php" class="tab-link" id="booking-list-link">รายการจอง</a>
+        <a href="view/user/history.php" class="tab-link" id="history-link">ประวัติ</a>
         <a href="view/user/announce.php" class="tab-link announce">สมัครงาน</a>
         <a href="view/user/login_level.php" class="tab-link login">เข้าสู่ระบบ</a>
         <a href="view/user/register.php" class="tab-link register">ลงทะเบียน</a>
@@ -35,45 +46,9 @@
         <img src="img/p3.png" class="home-image" alt="home image">
     </div>
 
-    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="loginModalLabel">กรุณาเข้าสู่ระบบ</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    กรุณาเข้าสู่ระบบก่อนทำการจอง
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">ปิด</button>
-                    <a href="view/user/login.php" class="btn btn-primary">เข้าสู่ระบบ</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
-        document.getElementById('booking-link').addEventListener('click', function (event) {
-            event.preventDefault();
-            $('#loginModal').modal('show');
-        });
-
-        document.getElementById('booking-list-link').addEventListener('click', function (event) {
-            event.preventDefault();
-            $('#loginModal').modal('show');
-        });
-
-        document.getElementById('history-link').addEventListener('click', function (event) {
-            event.preventDefault();
-            $('#loginModal').modal('show');
-        });
-    </script>
 
 </body>
 

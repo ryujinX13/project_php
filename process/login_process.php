@@ -1,6 +1,9 @@
 <?php
 include ('../connect/connection.php');
 
+// เริ่มต้นเซสชัน
+session_start();
+
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 if ($conn->connect_error) {
@@ -14,6 +17,9 @@ $sql = "SELECT * FROM user WHERE User_Username='$username' AND User_password='$p
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
+    // บันทึกข้อมูลผู้ใช้ในเซสชัน
+    $_SESSION['username'] = $username;
+    
     echo "เข้าสู่ระบบสำเร็จ";
     echo "<script>window.location.href='../view/user/Homepage.php'</script>";
 } else {

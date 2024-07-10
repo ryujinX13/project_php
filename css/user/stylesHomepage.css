@@ -38,10 +38,67 @@ body {
     color: black;
     border-radius: 10px;
 }
+.tab-link.register {
+    background-color: #007bff;
+    color: white;
+    border-radius: 10px;
+}
 
+.tab-link.logout {
+    background-color: #F4CE14;
+    color: black;
+    border-radius: 10px;
+}
 
 .tab-link.login:hover,
 .tab-link.register:hover {
+    background-color: #F4CE14;
+    color: white;
+}
+.tab-link.logout:hover {
+    background-color: #F4CE14;
+    color: white;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown .tab-button {
+    background-color: #F4CE14;
+    color: black;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.dropdown .tab-button:hover {
+    background-color: #F4CE14;
+    color: white;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #96B6C5;
+    border-radius: 10px;
+    padding: 10px;
+    z-index: 1;
+}
+
+.dropdown-item {
+    color: black;
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.dropdown-item:hover {
     background-color: #F4CE14;
     color: white;
 }
@@ -58,15 +115,8 @@ p {
 
 .home-image {
     width: 50%;
-    /* ปรับขนาดรูปให้เล็กลง */
     padding: 30px;
-
     margin-right: 20px;
-    /* จัดรูปตรงกลาง */
     border-radius: 30px;
-    /* เพิ่มขอบมน */
     margin-bottom: 20px;
-    /* เพิ่มระยะห่างระหว่างรูปกับข้อความ */
-
-
 }

@@ -138,7 +138,11 @@ p a:hover {
     border-radius: 10px;
 }
 
-.tab-link.login:hover,
+.tab-link.login:hover {
+    background-color: #F4CE14;
+    color: white;
+}
+
 .tab-link.register:hover {
     background-color: #F4CE14;
     color: white;

@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['username'])) {
+    echo "<script>alert('กรุณาเข้าสู่ระบบก่อน');</script>";
+    echo "<script>window.location.href='login.php'</script>";
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html>
 
