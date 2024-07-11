@@ -8,9 +8,7 @@
             border-collapse: collapse;
         }
 
-        table,
-        th,
-        td {
+        table, th, td {
             border: 1px solid black;
             padding: 5px;
         }
@@ -52,6 +50,7 @@
                 <th>สถานะการอบรม</th>
                 <th>อีเมลล์</th>
                 <th>เบอร์โทรศัพท์</th>
+                <th>จัดการ</th>
             </tr>";
         while ($row = $result->fetch_assoc()) {
             echo "<tr id='row-" . $row['Prov_id'] . "'>";
@@ -62,10 +61,9 @@
             echo "<td>" . $row['Prov_email'] . "</td>";
             echo "<td>" . $row['Prov_phone'] . "</td>";
             echo "<td>
-        <a href='update_prov.php?Prov_id=" . $row['Prov_id'] . "'>📝</a> <!-- Edit icon -->
-        <a href='#' onclick=\"deleteRow(" . $row['Prov_id'] . "); return false;\">🗑️</a> <!-- Delete icon -->
-      </td>";
-
+                <a href='update_prov.php?Prov_id=" . $row['Prov_id'] . "'>📝</a> <!-- Edit icon -->
+                <a href='#' onclick=\"deleteRow(" . $row['Prov_id'] . "); return false;\">🗑️</a> <!-- Delete icon -->
+              </td>";
             echo "</tr>";
         }
         echo "</table>";
@@ -74,6 +72,33 @@
     }
     $conn->close();
     ?>
+
+    <script>
+        function deleteRow(provId) {
+            if (confirm("คุณแน่ใจหรือไม่ว่าต้องการลบข้อมูลนี้?")) {
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", "delete_prov.php?id=" + provId, true);
+
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === XMLHttpRequest.DONE) {
+                        if (xhr.status === 200) {
+                            var response = xhr.responseText;
+                            if (response.includes('ลบข้อมูลเรียบร้อยแล้ว')) {
+                                var row = document.getElementById('row-' + provId);
+                                row.parentNode.removeChild(row);
+                            } else {
+                                alert("เกิดข้อผิดพลาดในการลบข้อมูล: " + response);
+                            }
+                        } else {
+                            alert("เกิดข้อผิดพลาดในการส่งคำขอ");
+                        }
+                    }
+                };
+
+                xhr.send();
+            }
+        }
+    </script>
 
 </body>
 

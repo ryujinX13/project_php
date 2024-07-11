@@ -4,10 +4,14 @@ include ('../../connect/connection.php');
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
-    // สร้างคำสั่ง SQL สำหรับลบข้อมูล
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
     $sql = "DELETE FROM Provider WHERE Prov_id = ?";
 
-    // เตรียม statement
     if ($stmt = $conn->prepare($sql)) {
         $stmt->bind_param("i", $id);
 
