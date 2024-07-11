@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../../css/user/stylesregister.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
 </head>
 
 <body>
@@ -16,7 +16,7 @@
         <a href="../../index.php" class="tab-link">หน้าแรก</a>
         <a href="booking.php" class="tab-link" id="booking-link">การจอง</a>
         <a href="booking_list.php" class="tab-link" id="booking-list-link">รายการจอง</a>
-        <a href="history.php" class="tab-link" id="history-link">ประวัติ</a>
+        <a href="history.php" class="tab-link" id="history-link">ประวัติการจอง</a>
         <a href="announce.php" class="tab-link announce">สมัครงาน</a>
         <a href="login_level.php" class="tab-link login">เข้าสู่ระบบ</a>
         <a href="register.php" class="tab-link register">ลงทะเบียน</a>
@@ -25,9 +25,11 @@
     <div class="container">
         <a href="../../index.php" class="back-button"><i class="fas fa-arrow-left"></i></a>
         <h1>ลงทะเบียน</h1>
-        <form action="../../process/register_process.php" method="post">
-            <label for="user_id">เลขบัตรประจำตัวประชาชน:</label>
-            <input type="text" id="user_id" name="user_id" required>
+
+        <form action="../../process/applyProvider_process.php" method="post" enctype="multipart/form-data">
+            <label for="prov_id">รหัสบัตรประจำตัวประชาชน :</label>
+            <input type="text" id="prov_id" name="prov_id" required>
+
 
             <label for="username">ชื่อผู้ใช้:</label>
             <input type="text" id="username" name="username" required>

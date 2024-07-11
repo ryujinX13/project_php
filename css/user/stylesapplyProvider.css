@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&display=swap');
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    font-family: "Mitr", sans-serif;
+    background-color: #EEE0C9;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 .tab-bar {
@@ -48,7 +51,7 @@ body {
 
 .tab-link.logout {
     background-color: #F4CE14;
-    color: black;
+    color: rgb(255, 255, 255);
     border-radius: 10px;
 }
 

@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&display=swap');
+
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #f4f4f4;
+    font-family: "Mitr", sans-serif;
+    background-color: #EEE0C9;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -15,7 +17,7 @@ body {
 }
 
 .tab-bar img {
-    height: 70px;
+    height: 80px;
     margin-right: auto;
     margin-left: 20px;
 }
@@ -37,7 +39,7 @@ body {
 
 .tab-link.login {
     background-color: #F4CE14;
-    color: black;
+    color: rgb(255, 252, 252);
     border-radius: 10px;
 }
 
@@ -47,11 +49,18 @@ body {
     border-radius: 10px;
 }
 
+.tab-link.logout {
+    background-color: #F4CE14;
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+}
+
 .tab-link.login:hover,
 .tab-link.register:hover {
     background-color: #F4CE14;
     color: white;
 }
+
 
 .container {
     max-width: 600px;
@@ -100,7 +109,7 @@ textarea {
 }
 
 input[type="submit"] {
-    width: 100%;
+    width: 40%;
     background-color: #007bff;
     color: white;
     padding: 12px;

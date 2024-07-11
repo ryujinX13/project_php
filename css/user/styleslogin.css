@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&display=swap');
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #FFE4CF;
+    font-family: "Mitr", sans-serif;
+    background-color: #EEE0C9;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -10,27 +12,28 @@ body {
     display: flex;
     align-items: center;
     background-color: #96B6C5;
-    padding: 20px 20px; /* เพิ่ม padding */
+    padding: 20px 20px;
     justify-content: center;
-    height: 100px; /* กำหนดความสูง */
+    height: 70px;
 }
 
 .tab-bar img {
-    height: 90px; /* กำหนดความสูงของรูปภาพ */
-    margin-left: 50px; /* เพิ่ม margin-left เพื่อขยับรูปไปทางซ้าย */
+    height: 90px;
+    margin-left: 50px;
 }
 
-.tab-bar h1 {
+.tab-bar h2 {
     margin: 0;
     color: black;
-    margin-bottom: 10px; /* เพิ่ม margin-bottom เพื่อระยะห่างกับปุ่ม */
+    margin-bottom: 10px;
 }
+
 .back-button {
     position: absolute;
-    left: 10px; /* Adjust as necessary */
+    left: 10px;
     background: none;
     border: none;
-    font-size: 3em; /* Adjust size as needed */
+    font-size: 3em;
     color: black;
     cursor: pointer;
     transition: color 0.3s ease, transform 0.3s ease;
@@ -41,7 +44,6 @@ body {
     transform: scale(1.1);
 }
 
-
 .content-wrapper {
     display: flex;
     justify-content: center;
@@ -50,8 +52,8 @@ body {
 }
 
 .login-container {
-    background-color: #F5F7F8;
-    width: 600px;
+    background-color: #F1F0E8;
+    width: 500px;
     padding: 40px;
     margin-right: 20px;
     border-radius: 10px;
@@ -62,10 +64,10 @@ h2 {
 }
 
 .login-image {
-    width: 600px;
-    padding: 30px;
-    margin-right: 20px;
-    border-radius: 30px;
+    width: 40%; /* ปรับให้รูปภาพของคุณเต็มขนาด */
+    border-radius: 20px; /* กำหนดขอบมน */
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1); /* เพิ่มเงาใต้ภาพ */
+    margin-bottom: 10px; /* ระยะห่างด้านล่าง */
 }
 
 input[type="text"],
@@ -103,26 +105,9 @@ input[type="submit"]:hover {
 .forgot-password a {
     color: #007bff;
     text-decoration: none;
-} 
+}
 
 .forgot-password a:hover {
     text-decoration: underline;
 }
 
-.tab-link.login {
-    background-color: #F4CE14;
-    color: black;
-    border-radius: 10px;
-}
-
-.tab-link.register {
-    background-color: #007bff;
-    color: white;
-    border-radius: 10px;
-}
-
-.tab-link.login:hover,
-.tab-link.register:hover {
-    background-color: #F4CE14;
-    color: white;
-}

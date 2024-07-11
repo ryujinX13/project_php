@@ -1,22 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&display=swap');
+
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #f0ead6;
+    font-family: "Mitr", sans-serif;
+    background-color: #EEE0C9;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 .tab-bar {
     display: flex;
     align-items: center;
     background-color: #96B6C5;
-    padding: 10px 0;
+    padding: 20px 20px;
     justify-content: center;
+    height: 70px;
 }
 
 .tab-bar img {
-    height: 70px;
-    margin-right: auto;
-    margin-left: 20px;
+    height: 90px;
+    margin-left: 50px;
 }
 
 .tab-link {
@@ -36,7 +39,7 @@ body {
 
 .tab-link.login {
     background-color: #F4CE14;
-    color: black;
+    color: rgb(255, 252, 252);
     border-radius: 10px;
 }
 
