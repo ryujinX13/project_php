@@ -10,12 +10,17 @@ body {
     display: flex;
     align-items: center;
     background-color: #96B6C5;
-    padding: 10px 0;
-    justify-content: center;
+    padding: 10px 20px;
+    justify-content: space-between;
 }
 
 .tab-bar img {
     height: 100px; /* ขยายรูปภาพ */
+}
+
+.tab-links {
+    display: flex;
+    align-items: center;
 }
 
 .tab-link {
@@ -112,8 +117,15 @@ input[type="submit"]:hover {
     border-radius: 10px;
 }
 
+.tab-link.back {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border-radius: 10px;
+}
+
 .tab-link.login:hover,
-.tab-link.register:hover {
+.tab-link.register:hover,
+.tab-link.back:hover {
     background-color: #F4CE14;
     color: white;
 }

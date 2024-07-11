@@ -10,8 +10,11 @@
 </head>
 
 <body>
-<div class="tab-bar">
+    <div class="tab-bar">
         <img src="../../img/logo1.png" alt="Logo">
+        <div class="tab-links">
+        <a href="../../index.php" class="tab-link back">ย้อนกลับ</a>
+        </div>
     </div>
 
     <div class="content-wrapper">
