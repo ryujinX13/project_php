@@ -6,83 +6,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ลูกหลานสำรองบริการพาไปหาหมอ - ลืมรหัสผ่าน</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../../css/user/stylesrecover_psw.css">
-        
 </head>
+
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light navbar-laravel">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="../../img/logo1.png" alt="Logo" style="height: 40px;">
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">หน้าแรก</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">การจอง</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">รายการจอง</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">ประวัติการจอง</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">สมัครงาน</a>
-                    </li>
-                </ul>
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">เข้าสู่ระบบ</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="btn btn-warning" href="#">ลงทะเบียน</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <div class="tab-bar">
+        <img src="../../img/logo1.png" alt="Logo">
+        <a href="../../index.php" class="tab-link">หน้าแรก</a>
+        <a href="booking.php" class="tab-link">การจอง</a>
+        <a href="booking_list.php" class="tab-link">รายการจอง</a>
+        <a href="history.php" class="tab-link">ประวัติการจอง</a>
+        <a href="announce.php" class="tab-link">สมัครงาน</a>
+        <a href="login_level.php" class="tab-link login">เข้าสู่ระบบ</a>
+        <a href="register.php" class="tab-link register">ลงทะเบียน</a>
+    </div>
 
     <main class="login-form">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-8">
-                    <div class="card">
-                        <div class="card-header header-text">ลืมรหัสผ่าน</div>
-                        <div class="card-body">
-                            <form action="#" method="POST" name="recover_psw" onsubmit="return validateForm()">
-                                <div class="form-group row">
-                                    <label for="email_address" class="col-md-4 col-form-label text-md-right">กรุณาใส่ Email ที่คุณใช้ล็อคอิน</label>
-                                    <div class="col-md-6">
-                                        <input type="email" id="email_address" class="form-control" name="email"
-                                            required autofocus>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-md-6 offset-md-4">
-                                        <button type="submit" class="btn btn-primary" name="recover">ตรวจสอบ</button>
-                                    </div>
-                                </div>
-                                <div id="error-message" class="text-danger text-center"></div>
-                            </form>
-                        </div>
+            <div class="form-wrapper">
+                <div class="card">
+                    <div class="card-header header-text">ลืมรหัสผ่าน</div>
+                    <div class="card-body">
+                        <form action="#" method="POST" name="recover_psw" onsubmit="return validateForm()">
+                            <div class="form-group">
+                                <label for="email_address" class="form-label">กรุณาใส่ Email ที่คุณใช้ล็อคอิน</label>
+                                <input type="email" id="email_address" class="form-control" name="email" required autofocus>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary" name="recover">ตรวจสอบ</button>
+                            </div>
+                            <div id="error-message" class="text-danger text-center"></div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </main>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <script>
         function validateForm() {
             const email = document.getElementById('email_address').value;
