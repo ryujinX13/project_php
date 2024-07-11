@@ -21,7 +21,7 @@ $conn->close();
 </head>
 
 <body>
-<div class="tab-bar">
+    <div class="tab-bar">
         <img src="../../img/logo1.png" alt="Logo">
         <a href="admin_dashboard.php" class="tab-link">หน้าแรก</a>
         <a href="prov_display.php" class="tab-link">ข้อมูลพนักงาน</a>
@@ -64,6 +64,7 @@ $conn->close();
             }
         }
     </script>
+
 </body>
 
 </html>
