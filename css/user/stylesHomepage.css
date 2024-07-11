@@ -1,11 +1,11 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #F1F0E8;
+    background-color: #f9f9f9;
+    color: #333;
 }
 
-/*แทบบาร์*/
 .tab-bar {
     display: flex;
     align-items: center;
@@ -18,7 +18,6 @@ body {
     height: 80px;
     margin-right: auto;
     margin-left: 20px;
-    
 }
 
 .tab-link {
@@ -50,7 +49,7 @@ body {
 
 .tab-link.logout {
     background-color: #F4CE14;
-    color: black;
+    color: rgb(255, 255, 255);
     border-radius: 10px;
 }
 
@@ -60,268 +59,73 @@ body {
     color: white;
 }
 
-.tab-link.logout:hover {
-    background-color: #F4CE14;
+header {
+    background-color: #89c78b;
     color: white;
-}
-
-/*.........................................................................................*/
-/*รูป*/
-.home-image {
-    float: left;
-    margin-right: 20px; /* ระยะห่างระหว่างรูปภาพกับข้อความ */
-    border-radius: 10px;
-    
-}
-
-.image1 {
-    width: 450px; /* กำหนดความกว้าง */
-    height: auto; /* รักษาอัตราส่วนเดิมของรูป */
-    float: left;
-    margin-right: 50px;
-    margin-top: -200px;
-    border-radius: 10px;
-    margin-left: 60%; 
-    margin-bottom: 30px; /* ปรับระยะห่างด้านล่าง */
-}
-
-.image2, .image3, .image4, .image5, .image6 {
-    width: 210px; /* กำหนดความกว้างเท่ากันสำหรับทุกรูป */
-    height: 200px; /* กำหนดความสูงของรูปเอง */
-    object-fit: cover; /* รักษาอัตราส่วนเดิมของรูป */
-    float: left; /* จัดวางทางซ้ายเพื่อเรียงกันแนวนอน */
-    margin-right: 12px; /* ปรับระยะห่างของรูป */
-    margin-bottom: 30px; /* ระยะห่างด้านล่าง */
-    border-radius: 5px; /* มุมของรูป */
-}
-
-.image7 {
-    width: 450px; /* กำหนดความกว้าง */
-    height: auto; /* รักษาอัตราส่วนเดิมของรูป */
-    float: left;
-    margin-right: 50px;
-    margin-top: -250px;
-    border-radius: 10px;
-    margin-left: 60%; 
-    margin-bottom: 30px; /* ปรับระยะห่างด้านล่าง */
-}
-
-/*.........................................................................................*/
-/*ตัวหนังสือ*/
-.section-title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    margin-left: 70%; 
-}
-.section-title ul {
-    margin-right: 100%; /* ระยะห่างซ้ายสำหรับรายการ */
-    font-size: 18px;
-}
-
-.location {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    margin-right: 50%; 
-    clear: both;
-}
-
-li {
-    margin-right: 0%; /* ระยะห่างซ้ายสำหรับรายการ */
-    font-size: 18px;
-}
-
-.pac {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    margin-right: 50%; 
-    clear: both;
-}
-
-.pac li {
-    margin-right: 0%; /* ระยะห่างซ้ายสำหรับรายการ */
-    font-size: 18px;
-}
-
-.pac h4{
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    margin-right: 50%; 
-    clear: both;
-}
-
-/*.........................................................................................*/
-/* เพิ่มสไตล์สำหรับ dropdown */
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown .tab-button {
-    background-color: #F4CE14;
-    color: black;
-    border: none;
-    border-radius: 10px;
-    padding: 10px 20px;
-    margin: 0 10px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.dropdown .tab-button:hover {
-    background-color: #F4CE14;
-    color: white;
-}
-
-.dropdown-menu {
-    display: none;
-    position: absolute;
-    background-color: #96B6C5;
-    border-radius: 10px;
-    padding: 10px;
-    z-index: 1;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.dropdown-item {
-    color: black;
-    padding: 10px;
-    text-decoration: none;
-    display: block;
-    transition: background-color 0.3s;
-    border-radius: 5px;
-}
-
-.dropdown-item:hover {
-    background-color: #F4CE14;
-    color: white;
-}
-
-h3 {
+    padding: 20px;
     text-align: center;
-    font-size: 30px;
+    font-size: 24px;
+    font-weight: bold;
 }
 
-p {
-    text-align: center;
-    font-size: 16px;
+.container {
+    padding: 20px;
 }
 
-/*ทำให้ขยายเเละลดตามหน้าเว็บ*/
-@media only screen and (max-width: 991px) {
-    .home-image {
-        width: 100%;
-        margin: 0;
-    }
-
-    .tab-bar {
-        padding: 2rem;
-    }
-
-    .tab-bar img {
-        margin: 0 auto 20px;
-    }
-
-    .tab-link {
-        margin: 5px;
-    }
-
-    .dropdown .tab-button,
-    .tab-link {
-        font-size: 55%;
-    }
+.content-section {
+    margin-bottom: 40px;
 }
 
-@media only screen and (min-width: 768px) {
-    .home-image {
-        width: 50%;
-        margin-right: 20px;
-        margin-bottom: 20px;
-    }
-
-    .tab-bar {
-        justify-content: center;
-    }
-
-    .tab-link {
-        padding: 10px 20px;
-        margin: 0 10px;
-    }
-
-    .dropdown .tab-button {
-        padding: 10px 20px;
-        margin: 0 10px;
-    }
+h2 {
+    color: #4CAF50;
+    margin-bottom: 20px;
 }
 
-footer {
-    background-color: #f2f2f2;
-    padding: 20px 0;
-    text-align: center;
-    border-top: 1px solid #ddd;
+ul {
+    list-style-type: none;
+    padding: 0;
 }
 
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-footer .contact-info, footer .address {
-    margin: 10px 0;
-    flex: 1;
-}
-
-footer .contact-info p, footer .address p {
+ul li {
+    background: #e7f4e4;
     margin: 5px 0;
+    padding: 10px;
+    border-left: 5px solid #4CAF50;
+}
+
+.service-package {
+    background: #e7f4e4;
+    padding: 10px;
+    border-left: 5px solid #4CAF50;
+    margin-bottom: 10px;
+}
+
+.package-title {
+    font-weight: bold;
     color: #333;
 }
 
-footer .contact-info p {
+.images img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.images {
+    margin-top: 20px;
+}
+
+.text-highlight {
     font-weight: bold;
+    color: #2c3e50;
 }
 
-footer .contact-info img {
-    vertical-align: middle;
-    margin-right: 5px;
-    width: 20px;
-    height: 20px;
-}
-
-.footimg {
-    display: flex;
-    justify-content: center;
-}
-
-.footimg img {
-    width: 490px; /* กำหนดความกว้างตามต้องการ */
-    height: 290px; /* กำหนดความสูงตามต้องการ */
-    margin: 10px;
-    transition: transform 0.3s;
-}
-
-.footimg img:hover {
-    transform: scale(1.05);
-}
-
-.footimg img.bounce {
-    animation: bounce 0.5s;
-}
-
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0);
-    }
-    40% {
-        transform: translateY(-30px);
-    }
-    60% {
-        transform: translateY(-15px);
-    }
+.about-text {
+    text-align: center;
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 40px;
 }

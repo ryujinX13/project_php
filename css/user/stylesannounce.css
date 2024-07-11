@@ -221,6 +221,7 @@ footer {
     padding: 20px 0;
     text-align: center;
     border-top: 1px solid #ddd;
+    
 }
 .footer-content {
     display: flex;
@@ -228,10 +229,12 @@ footer {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    
 }
 footer .contact-info, footer .address {
     margin: 10px 0;
     flex: 1;
+    
 }
 footer .contact-info p, footer .address p {
     margin: 5px 0;
@@ -251,8 +254,25 @@ footer .contact-info img {
     justify-content: center;
 }
 .footimg img {
-    width: 300px; /* กำหนดความกว้างตามต้องการ */
-    height: 270px; /* กำหนดความสูงตามต้องการ */
-    object-fit: cover; /* ทำให้ภาพครอบคลุมพื้นที่โดยไม่เสียรูป */
+    width: 490px; /* กำหนดความกว้างตามต้องการ */
+    height: 290px; /* กำหนดความสูงตามต้องการ */
     margin: 10px;
+    transition: transform 0.3s;
+}
+.footimg img:hover {
+    transform: scale(1.05);
+}
+.footimg img.bounce {
+    animation: bounce 0.5s;
+}
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-30px);
+    }
+    60% {
+        transform: translateY(-15px);
+    }
 }
