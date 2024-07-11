@@ -17,7 +17,7 @@
     <div class="content-wrapper">
         <img src="../../img/p1.jpg" class="login-image" alt="Login Image">
         <div class="login-container">
-            <h2>เข้าสู่ระบบ</h2>
+            <h2>เข้าสู่ระบบผู้ใช้งาน</h2>
             <form action="../../process/login_process.php" method="post">
                 <label for="username">ชื่อผู้ใช้:</label>
                 <input type="text" id="username" name="username" required placeholder="กรุณากรอกชื่อผู้ใช้">

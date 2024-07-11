@@ -6,7 +6,7 @@ $isLoggedIn = isset($_SESSION['username']);
 ?>
 
 <!DOCTYPE html>
-<html lang="th">
+<html lang="th"> 
 
 <head>
     <meta charset="UTF-8">
@@ -28,7 +28,7 @@ $isLoggedIn = isset($_SESSION['username']);
 
         <!-- แสดงปุ่มตามสถานะการเข้าสู่ระบบ -->
         <?php if ($isLoggedIn): ?>
-            <div class="dropdown">
+            <div class="dropdown"> 
                 <button class="tab-button dropdown-toggle" type="button" id="dropdownMenuButton">
                     <?php echo $_SESSION['username']; ?>
                 </button>
@@ -68,14 +68,20 @@ $isLoggedIn = isset($_SESSION['username']);
                 echo "0 results";
             }
             $conn->close();
+
+            // เปรียบเทียบวันที่ปัจจุบันกับวันที่ปิดรับสมัคร
+            $currentDate = date('Y-m-d');
+            $isClosed = $currentDate > $Ajob_closing;
             ?>
             <p>เปิดรับสมัครตั้งแต่วันที่ <?php echo $Ajob_opening; ?> จนถึงวันที่ <?php echo $Ajob_closing; ?></p>
             <div class="content">
                 <div class="image">
                     <img src="../../img/04.jpg" alt="Logo">
-                    <a href="../user/applyProvider.php">
-                        <button class="apply-button">คลิกเพื่อสมัคร</button>
-                    </a>
+                    <?php if (!$isClosed): ?>
+                        <a href="../user/applyProvider.php">
+                            <button class="apply-button">คลิกเพื่อสมัคร</button>
+                        </a>
+                    <?php endif; ?>
                 </div>
                 <div class="qualifications">
                     <h2>คุณสมบัติ</h2>
@@ -105,8 +111,8 @@ $isLoggedIn = isset($_SESSION['username']);
             <p>- กังสดาล วงเวียนสามแยก เลยบึงหนองแวงตราชู</p>
             <p>- มาจากในเมืองขอนแก่น ให้ขับผ่าน รพ.ราชพฤกษ์ แล้วเลี้ยวซ้าย</p>
             <p>ก่อนถึงปั้ม ปตท. เข้าซอยสวัสดี ขับเรื่อยๆจนเจอวงเวียนสามแยก</p>
-            </div>
-            
+        </div>
+
         <div class="footimg">
             <img src="../../img/ประกาศ02.png" alt="footer">
             <img src="../../img/ประกาศ01.jpg" alt="footer">

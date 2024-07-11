@@ -1,0 +1,145 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+.tab-bar {
+    display: flex;
+    align-items: center;
+    background-color: #96B6C5;
+    padding: 10px 20px;
+    justify-content: space-between;
+}
+
+.tab-bar img {
+    height: 70px;
+}
+
+.tab-link {
+    padding: 10px 20px;
+    text-decoration: none;
+    color: black;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    margin: 0 10px;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.tab-link:hover {
+    background-color: #ccc;
+    border-color: #bbb;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown .tab-button {
+    background-color: #F4CE14;
+    color: black;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.dropdown .tab-button:hover {
+    background-color: #F4CE14;
+    color: white;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #96B6C5;
+    border-radius: 10px;
+    padding: 10px;
+    right: 0;
+    z-index: 1;
+}
+
+.dropdown-item {
+    color: black;
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.dropdown-item:hover {
+    background-color: #F4CE14;
+    color: white;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h2 {
+    color: #007bff;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    margin: 10px 0 5px;
+}
+
+input[type="text"],
+input[type="date"],
+textarea {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 80%;
+}
+
+textarea {
+    height: 150px;
+}
+
+input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
