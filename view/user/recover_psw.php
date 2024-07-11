@@ -8,7 +8,7 @@
     <title>ลูกหลานสำรองบริการพาไปหาหมอ - ลืมรหัสผ่าน</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../../css/user/stylesrecover_psw.css.css">
+    <link rel="stylesheet" type="text/css" href="../../css/user/stylesrecover_psw.css">
         
 </head>
 <body>

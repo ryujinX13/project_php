@@ -192,7 +192,6 @@ main .announcement {
     text-align: justify;
     padding-left: 95px;
 }
-
 .qualifications ul li::before {
     content: '✔';
     position: absolute;
@@ -200,7 +199,6 @@ main .announcement {
     color: green;
     font-size: 18px;
 }
-
 .contact-container {
     display: flex;
 }
