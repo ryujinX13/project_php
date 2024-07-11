@@ -26,7 +26,21 @@ body {
     color: black;
     margin-bottom: 10px; /* เพิ่ม margin-bottom เพื่อระยะห่างกับปุ่ม */
 }
+.back-button {
+    position: absolute;
+    left: 10px; /* Adjust as necessary */
+    background: none;
+    border: none;
+    font-size: 3em; /* Adjust size as needed */
+    color: black;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
 
+.back-button:hover {
+    color: white;
+    transform: scale(1.1);
+}
 .button-container {
     display: flex;
     flex-direction: column; /* จัดเรียงปุ่มในแนวตั้ง */
