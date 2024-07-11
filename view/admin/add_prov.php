@@ -26,12 +26,20 @@ $conn->close();
 
     <div class="tab-bar">
         <img src="../../img/logo1.png" alt="Logo">
-        <a href="index.html" class="tab-link Homepage">หน้าแรก</a>
-        <a href="booking.html" class="tab-link">ข้อมูลพนักงาน</a>
+        <a href="admin_dashboard.php" class="tab-link">หน้าแรก</a>
+        <a href="prov_display.php" class="tab-link">ข้อมูลพนักงาน</a>
         <a href="booking_list.html" class="tab-link">การอบรม</a>
         <a href="history.html" class="tab-link">รายงาน</a>
-        <a href="login.html" class="tab-link login">เข้าสู่ระบบ</a>
-        <a href="register.html" class="tab-link register">ลงทะเบียน</a>
+        <a href="announce.php" class="tab-link">ประกาศรับสมัครงาน</a>
+        <div class="dropdown">
+            <button class="tab-button dropdown-toggle" type="button" id="dropdownMenuButton">
+                <?php echo $_SESSION['admin_username']; ?>
+            </button>
+            <div class="dropdown-menu" id="dropdownMenu">
+                <a class="dropdown-item" href="admin_account_details.php">รายละเอียดบัญชี</a>
+                <a class="dropdown-item" href="../../process/logout.php">ล็อคเอ้าท์</a>
+            </div>
+        </div>
     </div>
     <div class="container">
         <h2>เพิ่มผู้ให้บริการ</h2>
@@ -70,7 +78,7 @@ $conn->close();
         });
 
         // Close the dropdown menu if the user clicks outside of it
-        window.onclick = function(event) {
+        window.onclick = function (event) {
             if (!event.target.matches('.dropdown-toggle')) {
                 var dropdowns = document.getElementsByClassName("dropdown-menu");
                 for (var i = 0; i < dropdowns.length; i++) {
