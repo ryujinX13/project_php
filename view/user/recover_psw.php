@@ -32,6 +32,7 @@
                                 <label for="email_address" class="form-label">กรุณาใส่ Email ที่คุณใช้ล็อคอิน</label>
                                 <input type="email" id="email_address" class="form-control" name="email" required autofocus>
                             </div>
+
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary" name="recover">ตรวจสอบ</button>
                             </div>
