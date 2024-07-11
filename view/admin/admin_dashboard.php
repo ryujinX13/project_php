@@ -23,7 +23,7 @@ if (!isset($_SESSION['admin_username'])) {
         <a href="prov_display.php" class="tab-link">ข้อมูลพนักงาน</a>
         <a href="booking_list.html" class="tab-link">การอบรม</a>
         <a href="history.html" class="tab-link">รายงาน</a>
-        <a href="announce.php" class="tab-link">ประกาศรับสมัครงาน</a>
+        <a href="edit_announce.php" class="tab-link">ประกาศรับสมัครงาน</a>
         <div class="dropdown">
             <button class="tab-button dropdown-toggle" type="button" id="dropdownMenuButton">
                 <?php echo $_SESSION['admin_username']; ?>

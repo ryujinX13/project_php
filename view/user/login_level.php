@@ -18,7 +18,7 @@
     <div class="button-container">
         <a href="login.php" class="login-button">ผู้ใช้งาน</a>
         <a href="../provider/prov_login.php" class="login-button">ผู้ให้บริการ</a>
-        <a href="../admin/admin_login.php" class="login-button">เจ้าหน้าที่</a>
+        <a href="../admin/admin_login.php" class="login-button">ผู้ดูแลระบบ</a>
     </div>
 </body>
 
