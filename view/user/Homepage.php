@@ -45,7 +45,7 @@ $isLoggedIn = isset($_SESSION['username']);
         <?php endif; ?>
     </div>
     <header>
-        ลูกหลานสำรอง - บริการพาไปหาหมอ ดูแลแทนญาติเหมือนลูกหลานของท่าน
+        ลูกหลานสำรอง บริการพาไปหาหมอ ดูแลแทนญาติเหมือนลูกหลานของท่าน
     </header>
     <div class="container">
         <div class="content-section about-text">
