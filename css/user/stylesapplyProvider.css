@@ -206,3 +206,21 @@ p a:hover {
     border-radius: 5px;
     width: 50%;
 }
+
+.back-button {
+    display: flex;
+    align-items: center;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.back-button i {
+    margin-right: 10px;
+}
+
+.back-button:hover {
+    text-decoration: underline;
+}
+

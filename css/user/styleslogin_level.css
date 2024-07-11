@@ -41,6 +41,7 @@ body {
     color: white;
     transform: scale(1.1);
 }
+
 .button-container {
     display: flex;
     flex-direction: column; /* จัดเรียงปุ่มในแนวตั้ง */

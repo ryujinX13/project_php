@@ -7,6 +7,7 @@
     <title>Register</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../../css/user/stylesregister.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 
 <body>
@@ -22,6 +23,7 @@
     </div>
 
     <div class="container">
+        <a href="../../index.php" class="back-button"><i class="fas fa-arrow-left"></i></a>
         <h1>ลงทะเบียน</h1>
         <form action="../../process/register_process.php" method="post">
             <label for="user_id">เลขบัตรประจำตัวประชาชน:</label>

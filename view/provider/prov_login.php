@@ -11,10 +11,8 @@
 
 <body>
     <div class="tab-bar">
-        <img src="../../img/logo1.png" alt="Logo">
-        <div class="tab-links">
-            <a href="view/user/login_level.php" class="tab-link back">ย้อนกลับ</a>
-        </div>
+    <button class="back-button" onclick="window.location.href='../user/login_level.php'">⬅️</button>
+    <img src="../../img/logo1.png" alt="Logo" style="margin-left: 10px;">
     </div>
 
     <div class="content-wrapper">

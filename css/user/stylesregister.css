@@ -60,6 +60,7 @@ body {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
 }
 
 h1 {
@@ -150,45 +151,19 @@ p a:hover {
     color: white;
 }
 
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown .tab-button {
-    background-color: #F4CE14;
-    color: black;
-    border: none;
-    border-radius: 10px;
-    padding: 10px 20px;
-    margin: 0 10px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.dropdown .tab-button:hover {
-    background-color: #F4CE14;
-    color: white;
-}
-
-.dropdown-menu {
-    display: none;
-    position: absolute;
-    background-color: #96B6C5;
-    border-radius: 10px;
-    padding: 10px;
-    z-index: 1;
-}
-
-.dropdown-item {
-    color: black;
-    padding: 10px;
+.back-button {
+    display: flex;
+    align-items: center;
+    color: #007bff;
     text-decoration: none;
-    display: block;
-    transition: background-color 0.3s;
+    font-weight: 500;
+    margin-bottom: 20px;
 }
 
-.dropdown-item:hover {
-    background-color: #F4CE14;
-    color: white;
+.back-button i {
+    margin-right: 10px;
+}
+
+.back-button:hover {
+    text-decoration: underline;
 }

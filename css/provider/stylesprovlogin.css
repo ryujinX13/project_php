@@ -10,31 +10,35 @@ body {
     display: flex;
     align-items: center;
     background-color: #96B6C5;
-    padding: 10px 0;
-    justify-content: space-between; /* เปลี่ยนเป็น space-between */
+    padding: 20px 20px; /* เพิ่ม padding */
+    justify-content: center;
+    height: 100px; /* กำหนดความสูง */
 }
 
 .tab-bar img {
-    height: 100px; /* ขยายรูปภาพ */
+    height: 90px; /* กำหนดความสูงของรูปภาพ */
+    margin-left: 50px; /* เพิ่ม margin-left เพื่อขยับรูปไปทางซ้าย */
 }
 
-.tab-links {
-    margin-right: 20px; /* เพิ่ม margin */
-}
-
-.tab-link {
-    padding: 10px 20px;
-    text-decoration: none;
+.tab-bar h1 {
+    margin: 0;
     color: black;
-    border: 1px solid transparent;
-    border-radius: 3px;
-    margin: 0 10px;
-    transition: background-color 0.3s, border-color 0.3s;
+    margin-bottom: 10px; /* เพิ่ม margin-bottom เพื่อระยะห่างกับปุ่ม */
+}
+.back-button {
+    position: absolute;
+    left: 10px; /* Adjust as necessary */
+    background: none;
+    border: none;
+    font-size: 3em; /* Adjust size as needed */
+    color: black;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
-.tab-link:hover {
-    background-color: #ccc;
-    border-color: #bbb;
+.back-button:hover {
+    color: white;
+    transform: scale(1.1);
 }
 
 .content-wrapper {
@@ -118,17 +122,6 @@ input[type="submit"]:hover {
 
 .tab-link.login:hover,
 .tab-link.register:hover {
-    background-color: #F4CE14;
-    color: white;
-}
-
-.tab-link.back {
-    background-color: #ffffff;
-    color: black;
-    border-radius: 10px;
-}
-
-.tab-link.back:hover {
     background-color: #F4CE14;
     color: white;
 }

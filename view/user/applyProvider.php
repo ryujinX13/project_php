@@ -24,6 +24,7 @@
     </div>
 
     <div class="container">
+        <a href="../user/announce.php" class="back-button"><i class="fas fa-arrow-left"></i></a>
         <h1>สมัครงาน</h1>
 
         <form action="../../process/applyProvider_process.php" method="post" enctype="multipart/form-data">
