@@ -104,6 +104,11 @@ $isLoggedIn = isset($_SESSION['username']);
             <p>- กังสดาล วงเวียนสามแยก เลยบึงหนองแวงตราชู</p>
             <p>- มาจากในเมืองขอนแก่น ให้ขับผ่าน รพ.ราชพฤกษ์ แล้วเลี้ยวซ้าย</p>
             <p>ก่อนถึงปั้ม ปตท. เข้าซอยสวัสดี ขับเรื่อยๆจนเจอวงเวียนสามแยก</p>
+            </div>
+        <div class="footimg">
+            <img src="../../img/ประกาศ02.png" alt="footer">
+            <img src="../../img/ประกาศ01.jpg" alt="footer">
+            <img src="../../img/ประกาศ03.png" alt="footer">
         </div>
     </footer>
 
