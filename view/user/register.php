@@ -26,7 +26,7 @@
         <a href="../../index.php" class="back-button"><i class="fas fa-arrow-left"></i></a>
         <h1>ลงทะเบียน</h1>
 
-        <form action="../../process/applyProvider_process.php" method="post" enctype="multipart/form-data">
+        <form action="../../process/register_process.php" method="post" enctype="multipart/form-data">
             <label for="prov_id">รหัสบัตรประจำตัวประชาชน :</label>
             <input type="text" id="prov_id" name="prov_id" required>
 
