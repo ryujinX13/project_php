@@ -3,11 +3,26 @@
 /* styleslogin_level.css */
 body {
     font-family: "Mitr", sans-serif;
-    background-color: #F1F0E8;
+    background: url('../../img/หญ้า1.jpg') no-repeat center center/cover;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    animation: backgroundAnimation 5s infinite alternate;
 }
+
+@keyframes backgroundAnimation {
+    0% {
+        background-size: 100%;
+    }
+    50% {
+        background-size: 110%;
+    }
+    80% {
+        background-size: 100%;
+    }
+}
+
+
 
 .tab-bar {
     display: flex;
@@ -23,11 +38,7 @@ body {
     margin-left: 50px; /* เพิ่ม margin-left เพื่อขยับรูปไปทางซ้าย */
 }
 
-.tab-bar h1 {
-    margin: 0;
-    color: black;
-    margin-bottom: 10px; /* เพิ่ม margin-bottom เพื่อระยะห่างกับปุ่ม */
-}
+
 .back-button {
     position: absolute;
     left: 10px; /* Adjust as necessary */
@@ -43,6 +54,13 @@ body {
     color: white;
     transform: scale(1.1);
 }
+.topic h1 {
+    margin: 20px 0 -60px 0; /* เพิ่ม margin-top เพื่อระยะห่างจากด้านบน */
+    color: black;
+    text-align: center; /* จัดตำแหน่ง h1 ให้อยู่กลาง */
+    font-family: 'Mali', sans-serif;
+}
+
 
 .button-container {
     display: flex;
@@ -58,11 +76,12 @@ body {
     color: black;
     background-color: #F4CE14;
     border: none;
-    border-radius: 5px;
+    border-radius: 20px;
     text-decoration: none;
     transition: background-color 0.3s ease, transform 0.3s ease;
-    width: 200px; /* กำหนดความกว้างของปุ่ม */
+    width: 150px; /* กำหนดความกว้างของปุ่ม */
     text-align: center;
+    font-family: 'Mali', sans-serif;
 }
 
 .login-button:hover {

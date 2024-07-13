@@ -164,6 +164,38 @@ if (isset($_SESSION['username'])) {
         </div>
     </div>
 
+
+    <footer>
+        <div class="contact-info">
+            <p>ติดต่อ-สอบถามยูคลินิกแล็บ</p>
+            <p>📞 <a href="tel:093-5017778">093-5017778</a></p>
+            <p><a href="https://line.me/R/ti/p/@ulab" target="_blank"><img src="img/Line.png" alt="Line Icon"> @ulab</a></p>
+            <p>📧 <a href="mailto:ucliniclab@gmail.com">ucliniclab@gmail.com</a></p>
+        </div>
+
+        <div class="address">
+            <p><a href="https://maps.app.goo.gl/f8urFAwixWuarR8n9" target="_blank">
+                ที่อยู่ กังสดาร ใกล้รพ.ศรีนครินทร์ มหาวิทยาลัยขอนแก่น<br>
+                - กังสดาล วงเวียนสามแยก เลยบึงหนองแวงตราชู<br>
+                - มาจากในเมืองขอนแก่น ให้ขับผ่าน รพ.ราชพฤกษ์ แล้วเลี้ยวซ้าย<br>
+                ก่อนถึงปั้ม ปตท. เข้าซอยสวัสดี ขับเรื่อยๆจนเจอวงเวียนสามแยก
+            </a></p>
+        </div>
+
+        <div class="footimg">
+            <a href="https://maps.app.goo.gl/f8urFAwixWuarR8n9" target="_blank">
+                <img src="img/ประกาศ02.png" alt="footer">
+            </a>
+            <a href="https://www.facebook.com/lookhlan" target="_blank">
+                <img src="img/ปกลูกหลาน.png" alt="footer">
+            </a>
+            <a href="https://www.facebook.com/Ucliniclab" target="_blank">
+                <img src="img/ประกาศ03.png" alt="footer">
+            </a>
+        </div>
+    </footer>
+
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
