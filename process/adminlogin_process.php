@@ -16,7 +16,11 @@ if (isset($_POST["admin_login"])) {
         header("Location: ../view/admin/admin_dashboard.php");
         exit();
     } else {
-        echo "<script>alert('ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง');</script>";
+        echo "<script>
+        alert('ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง');
+        window.location.href='../view/admin/admin_login.php';
+    </script>";
+
     }
 
     $stmt->close();
