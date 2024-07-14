@@ -4,6 +4,9 @@ session_start();
 
 // ตรวจสอบว่ามีการเข้าสู่ระบบหรือไม่
 $isLoggedIn = isset($_SESSION['username']);
+
+// รับค่า ajob_id จาก URL
+$ajob_id = isset($_GET['ajob_id']) ? $_GET['ajob_id'] : '';
 ?>
 
 <!DOCTYPE html>
@@ -49,6 +52,7 @@ $isLoggedIn = isset($_SESSION['username']);
         <h1>สมัครงาน</h1>
 
         <form action="../../process/applyProvider_process.php" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="ajob_id" value="<?php echo $ajob_id; ?>"> <!-- ส่งค่า ajob_id ผ่านฟอร์ม -->
             <label for="prov_id">รหัสบัตรประจำตัวประชาชนผู้ให้บริการ :</label>
             <input type="text" id="prov_id" name="prov_id" required>
 
@@ -117,9 +121,5 @@ $isLoggedIn = isset($_SESSION['username']);
             }
         }
     </script>
-    
-    
-
 </body>
-
 </html>

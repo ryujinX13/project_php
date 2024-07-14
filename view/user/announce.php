@@ -55,11 +55,12 @@ $isLoggedIn = isset($_SESSION['username']);
                 die("Connection failed: " . $conn->connect_error);
             }
 
-            $sql = "SELECT Ajob_opening, Ajob_closing, Ajob_details FROM job_announcement WHERE Ajob_id=1";
+            $sql = "SELECT Ajob_id, Ajob_opening, Ajob_closing, Ajob_details FROM job_announcement WHERE Ajob_id=1";
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
+                    $Ajob_id = $row["Ajob_id"];
                     $Ajob_opening = $row["Ajob_opening"];
                     $Ajob_closing = $row["Ajob_closing"];
                     $Ajob_details = $row["Ajob_details"];
@@ -78,7 +79,7 @@ $isLoggedIn = isset($_SESSION['username']);
                 <div class="image">
                     <img src="../../img/04.jpg" alt="Logo">
                     <?php if (!$isClosed): ?>
-                        <a href="../user/applyProvider.php">
+                        <a href="../user/applyProvider.php?ajob_id=<?php echo $Ajob_id; ?>">
                             <button class="apply-button">คลิกเพื่อสมัคร</button>
                         </a>
                     <?php endif; ?>
