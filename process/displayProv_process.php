@@ -53,11 +53,18 @@
                 <th>จัดการ</th>
             </tr>";
         while ($row = $result->fetch_assoc()) {
+            $prov_train_status = 'ยังไม่เข้ารับการอบรม';
+            if ($row['Prov_train'] === '0') {
+                $prov_train_status = 'ไม่ผ่านการอบรม';
+            } elseif ($row['Prov_train'] === '1') {
+                $prov_train_status = 'ผ่านการอบรม';
+            }
+
             echo "<tr id='row-" . $row['Prov_id'] . "'>";
             echo "<td>" . $row['Prov_id'] . "</td>";
             echo "<td>" . $row['Prov_name'] . "</td>";
             echo "<td>" . $row['Prov_datejob'] . "</td>";
-            echo "<td>" . $row['Prov_train'] . "</td>";
+            echo "<td>" . $prov_train_status . "</td>";
             echo "<td>" . $row['Prov_email'] . "</td>";
             echo "<td>" . $row['Prov_phone'] . "</td>";
             echo "<td>
