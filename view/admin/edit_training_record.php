@@ -79,10 +79,12 @@ $conn->close();
     <h2>แก้ไขข้อมูลการฝึกอบรม</h2>
     <form method="post">
         <input type="hidden" name="Training_id" value="<?php echo htmlspecialchars($training['Training_id']); ?>">
+        รหัสผู้ให้บริการ: <span><?php echo htmlspecialchars($training['Prov_id']); ?></span>
+        <input type="hidden" name="Prov_id" value="<?php echo htmlspecialchars($training['Prov_id']); ?>"><br>
+        รหัสงาน: <span><?php echo htmlspecialchars($training['Ajob_id']); ?></span>
+        <input type="hidden" name="Ajob_id" value="<?php echo htmlspecialchars($training['Ajob_id']); ?>"><br>
         วันที่ฝึกอบรม: <input type="date" name="Training_date" value="<?php echo htmlspecialchars($training['Training_date']); ?>"><br>
-        รหัสผู้ให้บริการ: <input type="text" name="Prov_id" value="<?php echo htmlspecialchars($training['Prov_id']); ?>" readonly><br>
-        รหัสงาน: <input type="text" name="Ajob_id" value="<?php echo htmlspecialchars($training['Ajob_id']); ?>" readonly><br>
-        เวลาฝึกอบรม: <input type="number" name="training_time" value="<?php echo htmlspecialchars(isset($training['Training_time']) ? $training['Training_time'] : ''); ?>"><br>
+        เวลาฝึกอบรม: <input type="number" name="training_time" value="<?php echo htmlspecialchars($training['Training_time']); ?>"><br>
         <input type="submit" value="บันทึก">
     </form>
 </body>

@@ -48,19 +48,20 @@ $result = $conn->query($sql);
     <table>
         <tr>
             <th>รหัสการฝึกอบรม</th>
-            <th>วันที่เข้ารับการฝึกอบรม</th>
             <th>รหัสพนักงาน</th>
             <th>เลขที่ใบสมัคร</th>
-            <th>เวลาฝึกอบรม</th>
+            <th>รายละเอียดการฝึกอบรม</th>
             <th>การดำเนินการ</th>
         </tr>
         <?php while($row = $result->fetch_assoc()) { ?>
         <tr>
             <td><?php echo htmlspecialchars($row['Training_id']); ?></td>
-            <td><?php echo htmlspecialchars($row['Training_date']); ?></td>
             <td><?php echo htmlspecialchars($row['Prov_id']); ?></td>
             <td><?php echo htmlspecialchars($row['Ajob_id']); ?></td>
-            <td><?php echo htmlspecialchars($row['Training_time']); ?></td>
+            <td>
+                วันที่: <?php echo htmlspecialchars($row['Training_date']); ?><br>
+                เวลาฝึกอบรม: <?php echo htmlspecialchars($row['Training_time']); ?> ชั่วโมง
+            </td>
             <td><a href="edit_training_record.php?training_id=<?php echo htmlspecialchars($row['Training_id']); ?>">แก้ไข</a></td>
         </tr>
         <?php } ?>
