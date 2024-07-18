@@ -2,7 +2,7 @@
 
 body {
     font-family: "Mitr", sans-serif;
-    background-color: #EEE0C9;
+    background-color: #8ab7cc94;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -11,7 +11,7 @@ body {
 .tab-bar {
     display: flex;
     align-items: center;
-    background-color: #96B6C5;
+    background-color:#8ab7cc;
     padding: 10px 0;
     justify-content: center;
 }

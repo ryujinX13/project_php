@@ -11,7 +11,7 @@ body {
     z-index: 10; /* Higher stacking order than .header */
     display: flex;
     align-items: center;
-    background-color: #96B6C5;
+    background-color: #8ab7cc;
     padding: 10px 0;
     justify-content: center;
 }
@@ -59,7 +59,7 @@ body {
 .header {
     background: url('../img/p3.png') no-repeat center center/cover;
     color: white;
-    height: 100vh;
+    height: 85vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -67,6 +67,7 @@ body {
     flex-direction: column;
     width: 100%;
     animation: moveBackground 20s infinite alternate;
+    overflow: hidden; /* ป้องกันการเลื่อนที่อาจเกิดขึ้น */
 }
 
 @keyframes moveBackground {
@@ -74,7 +75,7 @@ body {
     25% { background-position: top right; transform: scale(1.1); }
     50% { background-position: bottom right; transform: scale(1.2); }
     75% { background-position: bottom left; transform: scale(1.1); }
-    100% { background-position: top left; transform: scale(1); }
+    70% { background-position: top left; transform: scale(1); }
 }
 
 .header h1 {
@@ -87,6 +88,7 @@ body {
     font-size: 1.2em;
     margin-bottom: 30px;
     font-family: 'Mali', sans-serif;
+    
 }
 
 .header .btn {
@@ -105,12 +107,16 @@ body {
 .travel-fee-section {
     display: flex;
     align-items: center;
-    background-color: #96b6c57b;
-    padding: 20px;
+    background-color: #c7dce7;
+    padding: 70px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 40px;
     width: 100%;
+  
+}
+ul li{
+    font-size: 18px;
 }
 
 .about-section img,
@@ -125,7 +131,7 @@ body {
 .service-area-section .text-content,
 .travel-fee-section .text-content {
     flex: 1;
-    padding: 20px;
+    padding: 70px;
     text-align: center;
     font-family: 'Mali', sans-serif;
     
@@ -137,13 +143,14 @@ body {
     color: #000;
     margin-bottom: 20px;
     font-family: 'Mali', sans-serif;
+    
 }
 
 .about-section .text-content p,
 .service-area-section .text-content p,
 .travel-fee-section .text-content p {
     font-size: 1em;
-    color: #666;
+    color: #000000;
     font-family: 'Mali', sans-serif;
     
 }

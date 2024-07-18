@@ -24,7 +24,7 @@ if ($result->num_rows > 0) {
     echo "<script>window.location.href='../view/user/Homepage.php'</script>";
 } else {
     echo "<script>
-        alert('ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง');
+        alert('ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง กรุณาลองอีกครั้ง');
         window.location.href='../view/user/login.php';
     </script>";
 }

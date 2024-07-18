@@ -1,11 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&display=swap');
 
 body {
-    background: url('../../img/หมอก.jpg') no-repeat center center/cover;
-    font-family: "Mitr", sans-serif;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background: url('../../img/หญ้า1.jpg') no-repeat center center fixed; /* เพิ่มรูปภาพพื้นหลัง */
+    height: calc(100% - 10px); /* ความสูงของรูปพื้นหลังลดลงด้วยความสูงของแท็บบาร์ */
+    background-position: center 70%; /* ปรับตำแหน่งของพื้นหลังลงมาให้เห็นหน้าคนมากขึ้น */
 }
 
 .tab-bar {
@@ -17,9 +20,8 @@ body {
 }
 
 .tab-bar img {
-    height: 80px;
-    margin-right: auto;
-    margin-left: 20px;
+    height: 70px;
+    margin-right: 500px;
 }
 
 .tab-link {
@@ -36,10 +38,9 @@ body {
     background-color: #ccc;
     border-color: #bbb;
 }
-
 .tab-link.login {
     background-color: #F4CE14;
-    color: rgb(255, 252, 252);
+    color: black;
     border-radius: 10px;
 }
 
@@ -49,31 +50,23 @@ body {
     border-radius: 10px;
 }
 
-.tab-link.logout {
-    background-color: #F4CE14;
-    color: rgb(255, 255, 255);
-    border-radius: 10px;
-}
-
 .tab-link.login:hover,
 .tab-link.register:hover {
     background-color: #F4CE14;
     color: white;
 }
 
-
 .container {
-    max-width: 500px;
+    max-width: 600px;
     margin: 40px auto;
     background-color: #fff;
-    padding: 40px;
+    padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    position: relative;
 }
 
 h1 {
-    color: #0b0909;
+    color: #000000;
     text-align: center;
     margin-bottom: 20px;
     font-family: 'Mali', sans-serif;
@@ -104,13 +97,8 @@ select {
     box-sizing: border-box;
 }
 
-textarea {
-    resize: vertical;
-    height: 100px;
-}
-
 input[type="submit"] {
-    width: 40%;
+    width: 30%;
     background-color: #007bff;
     color: white;
     padding: 12px;
@@ -164,19 +152,3 @@ p a:hover {
     color: white;
 }
 
-.back-button {
-    display: flex;
-    align-items: center;
-    color: #007bff;
-    text-decoration: none;
-    font-weight: 500;
-    margin-bottom: 20px;
-}
-
-.back-button i {
-    margin-right: 10px;
-}
-
-.back-button:hover {
-    text-decoration: underline;
-}

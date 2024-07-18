@@ -8,7 +8,7 @@ body {
 .tab-bar {
     display: flex;
     align-items: center;
-    background-color: #96B6C5;
+    background-color: #8ab7cc;
     padding: 10px 20px;
     justify-content: space-between;
 }

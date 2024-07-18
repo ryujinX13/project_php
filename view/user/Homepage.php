@@ -34,10 +34,21 @@ $isLoggedIn = isset($_SESSION['username']);
                 <button class="tab-button dropdown-toggle" type="button" id="dropdownMenuButton">
                     <?php echo $_SESSION['username']; ?>
                 </button>
-                <div class="dropdown-menu" id="dropdownMenu">
-                    <a class="dropdown-item" href="account_details.php">รายละเอียดบัญชี</a>
-                    <a class="dropdown-item" href="../../process/logout.php">ล็อคเอ้าท์</a>
+                <div class="dropdown-menu" id="dropdownMenu" style="background-color: #f8f9fa; border-radius: 8px;">
+                    <a class="dropdown-item" href="account_details.php">
+                        <span style="margin-right: 8px;">🔍</span>รายละเอียดบัญชี
+                    </a>
+                    <a class="dropdown-item" href="รอหน้า">
+                        <span style="margin-right: 8px;">📅</span>รายการจอง
+                    </a>
+                    <a class="dropdown-item" href="รอหน้า">
+                        <span style="margin-right: 8px;">📜</span>ประวัติการจอง
+                    </a>
+                    <a class="dropdown-item" href="../../process/logout.php">
+                        <span style="margin-right: 8px;">🔓</span>ออกจากระบบ
+                    </a>
                 </div>
+
             </div>
         <?php else: ?>
             <a href="login_level.php" class="tab-link login">เข้าสู่ระบบ</a>
@@ -94,17 +105,17 @@ $isLoggedIn = isset($_SESSION['username']);
             <div class="row">
                 <div class="col-md-6">
                     <ul>
-                        <li class="service-package">แพคเกจคลินิกนอกเวลา 4ชม./400฿ (เริ่ม16.00-20.00น.)</li>
+                        <li class="service-package">แพคเกจคลินิกนอกเวลา 4ชม./400บาท (เริ่ม16.00-20.00น.)</li>
                         <li class="service-package">แพคเกจครึ่งเช้า 6 ชั่วโมง/ 500 บาท (เริ่ม 07.00-13.00 น.)</li>
                         <li class="service-package">แพคเกจครึ่งเช้า 8 ชั่วโมง/ 600 บาท (เริ่ม 07.00-15.00 น.)</li>
-                        <li class="service-package">แพคเกจทั้งวัน 10 ชั่วโมง/ 700฿ (เริ่ม 07.00-17.00น.)</li>
+                        <li class="service-package">แพคเกจทั้งวัน 10 ชั่วโมง/ 700บาท (เริ่ม 07.00-17.00น.)</li>
                     </ul>
                 </div>
                 <div class="col-md-6">
                     <ul>
-                        <li class="service-package">แพคเกจ เวรนอนเฝ้าไข้ 12 ชั่วโมง 600฿ (19.00-07.00 น.)</li>
-                        <li class="service-package">แพคเกจ เวรนอนเฝ้าไข้ 24 ชั่วโมง 1,000฿ (19.00-19.00น.)</li>
-                        <li class="service-package">เกินนั้นคิดชั่วโมงละ 100฿</li>
+                        <li class="service-package">แพคเกจ เวรนอนเฝ้าไข้ 12 ชั่วโมง 600บาท (19.00-07.00 น.)</li>
+                        <li class="service-package">แพคเกจ เวรนอนเฝ้าไข้ 24 ชั่วโมง 1,000บาท (19.00-19.00น.)</li>
+                        <li class="service-package">เกินนั้นคิดชั่วโมงละ 100บาท</li>
                     </ul>
                 </div>
             </div>
@@ -117,10 +128,10 @@ $isLoggedIn = isset($_SESSION['username']);
                 </div>
                 <div class="col-md-6 order-md-1">
                     <ul>
-                        <li class="service-package">ระยะทางไม่เกิน 10 กม.แรก เหมาจ่าย 300฿ (รับและส่ง)</li>
-                        <li class="service-package">ระยะทางเกิน 10 กม. คิด 10กม.แรก 300฿ หลังจากนั้นจะคิด กม.ละ 5 ฿</li>
-                        <li class="service-package">การนับระยะทาง เริ่มจาก ขับรถไปรับที่บ้าน- ไปรพ ส่งกลับบ้าน- ขับรถกลับ</li>
-                        <li class="service-package">***หากต้องเสียค่าที่จอดรถ คนไข้เป็นผู้จ่าย</li>
+                        <li class="service-package">-ระยะทางไม่เกิน 10 กม.แรก เหมาจ่าย 300 บาท (รับและส่ง)</li>
+                        <li class="service-package">-ระยะทางเกิน 10 กม. คิด 10กม.แรก 300บาท<br> หลังจากนั้นจะคิด กม.ละ 5 บาท</li>
+                        <li class="service-package">-การนับระยะทาง เริ่มจาก ขับรถไปรับที่บ้าน-ไปโรงพยาบาล <br>ส่งกลับบ้าน- ขับรถกลับ</li>
+                        <li class="service-package">-หากต้องเสียค่าที่จอดรถ คนไข้เป็นผู้จ่าย</li>
                     </ul>
                 </div>
                 
@@ -132,23 +143,36 @@ $isLoggedIn = isset($_SESSION['username']);
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-        document.getElementById('dropdownMenuButton').addEventListener('click', function () {
-            var dropdownMenu = document.getElementById('dropdownMenu');
-            dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
-        });
+       document.getElementById('dropdownMenuButton').addEventListener('click', function () {
+                var dropdownMenu = document.getElementById('dropdownMenu');
+                dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
 
-        // Close the dropdown menu if the user clicks outside of it
-        window.onclick = function(event) {
-            if (!event.target.matches('.dropdown-toggle')) {
-                var dropdowns = document.getElementsByClassName("dropdown-menu");
-                for (var i = 0; i < dropdowns.length; i++) {
-                    var openDropdown = dropdowns[i];
-                    if (openDropdown.style.display === 'block') {
-                        openDropdown.style.display = 'none';
+                // Check if the dropdown menu is out of the viewport
+                const rect = dropdownMenu.getBoundingClientRect();
+                const windowWidth = window.innerWidth;
+
+                if (rect.right > windowWidth) {
+                    dropdownMenu.style.right = 'auto';
+                    dropdownMenu.style.right = '0';
+                } else {
+                    dropdownMenu.style.right = '0';
+                    dropdownMenu.style.right = 'auto';
+                }
+            });
+
+            // Close the dropdown menu if the user clicks outside of it
+            window.onclick = function(event) {
+                if (!event.target.matches('.tab-button')) {
+                    var dropdowns = document.getElementsByClassName("dropdown-menu");
+                    for (var i = 0; i < dropdowns.length; i++) {
+                        var openDropdown = dropdowns[i];
+                        if (openDropdown.style.display === 'block') {
+                            openDropdown.style.display = 'none';
+                        }
                     }
                 }
             }
-        }
+
     </script>
 
 </body>

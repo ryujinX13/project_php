@@ -4,19 +4,23 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background: url('../../img/พยาบาล.jpg') no-repeat center center/cover;
+    background-size: 100%;
+    background-position: center 5%; /* ปรับตำแหน่งของพื้นหลังลงมาให้เห็นหน้าคนมากขึ้น */
+    
 }
 
 .tab-bar {
     display: flex;
     align-items: center;
-    background-color: #96B6C5;
-    padding: 20px 20px; /* เพิ่ม padding */
+    background-color: #8ab7cc;
+    padding: 20px 20px;
     justify-content: center;
-    height: 100px; /* กำหนดความสูง */
+    height: 110px;
 }
 
 .tab-bar img {
-    height: 90px; /* กำหนดความสูงของรูปภาพ */
+    height: 100px; /* กำหนดความสูงของรูปภาพ */
     margin-left: 50px; /* เพิ่ม margin-left เพื่อขยับรูปไปทางซ้าย */
 }
 
@@ -49,32 +53,32 @@ body {
 }
 
 .login-container {
-    background-color: #F5F7F8;
-    width: 600px;
+    background-color: #f1f0e8cd;
+    width: 480px;
     padding: 40px;
     margin-right: 20px;
     border-radius: 10px;
 }
 
-h2 {
+h3 {
+    
     text-align: center;
+    font-family: 'Mali', sans-serif;
+    color: #000000;
+    
 }
 
-.login-image {
-    width: 600px;
-    padding: 30px;
-    margin-right: 20px;
-    border-radius: 30px;
-}
+
 
 input[type="text"],
 input[type="password"] {
-    width: calc(100% - 40px);
+    width: calc(100% - 10px);
     padding: 12px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 10px;
     background-color: #f8f8f8;
+    
 }
 
 input[type="submit"] {
