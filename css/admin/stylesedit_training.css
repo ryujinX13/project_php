@@ -33,6 +33,7 @@ body {
     background-color: #ccc;
     border-color: #bbb;
 }
+
 .dropdown {
     position: relative;
     display: inline-block;
@@ -79,48 +80,50 @@ body {
     color: white;
 }
 
-
 .container {
-    max-width: 1200px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #fff;
+    background: white;
+    padding: 30px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin: 50px auto;
     text-align: center;
 }
 
-h2 {
-    color: #007bff;
-}
-
-p {
-    font-size: 16px;
+h1 {
+    text-align: center;
     color: #333;
 }
 
-.button-container {
-    margin-top: 20px;
+label {
+    display: block;
+    margin: 10px 0 5px;
+    color: #555;
+}
+
+input[type="date"], input[type="number"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+button {
+    width: calc(100px - 22px);
+    padding: 10px;
+    margin: 20px auto 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    background-color: #5cb85c;
+    color: white;
+    cursor: pointer;
+    display: block;
     text-align: center;
 }
 
-.button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 20px;
-    margin: 5px;
-    transition: background-color 0.3s ease;
-}
 
-.button:hover {
-    background-color: #0056b3;
-}
-
-/* Dropdown JavaScript */
-#dropdownMenuButton:focus + .dropdown-menu,
-.dropdown-menu:hover {
-    display: block;
+button:hover {
+    background-color: #4cae4c;
 }

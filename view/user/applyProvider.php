@@ -36,9 +36,19 @@ $ajob_id = isset($_GET['ajob_id']) ? $_GET['ajob_id'] : '';
                 <button class="tab-button dropdown-toggle" type="button" id="dropdownMenuButton">
                     <?php echo $_SESSION['username']; ?>
                 </button>
-                <div class="dropdown-menu" id="dropdownMenu">
-                    <a class="dropdown-item" href="account_details.php">รายละเอียดบัญชี</a>
-                    <a class="dropdown-item" href="../../process/logout.php">ล็อคเอ้าท์</a>
+                <div class="dropdown-menu" id="dropdownMenu" style="background-color: #f8f9fa; border-radius: 8px;">
+                    <a class="dropdown-item" href="account_details.php">
+                        <span style="margin-right: 8px;">🔍</span>รายละเอียดบัญชี
+                    </a>
+                    <a class="dropdown-item" href="รอหน้า">
+                        <span style="margin-right: 8px;">📅</span>รายการจอง
+                    </a>
+                    <a class="dropdown-item" href="รอหน้า">
+                        <span style="margin-right: 8px;">📜</span>ประวัติการจอง
+                    </a>
+                    <a class="dropdown-item" href="../../process/logout.php">
+                        <span style="margin-right: 8px;">🔓</span>ออกจากระบบ
+                    </a>
                 </div>
             </div>
         <?php else: ?>
@@ -103,23 +113,39 @@ $ajob_id = isset($_GET['ajob_id']) ? $_GET['ajob_id'] : '';
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-        document.getElementById('dropdownMenuButton').addEventListener('click', function () {
-            var dropdownMenu = document.getElementById('dropdownMenu');
-            dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
-        });
+       document.getElementById('dropdownMenuButton').addEventListener('click', function () {
+                var dropdownMenu = document.getElementById('dropdownMenu');
+                dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
 
-        // Close the dropdown menu if the user clicks outside of it
-        window.onclick = function(event) {
-            if (!event.target.matches('.dropdown-toggle')) {
-                var dropdowns = document.getElementsByClassName("dropdown-menu");
-                for (var i = 0; i < dropdowns.length; i++) {
-                    var openDropdown = dropdowns[i];
-                    if (openDropdown.style.display === 'block') {
-                        openDropdown.style.display = 'none';
+                // Check if the dropdown menu is out of the viewport
+                const rect = dropdownMenu.getBoundingClientRect();
+                const windowWidth = window.innerWidth;
+
+                if (rect.right > windowWidth) {
+                    dropdownMenu.style.left = 'auto';
+                    dropdownMenu.style.right = '0';
+                } else if (rect.left < 0) {
+                    dropdownMenu.style.left = '0';
+                    dropdownMenu.style.right = 'auto';
+                } else {
+                    dropdownMenu.style.left = '0';
+                    dropdownMenu.style.right = 'auto';
+                }
+            });
+
+            // Close the dropdown menu if the user clicks outside of it
+            window.onclick = function(event) {
+                if (!event.target.matches('.tab-button')) {
+                    var dropdowns = document.getElementsByClassName("dropdown-menu");
+                    for (var i = 0; i < dropdowns.length; i++) {
+                        var openDropdown = dropdowns[i];
+                        if (openDropdown.style.display === 'block') {
+                            openDropdown.style.display = 'none';
+                        }
                     }
                 }
             }
-        }
+
     </script>
 </body>
 </html>

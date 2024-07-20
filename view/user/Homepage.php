@@ -152,10 +152,13 @@ $isLoggedIn = isset($_SESSION['username']);
                 const windowWidth = window.innerWidth;
 
                 if (rect.right > windowWidth) {
+                    dropdownMenu.style.left = 'auto';
+                    dropdownMenu.style.right = '0';
+                } else if (rect.left < 0) {
+                    dropdownMenu.style.left = '0';
                     dropdownMenu.style.right = 'auto';
-                    dropdownMenu.style.right = '0';
                 } else {
-                    dropdownMenu.style.right = '0';
+                    dropdownMenu.style.left = '0';
                     dropdownMenu.style.right = 'auto';
                 }
             });

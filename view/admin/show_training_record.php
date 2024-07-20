@@ -18,26 +18,46 @@ $result = $conn->query($sql);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../../css/admin/styles_showtraining.css">
     <title>Training Record</title>
-    <style>
-        table, th, td {
-            border: 1px solid black;
-            border-collapse: collapse;
-            padding: 8px;
-        }
-    </style>
+   
 </head>
 <body>
-    <h1>Training Records</h1>
+<div class="tab-bar">
+        <img src="../../img/logo1.png" alt="Logo">
+        <a href="admin_dashboard.php" class="tab-link">หน้าแรก</a>
+        <a href="prov_display.php" class="tab-link">ข้อมูลพนักงาน</a>
+        <a href="booking_list.html" class="tab-link">การอบรม</a>
+        <a href="history.html" class="tab-link">รายงาน</a>
+        <a href="edit_announce.php" class="tab-link">ประกาศรับสมัครงาน</a>
+        <div class="dropdown">
+            <button class="tab-button dropdown-toggle" type="button" id="dropdownMenuButton">
+                <?php echo $_SESSION['admin_username']; ?>
+            </button>
+            <div class="dropdown-menu" id="dropdownMenu"style="background-color: #f8f9fa; border-radius: 8px;"> 
+                    <a class="dropdown-item" href="account_details.php">
+                        <span style="margin-right: 8px;">🔍</span>รายละเอียดบัญชี
+                    </a>
+                    <a class="dropdown-item" href="../../process/logout.php">
+                        <span style="margin-right: 8px;">🔓</span>ออกจากระบบ
+                    </a>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="container">
+    <h1>บันทึกการอบรม</h1>
     <table>
         <thead>
             <tr>
-                <th>Training ID</th>
-                <th>Training Date</th>
-                <th>Ajob ID</th>
-                <th>Training Time</th>
-                <th>Prov ID</th>
-                <th>Actions</th>
+                <th>รหัสบันทึกการอบรม</th>
+                <th>วันที่อบรม</th>
+                <th>เลขที่ใบสมัคร</th>
+                <th>เวลาอบรม</th>
+                <th>รหัสบัตรประชาชน</th>
+                <th>แก้ไข</th>
             </tr>
         </thead>
         <tbody>
@@ -51,12 +71,13 @@ $result = $conn->query($sql);
                         <td>{$row['Training_time']}</td>
                         <td>{$row['Prov_id']}</td>
                         <td>
+                        
                             <form method='post' action='edit_training_record.php'>
                                 <input type='hidden' name='Training_id' value='{$row['Training_id']}'>
                                 <input type='hidden' name='Training_date' value='{$row['Training_date']}'>
                                 <input type='hidden' name='Training_time' value='{$row['Training_time']}'>
                                 <input type='hidden' name='Prov_id' value='{$row['Prov_id']}'> <!-- เพิ่มฟิลด์นี้ -->
-                                <button type='submit'>Edit</button>
+                                <button type='submit'>✏️</button>
                             </form>
                         </td>
                     </tr>";
@@ -66,5 +87,42 @@ $result = $conn->query($sql);
             ?>
         </tbody>
     </table>
+    </div>
+
+    <script>
+       document.getElementById('dropdownMenuButton').addEventListener('click', function () {
+                var dropdownMenu = document.getElementById('dropdownMenu');
+                dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+
+                // Check if the dropdown menu is out of the viewport
+                const rect = dropdownMenu.getBoundingClientRect();
+                const windowWidth = window.innerWidth;
+
+                if (rect.right > windowWidth) {
+                    dropdownMenu.style.left = 'auto';
+                    dropdownMenu.style.right = '0';
+                } else if (rect.left < 0) {
+                    dropdownMenu.style.left = '0';
+                    dropdownMenu.style.right = 'auto';
+                } else {
+                    dropdownMenu.style.left = '0';
+                    dropdownMenu.style.right = 'auto';
+                }
+            });
+
+            // Close the dropdown menu if the user clicks outside of it
+            window.onclick = function(event) {
+                if (!event.target.matches('.tab-button')) {
+                    var dropdowns = document.getElementsByClassName("dropdown-menu");
+                    for (var i = 0; i < dropdowns.length; i++) {
+                        var openDropdown = dropdowns[i];
+                        if (openDropdown.style.display === 'block') {
+                            openDropdown.style.display = 'none';
+                        }
+                    }
+                }
+            }
+
+    </script>
 </body>
 </html>

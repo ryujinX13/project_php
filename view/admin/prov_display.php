@@ -47,7 +47,7 @@ $isAdminLoggedIn = isset($_SESSION['admin_username']);
 </div>
 
 <script>
- document.getElementById('dropdownMenuButton').addEventListener('click', function () {
+       document.getElementById('dropdownMenuButton').addEventListener('click', function () {
                 var dropdownMenu = document.getElementById('dropdownMenu');
                 dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
 
@@ -56,10 +56,13 @@ $isAdminLoggedIn = isset($_SESSION['admin_username']);
                 const windowWidth = window.innerWidth;
 
                 if (rect.right > windowWidth) {
+                    dropdownMenu.style.left = 'auto';
+                    dropdownMenu.style.right = '0';
+                } else if (rect.left < 0) {
+                    dropdownMenu.style.left = '0';
                     dropdownMenu.style.right = 'auto';
-                    dropdownMenu.style.right = '0';
                 } else {
-                    dropdownMenu.style.right = '0';
+                    dropdownMenu.style.left = '0';
                     dropdownMenu.style.right = 'auto';
                 }
             });
@@ -76,6 +79,7 @@ $isAdminLoggedIn = isset($_SESSION['admin_username']);
                     }
                 }
             }
-</script>
+
+    </script>
 </body>
 </html>

@@ -14,14 +14,15 @@ body {
 .tab-bar {
     display: flex;
     align-items: center;
-    background-color: #96B6C5;
+    background-color: #8ab7cc;
     padding: 10px 0;
     justify-content: center;
 }
 
 .tab-bar img {
-    height: 70px;
-    margin-right: 500px;
+    height: 80px;
+    margin-right: auto;
+    margin-left: 20px;
 }
 
 .tab-link {
@@ -38,15 +39,22 @@ body {
     background-color: #ccc;
     border-color: #bbb;
 }
+
 .tab-link.login {
     background-color: #F4CE14;
-    color: black;
+    color: rgb(255, 252, 252);
     border-radius: 10px;
 }
 
 .tab-link.register {
     background-color: #007bff;
     color: white;
+    border-radius: 10px;
+}
+
+.tab-link.logout {
+    background-color: #F4CE14;
+    color: rgb(255, 255, 255);
     border-radius: 10px;
 }
 

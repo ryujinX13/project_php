@@ -22,9 +22,13 @@ session_start();
             <button class="tab-button dropdown-toggle" type="button" id="dropdownMenuButton">
                 <?php echo $_SESSION['admin_username']; ?>
             </button>
-            <div class="dropdown-menu" id="dropdownMenu">
-                <a class="dropdown-item" href="admin_account_details.php">รายละเอียดบัญชี</a>
-                <a class="dropdown-item" href="../../process/logout.php">ล็อคเอ้าท์</a>
+            <div class="dropdown-menu" id="dropdownMenu"style="background-color: #f8f9fa; border-radius: 8px;"> 
+                    <a class="dropdown-item" href="account_details.php">
+                        <span style="margin-right: 8px;">🔍</span>รายละเอียดบัญชี
+                    </a>
+                    <a class="dropdown-item" href="../../process/logout.php">
+                        <span style="margin-right: 8px;">🔓</span>ออกจากระบบ
+                    </a>
             </div>
         </div>
     </div>
@@ -38,23 +42,39 @@ session_start();
         </form>
     </div>
     <script>
-        document.getElementById('dropdownMenuButton').addEventListener('click', function () {
-            var dropdownMenu = document.getElementById('dropdownMenu');
-            dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
-        });
+       document.getElementById('dropdownMenuButton').addEventListener('click', function () {
+                var dropdownMenu = document.getElementById('dropdownMenu');
+                dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
 
-        // Close the dropdown menu if the user clicks outside of it
-        window.onclick = function (event) {
-            if (!event.target.matches('.dropdown-toggle')) {
-                var dropdowns = document.getElementsByClassName("dropdown-menu");
-                for (var i = 0; i < dropdowns.length; i++) {
-                    var openDropdown = dropdowns[i];
-                    if (openDropdown.style.display === 'block') {
-                        openDropdown.style.display = 'none';
+                // Check if the dropdown menu is out of the viewport
+                const rect = dropdownMenu.getBoundingClientRect();
+                const windowWidth = window.innerWidth;
+
+                if (rect.right > windowWidth) {
+                    dropdownMenu.style.left = 'auto';
+                    dropdownMenu.style.right = '0';
+                } else if (rect.left < 0) {
+                    dropdownMenu.style.left = '0';
+                    dropdownMenu.style.right = 'auto';
+                } else {
+                    dropdownMenu.style.left = '0';
+                    dropdownMenu.style.right = 'auto';
+                }
+            });
+
+            // Close the dropdown menu if the user clicks outside of it
+            window.onclick = function(event) {
+                if (!event.target.matches('.tab-button')) {
+                    var dropdowns = document.getElementsByClassName("dropdown-menu");
+                    for (var i = 0; i < dropdowns.length; i++) {
+                        var openDropdown = dropdowns[i];
+                        if (openDropdown.style.display === 'block') {
+                            openDropdown.style.display = 'none';
+                        }
                     }
                 }
             }
-        }
+
     </script>
 </body>
 
