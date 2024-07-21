@@ -29,7 +29,7 @@ if (!isset($_SESSION['admin_username'])) {
                 <?php echo $_SESSION['admin_username']; ?>
             </button>
             <div class="dropdown-menu" id="dropdownMenu"style="background-color: #f8f9fa; border-radius: 8px;"> 
-                    <a class="dropdown-item" href="account_details.php">
+                    <a class="dropdown-item" href="account_admin.php">
                         <span style="margin-right: 8px;">🔍</span>รายละเอียดบัญชี
                     </a>
                     <a class="dropdown-item" href="../../process/logout.php">
