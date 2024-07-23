@@ -59,7 +59,6 @@
 
         $appoin_id = generateAppoinId($conn);
 
-        // คำสั่ง SQL เพื่อเพิ่มข้อมูลลงในตาราง appointment
         $sql = "INSERT INTO appointment (appoin_id, Prov_id, Appoin_date, Appoin_time) VALUES ('$appoin_id', '$Prov_id', '$appointment_date', '$appointment_time')";
 
         if ($conn->query($sql) === TRUE) {

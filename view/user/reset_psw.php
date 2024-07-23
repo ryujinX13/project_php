@@ -62,12 +62,11 @@ if (isset($_POST["reset"])) {
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="card">
-                        <div class="card-header">Reset Your Password</div>
+                        <div class="card-header">แก้ไขรหัสผ่านของคุณ</div>
                         <div class="card-body">
                             <form action="#" method="POST" name="login">
                                 <div class="form-group row">
-                                    <label for="password" class="col-md-4 col-form-label text-md-right">New
-                                        Password</label>
+                                    <label for="password" class="col-md-4 col-form-label text-md-right">รหัสผ่านใหม่</label>
                                     <div class="col-md-6">
                                         <input type="password" id="password" class="form-control" name="password"
                                             required autofocus>
@@ -76,7 +75,7 @@ if (isset($_POST["reset"])) {
                                 </div>
 
                                 <div class="col-md-6 offset-md-4">
-                                    <input type="submit" value="Reset" name="reset">
+                                    <input type="submit" value="แก้ไข" name="แก้ไข">
                                 </div>
                             </form>
                         </div>

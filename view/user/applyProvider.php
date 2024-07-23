@@ -1,11 +1,7 @@
 <?php
 // เริ่มเซสชัน
 session_start();
-
-// ตรวจสอบว่ามีการเข้าสู่ระบบหรือไม่
 $isLoggedIn = isset($_SESSION['username']);
-
-// รับค่า ajob_id จาก URL
 $ajob_id = isset($_GET['ajob_id']) ? $_GET['ajob_id'] : '';
 ?>
 
@@ -30,7 +26,6 @@ $ajob_id = isset($_GET['ajob_id']) ? $_GET['ajob_id'] : '';
         <a href="history.php" class="tab-link">ประวัติ</a>
         <a href="../user/announce.php" class="tab-link announce">สมัครงาน</a>
 
-        <!-- แสดงปุ่มตามสถานะการเข้าสู่ระบบ -->
         <?php if ($isLoggedIn): ?>
             <div class="dropdown">
                 <button class="tab-button dropdown-toggle" type="button" id="dropdownMenuButton">
@@ -117,7 +112,6 @@ $ajob_id = isset($_GET['ajob_id']) ? $_GET['ajob_id'] : '';
                 var dropdownMenu = document.getElementById('dropdownMenu');
                 dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
 
-                // Check if the dropdown menu is out of the viewport
                 const rect = dropdownMenu.getBoundingClientRect();
                 const windowWidth = window.innerWidth;
 
@@ -133,7 +127,6 @@ $ajob_id = isset($_GET['ajob_id']) ? $_GET['ajob_id'] : '';
                 }
             });
 
-            // Close the dropdown menu if the user clicks outside of it
             window.onclick = function(event) {
                 if (!event.target.matches('.tab-button')) {
                     var dropdowns = document.getElementsByClassName("dropdown-menu");

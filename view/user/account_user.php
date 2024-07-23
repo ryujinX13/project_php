@@ -88,8 +88,6 @@ $conn->close();
             <p><strong>อีเมล์:</strong> <?php echo htmlspecialchars($user['User_email']); ?></p>
             <p><strong>เบอร์โทรศัพท์:</strong> <?php echo htmlspecialchars($user['User_phone']); ?></p>
             <p><strong>สถานะการยืนยัน:</strong> <?php echo $user['User_status'] == 1 ? 'ยืนยันแล้ว' : 'ยังไม่ยืนยัน'; ?></p>
-            
-            <!-- ปุ่มแก้ไขข้อมูล -->
             <a href="edit_profile.php" class="edit-button">แก้ไขข้อมูล</a>
         </div>
     </div>

@@ -61,23 +61,23 @@ $conn->close();
     display: flex;
     align-items: center;
     background-color: #8ab7cc;
-    padding: 20px 20px; /* เพิ่ม padding */
+    padding: 20px 20px;
     justify-content: center;
-    height: 70px; /* กำหนดความสูง */
+    height: 70px;
 }
 
 .tab-bar img {
-    height: 100px; /* กำหนดความสูงของรูปภาพ */
-    margin-left: 50px; /* เพิ่ม margin-left เพื่อขยับรูปไปทางซ้าย */
+    height: 100px; 
+    margin-left: 50px; 
 }
 
 
 .back-button {
     position: absolute;
-    left: 10px; /* Adjust as necessary */
+    left: 10px; 
     background: none;
     border: none;
-    font-size: 3em; /* Adjust size as needed */
+    font-size: 3em;
     color: black;
     cursor: pointer;
     transition: color 0.3s ease, transform 0.3s ease;
@@ -135,7 +135,7 @@ $conn->close();
             background-color: #007bff;
             border: none;
             border-radius: 5px;
-            margin: 20px auto; /* This will center the button horizontally */
+            margin: 20px auto;
             transition: background-color 0.3s;
         }
 

@@ -1,7 +1,5 @@
 <?php
 session_start();
-
-// ตรวจสอบว่าผู้ใช้เข้าสู่ระบบหรือไม่
 $isLoggedIn = isset($_SESSION['username']);
 ?>
 
@@ -26,7 +24,6 @@ $isLoggedIn = isset($_SESSION['username']);
         <a href="history.php" class="tab-link">ประวัติการจอง</a>
         <a href="../user/announce.php" class="tab-link announce">สมัครงาน</a>
 
-        <!-- แสดงปุ่มตามสถานะการเข้าสู่ระบบ -->
         <?php if ($isLoggedIn): ?>
             <div class="dropdown">
                 <button class="tab-button dropdown-toggle" type="button" id="dropdownMenuButton">
@@ -149,7 +146,6 @@ $isLoggedIn = isset($_SESSION['username']);
                 var dropdownMenu = document.getElementById('dropdownMenu');
                 dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
 
-                // Check if the dropdown menu is out of the viewport
                 const rect = dropdownMenu.getBoundingClientRect();
                 const windowWidth = window.innerWidth;
 
@@ -165,7 +161,6 @@ $isLoggedIn = isset($_SESSION['username']);
                 }
             });
 
-            // Close the dropdown menu if the user clicks outside of it
             window.onclick = function(event) {
                 if (!event.target.matches('.tab-button')) {
                     var dropdowns = document.getElementsByClassName("dropdown-menu");

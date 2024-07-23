@@ -79,7 +79,7 @@ if (isset($_POST["recover"])) {
     } elseif ($fetch["User_status"] == 0) {
         echo "<script>
                 alert('Sorry, your account must verify first, before you recover your password!');
-                window.location.replace('index.php');
+                window.location.replace('otp_verification.php');
               </script>";
     } else {
         $token = bin2hex(random_bytes(50));
