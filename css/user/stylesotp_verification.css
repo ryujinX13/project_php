@@ -1,0 +1,121 @@
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Mali', sans-serif;
+}
+
+.tab-bar {
+    display: flex;
+    align-items: center;
+    background-color: #8ab7cc;
+    padding: 20px 20px;
+    justify-content: center;
+    height: 70px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    font-family: 'Mali', sans-serif;
+}
+
+.tab-bar img {
+    height: 100px; /* กำหนดความสูงของรูปภาพ */
+    margin-left: 50px; /* เพิ่ม margin-left เพื่อขยับรูปไปทางซ้าย */
+}
+
+.tab-bar h2 {
+    margin: 0;
+    color: black;
+    margin-bottom: 10px;
+    font-family: 'Mali', sans-serif;
+}
+
+.back-button {
+    position: absolute;
+    left: 10px;
+    background: none;
+    border: none;
+    font-size: 3em;
+    color: black;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
+    right: 90%;
+}
+
+.back-button:hover {
+    color: white;
+    transform: scale(1.1);
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    font-family: 'Mali', sans-serif;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+    font-family: 'Mali', sans-serif;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #000000;
+}
+
+input[type="text"] {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+input[type="submit"] {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+p {
+    margin-top: 20px;
+    color: #000000;
+    font-family: 'Mali', sans-serif;
+}
+
+a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-family: 'Mali', sans-serif;
+}
+
+a:hover {
+    text-decoration: underline;
+}

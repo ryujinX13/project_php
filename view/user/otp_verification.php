@@ -30,19 +30,14 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OTP Verification</title>
-    <link rel="stylesheet" type="text/css" href="../../css/user/stylesverification.css">
+    <link rel="stylesheet" type="text/css" href="../../css/user/stylesotp_verification.css">
 </head>
 
 <body>
     <div class="tab-bar">
-        <img src="../../img/logo1.png" alt="Logo">
-        <a href="../../index.php" class="tab-link">หน้าแรก</a>
-        <a href="select_provider.php" class="tab-link">การจอง</a>
-        <a href="booking_list.php" class="tab-link">รายการจอง</a>
-        <a href="history.php" class="tab-link">ประวัติ</a>
-        <a href="announce.php" class="tab-link">สมัครงาน</a>
-        <a href="login.php" class="tab-link login">เข้าสู่ระบบ</a>
-        <a href="register.php" class="tab-link register">ลงทะเบียน</a>
+    <button class="back-button" onclick="window.location.href='login_level.php'">⬅️</button>
+    <img src="../../img/logo1.png" alt="Logo" style="margin-left: 10px;">
+        
     </div>
     <div class="container">
         <h1>ยืนยันรหัส OTP</h1>
