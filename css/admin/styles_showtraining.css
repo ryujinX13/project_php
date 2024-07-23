@@ -4,80 +4,81 @@ body {
     margin: 0;
     padding: 0;
 }
-    .tab-bar {
-        display: flex;
-        align-items: center;
-        background-color: #8ab7cc;
-        padding: 10px 0;
-        justify-content: center;
-    }
-    
-    .tab-bar img {
-        height: 70px;
-        margin-right: auto;
-        margin-left: 20px;
-    }
-    
-    .tab-link {
-        padding: 10px 20px;
-        text-decoration: none;
-        color: black;
-        border: 1px solid transparent;
-        border-radius: 3px;
-        margin: 0 10px;
-        transition: background-color 0.3s, border-color 0.3s;
-    }
-    
-    .tab-link:hover {
-        background-color: #ccc;
-        border-color: #bbb;
-    }
-    
-    .dropdown {
-        position: relative;
-        display: inline-block;
-    }
-    
-    .dropdown .tab-button {
-        background-color: #F4CE14;
-        color: black;
-        border: none;
-        border-radius: 10px;
-        padding: 10px 20px;
-        margin: 0 10px;
-        cursor: pointer;
-        transition: background-color 0.3s;
-    }
-    
-    .dropdown .tab-button:hover {
-        background-color: #F4CE14;
-        color: white;
-    }
-    
-    .dropdown-menu {
-        display: none;
-        position: absolute;
-        background-color: #96B6C5;
-        border-radius: 10px;
-        padding: 10px;
-        z-index: 1;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-    }
-    
-    .dropdown-item {
-        color: black;
-        padding: 10px;
-        text-decoration: none;
-        display: block;
-        transition: background-color 0.3s;
-        border-radius: 5px;
-    }
-    
-    .dropdown-item:hover {
-        background-color: #F4CE14;
-        color: white;
-    }
+
+.tab-bar {
+    display: flex;
+    align-items: center;
+    background-color: #8ab7cc;
+    padding: 10px 0;
+    justify-content: center;
+}
+
+.tab-bar img {
+    height: 70px;
+    margin-right: auto;
+    margin-left: 20px;
+}
+
+.tab-link {
+    padding: 10px 20px;
+    text-decoration: none;
+    color: black;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    margin: 0 10px;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.tab-link:hover {
+    background-color: #ccc;
+    border-color: #bbb;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown .tab-button {
+    background-color: #F4CE14;
+    color: black;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.dropdown .tab-button:hover {
+    background-color: #F4CE14;
+    color: white;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #96B6C5;
+    border-radius: 10px;
+    padding: 10px;
+    z-index: 1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-item {
+    color: black;
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+}
+
+.dropdown-item:hover {
+    background-color: #F4CE14;
+    color: white;
+}
 .container {
     max-width: 1200px;
     margin: auto;
@@ -86,10 +87,12 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     margin-top: 40px;
+    
 }
 h1 {
     text-align: center;
-    color: #333;
+    color: #000000;
+    font-family: 'Mali', sans-serif;
 }
 table {
     width: 100%;
@@ -139,4 +142,15 @@ a:hover {
         font-weight: bold;
         text-align: left;
     }
+}
+button {
+    background: none; /* ลบพื้นหลังของปุ่ม */
+    border: none; /* ลบขอบของปุ่ม */
+    font-size: 16px; /* กำหนดขนาดตัวอักษรของอีโมจิ */
+    cursor: pointer; /* แสดงเคอร์เซอร์แบบ pointer เมื่อเลื่อนเมาส์เหนือปุ่ม */
+    padding: 0; /* ลบ padding ของปุ่ม */
+    
+}
+button:focus {
+    outline: none; /* ลบขอบเมื่อปุ่มถูกโฟกัส */
 }

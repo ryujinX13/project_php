@@ -49,56 +49,53 @@ $conn->close();
 <head>
     <meta charset="UTF-8">
     <title>รายละเอียดผู้ใช้งาน</title>
-    <style>
-        .user-detail {
-            border: 1px solid #ddd;
-            padding: 10px;
-            margin-bottom: 10px;
-        }
-
-        .user-detail img {
-            max-width: 100px;
-            height: auto;
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        .edit-button {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 10px 15px;
-            font-size: 14px;
-            text-align: center;
-            text-decoration: none;
-            color: #fff;
-            background-color: #007bff;
-            border: none;
-            border-radius: 5px;
-        }
-
-        .edit-button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Mali:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../../css/user/stylesaccount_user.css">
 </head>
 
 <body>
-    <h1>รายละเอียดผู้ใช้งาน</h1>
-    <div class="user-detail">
-        <img src="<?php echo htmlspecialchars($user['user_photo'] ? '../../uploads/' . $user['user_photo'] : '../../process/show_imageUser.php'); ?>" alt="รูปภาพของ <?php echo htmlspecialchars($user['User_name']); ?>">
-        <p><strong>รหัสบัตรประจำตัวประชาชน:</strong> <?php echo htmlspecialchars($user['User_id']); ?></p>
-        <p><strong>ชื่อผู้ใช้:</strong> <?php echo htmlspecialchars($user['User_Username']); ?></p>
-        <p><strong>ชื่อ-นามสกุล:</strong> <?php echo htmlspecialchars($user['User_name']); ?></p>
-        <p><strong>เพศ:</strong> <?php echo $user['User_gender'] == 0 ? 'ชาย' : 'หญิง'; ?></p>
-        <p><strong>วันเกิด:</strong> <?php echo htmlspecialchars($user['User_birthday']); ?></p>
-        <p><strong>ที่อยู่ปัจจุบัน:</strong> <?php echo htmlspecialchars($user['User_addressnow']); ?></p>
-        <p><strong>อีเมล์:</strong> <?php echo htmlspecialchars($user['User_email']); ?></p>
-        <p><strong>เบอร์โทรศัพท์:</strong> <?php echo htmlspecialchars($user['User_phone']); ?></p>
-        <p><strong>สถานะการยืนยัน:</strong> <?php echo $user['User_status'] == 1 ? 'ยืนยันแล้ว' : 'ยังไม่ยืนยัน'; ?></p>
+<div class="tab-bar">
+        <button class="back-button" onclick="window.location.href='../user/Homepage.php'">⬅️</button>
+        <img src="../../img/logo1.png" alt="Logo" style="margin-left: 10px;">
         
-        <!-- ปุ่มแก้ไขข้อมูล -->
-        <a href="edit_profile.php" class="edit-button">แก้ไขข้อมูล</a>
     </div>
-</body>
+    <div class="container d-flex">
+        <div class="menu-container">
+            <a href="../user/account_user.php" class="menu-item">
+                <span style="margin-right: 8px;">🔍</span>รายละเอียดบัญชี
+            </a>
+            <a href="#" class="menu-item active">
+                <span style="margin-right: 8px;">📅</span>รายการจอง
+            </a>
+            <a href="#" class="menu-item">
+                <span style="margin-right: 8px;">📜</span>ประวัติการจอง
+            </a>
+            <a href="../../process/logout.php" class="menu-item">
+                <span style="margin-right: 8px;">🔓</span>ออกจากระบบ
+            </a>
+            
+        </div>
+        <div class="profile-container ml-4">
+            <img src="<?php echo htmlspecialchars($user['user_photo'] ? '../../uploads/' . $user['user_photo'] : '../../process/show_imageUser.php'); ?>" alt="รูปภาพของ <?php echo htmlspecialchars($user['User_name']); ?>">
+            <h1>รายละเอียดผู้ใช้งาน</h1>
+            <p><strong>รหัสบัตรประจำตัวประชาชน:</strong> <?php echo htmlspecialchars($user['User_id']); ?></p>
+            <p><strong>ชื่อผู้ใช้:</strong> <?php echo htmlspecialchars($user['User_Username']); ?></p>
+            <p><strong>ชื่อ-นามสกุล:</strong> <?php echo htmlspecialchars($user['User_name']); ?></p>
+            <p><strong>เพศ:</strong> <?php echo $user['User_gender'] == 0 ? 'ชาย' : 'หญิง'; ?></p>
+            <p><strong>วันเกิด:</strong> <?php echo htmlspecialchars($user['User_birthday']); ?></p>
+            <p><strong>ที่อยู่ปัจจุบัน:</strong> <?php echo htmlspecialchars($user['User_addressnow']); ?></p>
+            <p><strong>อีเมล์:</strong> <?php echo htmlspecialchars($user['User_email']); ?></p>
+            <p><strong>เบอร์โทรศัพท์:</strong> <?php echo htmlspecialchars($user['User_phone']); ?></p>
+            <p><strong>สถานะการยืนยัน:</strong> <?php echo $user['User_status'] == 1 ? 'ยืนยันแล้ว' : 'ยังไม่ยืนยัน'; ?></p>
+            
+            <!-- ปุ่มแก้ไขข้อมูล -->
+            <a href="edit_profile.php" class="edit-button">แก้ไขข้อมูล</a>
+        </div>
+    </div>
 
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
 </html>

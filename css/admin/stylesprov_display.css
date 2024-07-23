@@ -91,12 +91,12 @@ body {
 }
 
 h2 {
-    color: #007bff;
+    color: #000000;
 }
 
 p {
     font-size: 16px;
-    color: #333;
+    color: #000000;
 }
 
 .button-container {

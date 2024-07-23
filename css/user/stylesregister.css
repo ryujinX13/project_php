@@ -160,3 +160,18 @@ p a:hover {
     color: white;
 }
 
+.back-button {
+    background: none;
+    border: none;
+    font-size: 2em;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+.back-button:focus {
+    outline: none;
+}
+.back-button:hover {
+    color: white;
+    transform: scale(1.1);
+}
+

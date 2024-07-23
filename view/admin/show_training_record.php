@@ -27,7 +27,7 @@ $result = $conn->query($sql);
         <img src="../../img/logo1.png" alt="Logo">
         <a href="admin_dashboard.php" class="tab-link">หน้าแรก</a>
         <a href="prov_display.php" class="tab-link">ข้อมูลพนักงาน</a>
-        <a href="booking_list.html" class="tab-link">การอบรม</a>
+        <a href="show_training_record.php" class="tab-link">การอบรม</a>
         <a href="history.html" class="tab-link">รายงาน</a>
         <a href="edit_announce.php" class="tab-link">ประกาศรับสมัครงาน</a>
         <div class="dropdown">

@@ -29,6 +29,9 @@
             <div class="forgot-password">
                 <a href="recover_psw.php">ลืมรหัสผ่าน?</a>
             </div>
+            <div class="register">
+                <a href="register.php">สร้างบัญชี</a>
+            </div>
         </div>
     </div>
 

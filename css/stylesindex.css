@@ -55,9 +55,12 @@ body {
     background-color: #e4b800;
     color: white;
 }
-
+.content{
+    margin: 80px;
+    margin-top: 20px;
+}
 .header {
-    background: url('../img/p3.png') no-repeat center center/cover;
+    background: url('../img/index.jpeg') no-repeat center center/cover;
     color: white;
     height: 85vh;
     display: flex;
@@ -70,12 +73,33 @@ body {
     overflow: hidden; /* ป้องกันการเลื่อนที่อาจเกิดขึ้น */
 }
 
+.header h1, .header p {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* เพิ่มเงาให้ตัวหนังสือ */
+    font-size: 2em; /* ขนาดตัวหนังสือใหญ่ขึ้น */
+    font-family: 'Mali', sans-serif; /* ใช้ฟ้อนต์ Mali */
+    margin: 0; /* ลบระยะห่างภายนอก */
+    padding: 10px 20px; /* เพิ่มระยะห่างภายใน */
+}
+
+/* เพิ่มขนาดตัวหนังสือเฉพาะหัวข้อ */
+.header h1 {
+    font-size: 3em;
+}
+
+/* เพิ่มขอบให้ตัวหนังสือเพื่อให้เด่นขึ้น */
+.header h1 {
+    -webkit-text-stroke: 1px rgba(1, 1, 1, 0.162); /* ขอบสีดำ */
+    
+}
+
+
+
 @keyframes moveBackground {
     0% { background-position: center center; transform: scale(1); }
     25% { background-position: top right; transform: scale(1.1); }
-    50% { background-position: bottom right; transform: scale(1.2); }
-    75% { background-position: bottom left; transform: scale(1.1); }
-    70% { background-position: top left; transform: scale(1); }
+    0% { background-position: bottom right; transform: scale(1.2); }
+    50% { background-position: bottom left; transform: scale(1.1); }
+    50% { background-position: top left; transform: scale(1); }
 }
 
 .header h1 {

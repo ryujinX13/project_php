@@ -55,6 +55,7 @@ $isLoggedIn = isset($_SESSION['username']);
     </div>
 
     <main>
+        
         <section class="announcement">
             <h1>ประกาศรับสมัครพนักงานให้บริการ</h1>
             <?php
@@ -88,7 +89,7 @@ $isLoggedIn = isset($_SESSION['username']);
             <p>เปิดรับสมัครตั้งแต่วันที่ <?php echo $Ajob_opening; ?> จนถึงวันที่ <?php echo $Ajob_closing; ?></p>
             <div class="content">
                 <div class="image">
-                    <img src="../../img/04.jpg" alt="Logo">
+                    <img src="../../img/img5.png" alt="Logo">
                     <?php if (!$isClosed): ?>
                         <a href="../user/applyProvider.php?ajob_id=<?php echo $Ajob_id; ?>">
                             <button class="apply-button">คลิกเพื่อสมัคร</button>

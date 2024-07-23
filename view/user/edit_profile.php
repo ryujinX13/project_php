@@ -50,6 +50,61 @@ $conn->close();
     <meta charset="UTF-8">
     <title>แก้ไขข้อมูลผู้ใช้งาน</title>
     <style>
+       body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+    .tab-bar {
+    display: flex;
+    align-items: center;
+    background-color: #8ab7cc;
+    padding: 20px 20px; /* เพิ่ม padding */
+    justify-content: center;
+    height: 70px; /* กำหนดความสูง */
+}
+
+.tab-bar img {
+    height: 100px; /* กำหนดความสูงของรูปภาพ */
+    margin-left: 50px; /* เพิ่ม margin-left เพื่อขยับรูปไปทางซ้าย */
+}
+
+
+.back-button {
+    position: absolute;
+    left: 10px; /* Adjust as necessary */
+    background: none;
+    border: none;
+    font-size: 3em; /* Adjust size as needed */
+    color: black;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.back-button:hover {
+    color: white;
+    transform: scale(1.1);
+}
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+            margin: auto;
+            margin-top: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
         .form-group {
             margin-bottom: 15px;
         }
@@ -57,20 +112,31 @@ $conn->close();
         .form-group label {
             display: block;
             margin-bottom: 5px;
+            color: #333;
         }
 
         .form-group input {
             width: 100%;
-            padding: 8px;
+            padding: 10px;
             box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
         }
 
         .form-group button {
-            padding: 10px 15px;
-            background-color: #007bff;
+            display: block;
+            width: 20%;
+            padding: 12px;
+            font-size: 16px;
+            text-align: center;
+            text-decoration: none;
             color: #fff;
+            background-color: #007bff;
             border: none;
             border-radius: 5px;
+            margin: 20px auto; /* This will center the button horizontally */
+            transition: background-color 0.3s;
         }
 
         .form-group button:hover {
@@ -79,31 +145,40 @@ $conn->close();
     </style>
 </head>
 <body>
-    <h1>แก้ไขข้อมูลผู้ใช้งาน</h1>
-    <form action="../../process/updateUser_profile.php" method="post" enctype="multipart/form-data">
-        <div class="form-group">
-            <label for="user_photo">รูปโปรไฟล์</label>
-            <input type="file" id="user_photo" name="user_photo" accept="image/*">
-        </div>
-        <div class="form-group">
-            <label for="User_birthday">วันเกิด</label>
-            <input type="date" id="User_birthday" name="User_birthday" value="<?php echo htmlspecialchars($user['User_birthday']); ?>">
-        </div>
-        <div class="form-group">
-            <label for="User_addressnow">ที่อยู่ปัจจุบัน</label>
-            <input type="text" id="User_addressnow" name="User_addressnow" value="<?php echo htmlspecialchars($user['User_addressnow']); ?>">
-        </div>
-        <div class="form-group">
-            <label for="User_phone">เบอร์โทรศัพท์</label>
-            <input type="text" id="User_phone" name="User_phone" value="<?php echo htmlspecialchars($user['User_phone']); ?>">
-        </div>
-        <div class="form-group">
-            <label for="User_password">รหัสผ่านใหม่</label>
-            <input type="password" id="User_password" name="User_password">
-        </div>
-        <div class="form-group">
-            <button type="submit">บันทึกการเปลี่ยนแปลง</button>
-        </div>
-    </form>
+
+<body>
+<div class="tab-bar">
+        <button class="back-button" onclick="window.location.href='../user/account_user.php'">⬅️</button>
+        <img src="../../img/logo1.png" alt="Logo" style="margin-left: 10px;">
+        
+    </div>
+    <div class="container">
+        <h1>แก้ไขข้อมูลผู้ใช้งาน</h1>
+        <form action="../../process/updateUser_profile.php" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="user_photo">รูปโปรไฟล์</label>
+                <input type="file" id="user_photo" name="user_photo" accept="image/*">
+            </div>
+            <div class="form-group">
+                <label for="User_birthday">วันเกิด</label>
+                <input type="date" id="User_birthday" name="User_birthday" value="<?php echo htmlspecialchars($user['User_birthday']); ?>">
+            </div>
+            <div class="form-group">
+                <label for="User_addressnow">ที่อยู่ปัจจุบัน</label>
+                <input type="text" id="User_addressnow" name="User_addressnow" value="<?php echo htmlspecialchars($user['User_addressnow']); ?>">
+            </div>
+            <div class="form-group">
+                <label for="User_phone">เบอร์โทรศัพท์</label>
+                <input type="text" id="User_phone" name="User_phone" value="<?php echo htmlspecialchars($user['User_phone']); ?>">
+            </div>
+            <div class="form-group">
+                <label for="User_password">รหัสผ่านใหม่</label>
+                <input type="password" id="User_password" name="User_password">
+            </div>
+            <div class="form-group">
+                <button type="submit">บันทึก</button>
+            </div>
+        </form>
+    </div>
 </body>
 </html>

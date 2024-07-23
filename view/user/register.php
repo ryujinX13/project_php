@@ -75,6 +75,7 @@ $conn->close();
 
 <body>
     <div class="tab-bar">
+        
         <img src="../../img/logo1.png" alt="Logo">
         <a href="../../index.php" class="tab-link">หน้าแรก</a>
         <a href="select_provider.php" class="tab-link">การจอง</a>
@@ -87,6 +88,9 @@ $conn->close();
     </div>
 
     <div class="container">
+        <div>
+        <button class="back-button" onclick="window.location.href='../../index.php'">⬅️</button>
+        </div>
         <h1>ลงทะเบียน</h1>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <label for="user_id">เลขบัตรประจำตัวประชาชน:</label>

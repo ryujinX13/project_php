@@ -134,3 +134,12 @@ input[type="submit"]:hover {
     font-family: 'Mali', sans-serif;
 }
 
+.register {
+    text-align: center;
+    margin-top: 10px;
+    font-family: 'Mali', sans-serif;
+}
+
+.register a:hover {
+    font-family: 'Mali', sans-serif;
+}

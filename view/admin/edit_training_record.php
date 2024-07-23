@@ -51,6 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <div class="container">
     <h1>แก้ไขการอบรม</h1>
+    
     <form method="post" action="../../process/save_training_record.php">
         <input type="hidden" name="Training_id" value="<?php echo $training_id; ?>">
         <input type="hidden" name="Prov_id" value="<?php echo $prov_id; ?>"> <!-- เพิ่มฟิลด์นี้ -->
@@ -59,6 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <label for="Training_time">แก้ไขชั่วโมงอบรม:</label>
         <input type="number" name="Training_time" id="Training_time" value="<?php echo $training_time; ?>"><br><br>
         <button type="submit">บันทึก</button>
+        <button class="back-button" onclick="window.history.back();">⬅️</button>
     </form>
     </div>
 

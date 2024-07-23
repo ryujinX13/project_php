@@ -74,7 +74,7 @@ if (isset($_GET['id'])) {
             <input type="date" id="Ajob_closing" name="Ajob_closing" value="<?php echo $row['Ajob_closing']; ?>" required>
             <label for="Ajob_details">รายละเอียด:</label>
             <textarea id="Ajob_details" name="Ajob_details" required><?php echo $row['Ajob_details']; ?></textarea>
-            <input type="submit" name="update" value="อัปเดต">
+            <input type="submit" name="update" value="บันทึก">
         </form>
     </div>
 

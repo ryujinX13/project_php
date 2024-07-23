@@ -33,11 +33,12 @@ if (isset($_SESSION['username'])) {
         <a href="view/user/register.php" class="tab-link register">ลงทะเบียน</a>
     </div>
     
+    <div class="content">
     <header class="header">
         <h1>ลูกหลานสำรองบริการพาผู้สูงอายุไปหาหมอ</h1>
         <p>บริการพาผู้สูงอายุไปหาหมอตามนัด หมดห่วงเรื่องการเดินทางและการดูแล</p>
         <a href="view/user/login_level.php" class="btn">เข้าสู่ระบบ</a>
-
+</div>
     </header>
 
     <div class="content-section">

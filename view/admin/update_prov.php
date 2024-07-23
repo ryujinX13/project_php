@@ -64,7 +64,7 @@ $conn->close();
 <html>
 
 <head>
-    <title>Provider Management</title>
+    <title>หน้าแก้ไขข้อมูล</title>
     <link rel="stylesheet" type="text/css" href="../../css/admin/stylesupdate_prov.css">
 </head>
 
@@ -92,7 +92,7 @@ $conn->close();
     </div>
 
     <div class="container">
-        <h2>อัปเดตผู้ให้บริการ</h2>
+        <h2>แก้ไขข้อมูล ผู้ให้บริการ</h2>
         <form method="post" action="../../process/updateProv_process.php">
             <label for="Prov_id">รหัสบัตรประชาชน:</label>
             <input type="text" name="Prov_id" value="<?php echo $Prov_id; ?>" readonly><br>
@@ -129,7 +129,7 @@ $conn->close();
             <input type="text" name="Prov_phone" value="<?php echo $Prov_phone; ?>"><br>
             <label for="Prov_study">วุฒิการศึกษา:</label>
             <input type="text" name="Prov_study" value="<?php echo $Prov_study; ?>"><br>
-            <input type="submit" value="อัปเดต">
+            <input type="submit" value="บันทึก">
         </form>
     </div>
     <script>
