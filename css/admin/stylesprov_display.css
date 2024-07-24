@@ -1,21 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&display=swap');
+
 body {
     font-family: "Mitr", sans-serif;
-    background-color: #f9f9f9;
+    line-height: 1.6;
+    background-color: #f5f5f5;
     margin: 0;
     padding: 0;
 }
 
 .tab-bar {
+    position: relative; 
+    z-index: 10; 
     display: flex;
     align-items: center;
     background-color: #8ab7cc;
     padding: 10px 0;
     justify-content: center;
+    font-family: "Mitr", sans-serif;
 }
 
 .tab-bar img {
-    height: 70px;
+    height: 80px;
     margin-right: auto;
     margin-left: 20px;
 }
@@ -34,6 +39,7 @@ body {
     background-color: #ccc;
     border-color: #bbb;
 }
+
 .dropdown {
     position: relative;
     display: inline-block;

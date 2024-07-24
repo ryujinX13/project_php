@@ -53,7 +53,7 @@ body {
 .menu-item {
     display: flex;
     align-items: center;
-    padding: 10px;
+    padding: 5px;
     margin-bottom: 10px;
     border-radius: 4px;
     text-decoration: none;

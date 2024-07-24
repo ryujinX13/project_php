@@ -71,6 +71,9 @@ $conn->close();
             <a href="#" class="menu-item">
                 <span style="margin-right: 8px;">📜</span>ประวัติการจอง
             </a>
+            <a href="#" class="menu-item">
+                <span style="margin-right: 8px;">📜</span>ข้อมูลหน่วยงาน
+            </a>
             <a href="../../process/logout.php" class="menu-item">
                 <span style="margin-right: 8px;">🔓</span>ออกจากระบบ
             </a>

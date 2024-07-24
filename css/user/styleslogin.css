@@ -24,21 +24,20 @@ body::before {
     z-index: -1; /* ทำให้พื้นหลังอยู่ข้างหลังเนื้อหา */
 }
 
-
-
 .tab-bar {
     display: flex;
     align-items: center;
     background-color: #8ab7cc;
-    padding: 20px 20px;
+    padding: 20px 20px; /* เพิ่ม padding */
     justify-content: center;
-    height: 70px;
+    height: 70px; /* กำหนดความสูง */
 }
 
 .tab-bar img {
     height: 100px; /* กำหนดความสูงของรูปภาพ */
     margin-left: 50px; /* เพิ่ม margin-left เพื่อขยับรูปไปทางซ้าย */
 }
+
 
 .tab-bar h2 {
     margin: 0;
@@ -71,11 +70,10 @@ body::before {
 
 .login-container {
     background-color: #f1f0e8cd;
-    width: 600px;
+    width: 600px; /* ลดความกว้างของ container */
     padding: 10px;
     margin-right: 20px;
     border-radius: 10px;
-    
 }
 
 h2 {
@@ -91,19 +89,29 @@ h2 {
     margin-bottom: 2px; /* ระยะห่างด้านล่าง */
 }
 
-input[type="text"],
-input[type="password"] {
-    width: calc(100% - 40px); /* เพิ่มค่าที่ตัดออกเพื่อลดความกว้าง */
+.form-input {
+    width: 90%; /* ปรับความกว้างเป็น 80% ของ container */
+    max-width: 500px; /* กำหนดความกว้างสูงสุด */
     padding: 12px;
     margin: 0 auto 10px; /* ช่วยให้ช่องกรอกข้อมูลตั้งตรงกลางและเพิ่มระยะห่างด้านล่าง */
     border: 1px solid #ccc;
     border-radius: 10px;
     background-color: #f8f8f8;
     font-family: "Mitr", sans-serif;
+    display: block; /* ทำให้ช่องกรอกข้อมูลเป็น block element */
 }
 
-input[type="submit"] {
-    width: 30%;
+/* เพิ่ม CSS สำหรับ label */
+label {
+    display: block;
+    margin-left: 40px; /* ขยับข้อความไปทางขวา */
+    margin-bottom: 5px; /* เพิ่มระยะห่างด้านล่าง */
+    font-family: "Mitr", sans-serif;
+}
+
+
+.submit-button {
+    width: 25%; /* ปรับความกว้างของปุ่ม */
     padding: 15px;
     background-color: #F4CE14;
     border: none;
@@ -114,9 +122,10 @@ input[type="submit"] {
     margin: 20px auto;
     transition: background-color 0.3s;
     font-family: "Mitr", sans-serif;
+    font-size: 1em;
 }
 
-input[type="submit"]:hover {
+.submit-button:hover {
     background-color: #006fb9;
 }
 
@@ -125,6 +134,7 @@ input[type="submit"]:hover {
     margin-top: 10px;
     font-family: "Mitr", sans-serif;
 }
+
 
 .forgot-password a {
     color: #007bff;

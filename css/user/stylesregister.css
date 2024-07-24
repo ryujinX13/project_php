@@ -74,10 +74,9 @@ body {
 }
 
 h1 {
-    color: #000000;
     text-align: center;
-    margin-bottom: 20px;
     font-family: "Mitr", sans-serif;
+    font-weight: 400; /* ลดความหนาตัวหนังสือ */
 }
 
 form {
@@ -115,6 +114,21 @@ input[type="submit"] {
     cursor: pointer;
     margin: 20px auto;
     transition: background-color 0.2s;
+}
+
+input[type="submit"] {
+    width: 20%;
+    padding: 15px;
+    background-color: #F4CE14;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto;
+    transition: background-color 0.3s;
+    font-size: 15px;
+    font-family: "Mitr", sans-serif;
 }
 
 input[type="submit"]:hover {

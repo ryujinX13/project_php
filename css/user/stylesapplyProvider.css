@@ -212,19 +212,17 @@ p a:hover {
 }
 
 .back-button {
-    display: flex;
-    align-items: center;
-    color: #007bff;
-    text-decoration: none;
-    font-weight: 500;
-    margin-bottom: 20px;
+    background: none;
+    border: none;
+    font-size: 2em;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
-
-.back-button i {
-    margin-right: 10px;
+.back-button:focus {
+    outline: none;
 }
-
 .back-button:hover {
-    text-decoration: underline;
+    color: white;
+    transform: scale(1.1);
 }
 

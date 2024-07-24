@@ -27,6 +27,7 @@ body {
     color: black;
     margin-bottom: 10px; /* เพิ่ม margin-bottom เพื่อระยะห่างกับปุ่ม */
 }
+
 .back-button {
     position: absolute;
     left: 10px; /* Adjust as necessary */
@@ -63,8 +64,6 @@ h2,h3 {
     text-align: center;
    
 }
-
-
 
 input[type="text"],
 input[type="password"] {

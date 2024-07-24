@@ -2,9 +2,10 @@
 
 body {
     font-family: "Mitr", sans-serif;
-    background-color: #f9f9f9;
+    background-color: #EEE0C9;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 .tab-bar {
@@ -16,7 +17,7 @@ body {
 }
 
 .tab-bar img {
-    height: 70px;
+    height: 80px;
     margin-right: auto;
     margin-left: 20px;
 }
@@ -81,6 +82,7 @@ body {
     background-color: #F4CE14;
     color: white;
 }
+
 .container {
     max-width: 1200px;
     margin: auto;

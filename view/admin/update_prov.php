@@ -65,6 +65,7 @@ $conn->close();
 
 <head>
     <title>หน้าแก้ไขข้อมูล</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../../css/admin/stylesupdate_prov.css">
 </head>
 
@@ -73,6 +74,7 @@ $conn->close();
         <img src="../../img/logo1.png" alt="Logo">
         <a href="admin_dashboard.php" class="tab-link">หน้าแรก</a>
         <a href="prov_display.php" class="tab-link">ข้อมูลพนักงาน</a>
+        <a href="edit_agency.php" class="tab-link">ข้อมูลหน่วยงาน</a>
         <a href="booking_list.html" class="tab-link">การอบรม</a>
         <a href="history.html" class="tab-link">รายงาน</a>
         <a href="announce.php" class="tab-link">ประกาศรับสมัครงาน</a>
@@ -132,6 +134,7 @@ $conn->close();
             <input type="submit" value="บันทึก">
         </form>
     </div>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
        document.getElementById('dropdownMenuButton').addEventListener('click', function () {
                 var dropdownMenu = document.getElementById('dropdownMenu');

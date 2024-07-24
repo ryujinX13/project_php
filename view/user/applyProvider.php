@@ -32,7 +32,7 @@ $ajob_id = isset($_GET['ajob_id']) ? $_GET['ajob_id'] : '';
                     <?php echo $_SESSION['username']; ?>
                 </button>
                 <div class="dropdown-menu" id="dropdownMenu" style="background-color: #f8f9fa; border-radius: 8px;">
-                    <a class="dropdown-item" href="account_details.php">
+                    <a class="dropdown-item" href="account_user.php">
                         <span style="margin-right: 8px;">🔍</span>รายละเอียดบัญชี
                     </a>
                     <a class="dropdown-item" href="รอหน้า">
@@ -40,6 +40,9 @@ $ajob_id = isset($_GET['ajob_id']) ? $_GET['ajob_id'] : '';
                     </a>
                     <a class="dropdown-item" href="รอหน้า">
                         <span style="margin-right: 8px;">📜</span>ประวัติการจอง
+                    </a>
+                    <a class="dropdown-item" href="private_agency.php">
+                        <span style="margin-right: 8px;">📜</span>ข้อมูลหน่วยงาน
                     </a>
                     <a class="dropdown-item" href="../../process/logout.php">
                         <span style="margin-right: 8px;">🔓</span>ออกจากระบบ
@@ -53,7 +56,9 @@ $ajob_id = isset($_GET['ajob_id']) ? $_GET['ajob_id'] : '';
     </div>
 
     <div class="container">
-        <a href="../user/announce.php" class="back-button"><i class="fas fa-arrow-left"></i></a>
+        <div>
+            <button class="back-button" onclick="window.location.href='../../index.php'">⬅️</button>
+        </div>
         <h1>สมัครงาน</h1>
 
         <form action="../../process/applyProvider_process.php" method="post" enctype="multipart/form-data">

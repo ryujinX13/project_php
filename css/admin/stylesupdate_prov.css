@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&display=swap');
+
 body {
     font-family: "Mitr", sans-serif;
-    background-color: #f4f4f4;
+    background-color: #EEE0C9;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 .tab-bar {
@@ -15,8 +17,9 @@ body {
 }
 
 .tab-bar img {
-    height: 70px;
-    margin-right: 500px;
+    height: 80px;
+    margin-right: auto;
+    margin-left: 20px;
 }
 
 .tab-link {
@@ -36,13 +39,19 @@ body {
 
 .tab-link.login {
     background-color: #F4CE14;
-    color: black;
+    color: rgb(255, 252, 252);
     border-radius: 10px;
 }
 
 .tab-link.register {
     background-color: #007bff;
     color: white;
+    border-radius: 10px;
+}
+
+.tab-link.logout {
+    background-color: #F4CE14;
+    color: rgb(255, 255, 255);
     border-radius: 10px;
 }
 
@@ -95,6 +104,7 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background-color: #45a049;
 }
+
 .dropdown {
     position: relative;
     display: inline-block;
@@ -139,6 +149,13 @@ input[type="submit"]:hover {
 .dropdown-item:hover {
     background-color: #F4CE14;
     color: white;
+}
+
+form label {
+    display: block;
+    margin-top: 15px; /* ระยะด้านบนของ label */
+    margin-bottom: 0px; /* ระยะด้านล่างของ label */
+    font-size: 16px; /* ขนาดตัวหนังสือ */
 }
 
 h2 {

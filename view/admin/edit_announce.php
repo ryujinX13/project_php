@@ -19,6 +19,8 @@ $result = $conn->query($sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Announcements</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../../css/admin/stylesedit_announce.css">
 </head>
 <body>
@@ -26,6 +28,7 @@ $result = $conn->query($sql);
         <img src="../../img/logo1.png" alt="Logo">
         <a href="admin_dashboard.php" class="tab-link">หน้าแรก</a>
         <a href="prov_display.php" class="tab-link">ข้อมูลพนักงาน</a>
+        <a href="edit_agency.php" class="tab-link">ข้อมูลหน่วยงาน</a>
         <a href="show_training_record.php" class="tab-link">การอบรม</a>
         <a href="history.html" class="tab-link">รายงาน</a>
         <a href="edit_announce.php" class="tab-link">ประกาศรับสมัครงาน</a>
@@ -77,6 +80,9 @@ $result = $conn->query($sql);
             </tbody>
         </table>
     </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
        document.getElementById('dropdownMenuButton').addEventListener('click', function () {
                 var dropdownMenu = document.getElementById('dropdownMenu');
