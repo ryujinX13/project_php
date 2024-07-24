@@ -95,10 +95,10 @@ if (isset($_POST["recover"])) {
         $mail->Port = 587;
         $mail->SMTPAuth = true;
         $mail->SMTPSecure = 'tls';
-        $mail->Username = 'rewza568@gmail.com';
-        $mail->Password = 'khqp zihl rhfu ppdk';
+        $mail->Username = 'lookhlan909@gmail.com';
+        $mail->Password = 'ffnq ulkn acxb srqz';
 
-        $mail->setFrom('rewza568@gmail.com', 'Ryujin');
+        $mail->setFrom('lookhlan909@gmail.com', 'Lookhlan');
         $mail->addAddress($email);
         $mail->isHTML(true);
         $mail->Subject = 'Recover your password';

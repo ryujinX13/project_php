@@ -38,11 +38,14 @@ if ($result === false) {
 $user = $result->fetch_assoc();
 
 if ($user === null) {
-    die("No user found with the username: " . $user_username);
+    die("No user found with the username: " . htmlspecialchars($user_username));
 }
 
 $stmt->close();
 $conn->close();
+
+// ตรวจสอบว่ามีรูปโปรไฟล์หรือไม่
+$user_photo = $user['user_photo'] ? '../../uploads/' . $user['user_photo'] : '../../img/placeholder.png';
 ?>
 <!DOCTYPE html>
 <html lang="th">
@@ -72,7 +75,7 @@ $conn->close();
                 <span style="margin-right: 8px;">📜</span>ประวัติการจอง
             </a>
             <a href="#" class="menu-item">
-                <span style="margin-right: 8px;">📜</span>ข้อมูลหน่วยงาน
+                <span style="margin-right: 8px;">🏢</span>ข้อมูลหน่วยงาน
             </a>
             <a href="../../process/logout.php" class="menu-item">
                 <span style="margin-right: 8px;">🔓</span>ออกจากระบบ
@@ -80,7 +83,7 @@ $conn->close();
             
         </div>
         <div class="profile-container ml-4">
-            <img src="<?php echo htmlspecialchars($user['user_photo'] ? '../../uploads/' . $user['user_photo'] : '../../process/show_imageUser.php'); ?>" alt="รูปภาพของ <?php echo htmlspecialchars($user['User_name']); ?>">
+            <img src="<?php echo htmlspecialchars($user_photo); ?>" alt="รูปภาพของ <?php echo htmlspecialchars($user['User_name']); ?>" style="width: 100px; height: 100px;">
             <h1>รายละเอียดผู้ใช้งาน</h1>
             <p><strong>รหัสบัตรประจำตัวประชาชน:</strong> <?php echo htmlspecialchars($user['User_id']); ?></p>
             <p><strong>ชื่อผู้ใช้:</strong> <?php echo htmlspecialchars($user['User_Username']); ?></p>
