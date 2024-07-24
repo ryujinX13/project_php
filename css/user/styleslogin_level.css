@@ -65,8 +65,9 @@ body {
     margin: 20px 0 -60px 0; /* เพิ่ม margin-top เพื่อระยะห่างจากด้านบน */
     color: black;
     text-align: center; /* จัดตำแหน่ง h1 ให้อยู่กลาง */
-    font-family: 'Mali', sans-serif;
+    font-family: "Mitr", sans-serif;
     margin-top: 50px;
+    font-weight: 400; /* ลดความหนาตัวหนังสือ */
 }
 
 
@@ -89,7 +90,7 @@ body {
     transition: background-color 0.3s ease, transform 0.3s ease;
     width: 150px; /* กำหนดความกว้างของปุ่ม */
     text-align: center;
-    font-family: 'Mali', sans-serif;
+    font-family: "Mitr", sans-serif;
 }
 
 .login-button:hover {
