@@ -74,7 +74,7 @@ $user_photo = $user['user_photo'] ? '../../uploads/' . $user['user_photo'] : '..
             <a href="#" class="menu-item">
                 <span style="margin-right: 8px;">📜</span>ประวัติการจอง
             </a>
-            <a href="#" class="menu-item">
+            <a href="private_agency.php" class="menu-item">
                 <span style="margin-right: 8px;">🏢</span>ข้อมูลหน่วยงาน
             </a>
             <a href="../../process/logout.php" class="menu-item">
