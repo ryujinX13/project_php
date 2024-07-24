@@ -41,7 +41,7 @@ $isLoggedIn = isset($_SESSION['username']);
                         <span style="margin-right: 8px;">📜</span>ประวัติการจอง
                     </a>
                     <a class="dropdown-item" href="private_agency.php">
-                        <span style="margin-right: 8px;">📜</span>ข้อมูลหน่วยงาน
+                        <span style="margin-right: 8px;">🏣</span>ข้อมูลหน่วยงาน
                     </a>
                     <a class="dropdown-item" href="../../process/logout.php">
                         <span style="margin-right: 8px;">🔓</span>ออกจากระบบ
