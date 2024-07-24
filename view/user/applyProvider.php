@@ -32,7 +32,7 @@ $ajob_id = isset($_GET['ajob_id']) ? $_GET['ajob_id'] : '';
                     <?php echo $_SESSION['username']; ?>
                 </button>
                 <div class="dropdown-menu" id="dropdownMenu" style="background-color: #f8f9fa; border-radius: 8px;">
-                    <a class="dropdown-item" href="account_details.php">
+                    <a class="dropdown-item" href="account_user.php">
                         <span style="margin-right: 8px;">🔍</span>รายละเอียดบัญชี
                     </a>
                     <a class="dropdown-item" href="รอหน้า">

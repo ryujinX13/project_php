@@ -21,8 +21,8 @@ $isLoggedIn = isset($_SESSION['username']);
         <img src="../../img/logo1.png" alt="Logo">
         <a href="../../index.php" class="tab-link">หน้าแรก</a>
         <a href="booking.php" class="tab-link">การจอง</a>
-        <a href="booking_list.php" class="tab-link">รายการจอง</a>
-        <a href="history.php" class="tab-link">ประวัติการจอง</a>
+        <a href="#" class="tab-link">รายการจอง</a>
+        <a href="#" class="tab-link">ประวัติการจอง</a>
         <a href="../user/announce.php" class="tab-link announce">สมัครงาน</a>
         
         <?php if ($isLoggedIn): ?>
@@ -34,10 +34,10 @@ $isLoggedIn = isset($_SESSION['username']);
                     <a class="dropdown-item" href="account_user.php">
                         <span style="margin-right: 8px;">🔍</span>รายละเอียดบัญชี
                     </a>
-                    <a class="dropdown-item" href="รอหน้า">
+                    <a class="dropdown-item" href="#">
                         <span style="margin-right: 8px;">📅</span>รายการจอง
                     </a>
-                    <a class="dropdown-item" href="รอหน้า">
+                    <a class="dropdown-item" href="#">
                         <span style="margin-right: 8px;">📜</span>ประวัติการจอง
                     </a>
                     <a class="dropdown-item" href="../../process/logout.php">
