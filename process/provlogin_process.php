@@ -21,8 +21,8 @@ if ($result->num_rows > 0) {
     session_start();
     $_SESSION['username'] = $username;
     echo "เข้าสู่ระบบสำเร็จ";
-    // ตัวอย่างการ redirect ไปยังหน้า dashboard.php
-    // header("Location: dashboard.php");
+    // ตัวอย่างการ redirect ไปยังหน้า account_provider.php
+    header("Location: ../view/provider/account_provider.php");
 } else {
     echo "ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง";
 }

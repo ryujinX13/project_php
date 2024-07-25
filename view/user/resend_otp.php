@@ -24,10 +24,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mail->Port = 587;
             $mail->SMTPSecure = 'tls';
             $mail->SMTPAuth = true;
-            $mail->Username = 'rewza568@gmail.com';
-            $mail->Password = 'khqp zihl rhfu ppdk';
+            $mail->Username = 'lookhlan909@gmail.com';
+            $mail->Password = 'ffnq ulkn acxb srqz';
 
-            $mail->setFrom('rewza568@gmail.com', 'Ryujin');
+            $mail->setFrom('lookhlan909@gmail.com', 'Lookhlan');
             $mail->addAddress($email);
 
             $mail->isHTML(true);

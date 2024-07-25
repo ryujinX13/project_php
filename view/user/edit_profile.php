@@ -143,9 +143,33 @@ $conn->close();
             background-color: #0056b3;
         }
     </style>
-</head>
-<body>
+    <script>
+        function validateForm() {
+            var password = document.getElementById("User_password").value;
 
+            if (password.length > 0) {
+                if (password.length < 8) {
+                    alert("รหัสผ่านต้องมีความยาวอย่างน้อย 8 ตัวอักษร");
+                    return false;
+                }
+                if (!/[A-Z]/.test(password)) {
+                    alert("รหัสผ่านต้องมีตัวอักษรตัวใหญ่ (A-Z) อย่างน้อย 1 ตัว");
+                    return false;
+                }
+                if (!/[a-z]/.test(password)) {
+                    alert("รหัสผ่านต้องมีตัวอักษรตัวเล็ก (a-z) อย่างน้อย 1 ตัว");
+                    return false;
+                }
+                if (!/[0-9]/.test(password)) {
+                    alert("รหัสผ่านต้องมีตัวเลข (0-9) อย่างน้อย 1 ตัว");
+                    return false;
+                }
+            }
+
+            return true;
+        }
+    </script>
+</head>
 <body>
 <div class="tab-bar">
         <button class="back-button" onclick="window.location.href='../user/account_user.php'">⬅️</button>
@@ -154,7 +178,7 @@ $conn->close();
     </div>
     <div class="container">
         <h1>แก้ไขข้อมูลผู้ใช้งาน</h1>
-        <form action="../../process/updateUser_profile.php" method="post" enctype="multipart/form-data">
+        <form action="../../process/updateUser_profile.php" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
             <div class="form-group">
                 <label for="user_photo">รูปโปรไฟล์</label>
                 <input type="file" id="user_photo" name="user_photo" accept="image/*">

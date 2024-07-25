@@ -22,8 +22,8 @@ $ajob_id = isset($_GET['ajob_id']) ? $_GET['ajob_id'] : '';
         <img src="../../img/logo1.png" alt="Logo">
         <a href="../../index.php" class="tab-link">หน้าแรก</a>
         <a href="booking.php" class="tab-link">การจอง</a>
-        <a href="booking_list.php" class="tab-link">รายการจอง</a>
-        <a href="history.php" class="tab-link">ประวัติ</a>
+        <a href="#" class="tab-link">รายการจอง</a>
+        <a href="#" class="tab-link">ประวัติ</a>
         <a href="../user/announce.php" class="tab-link announce">สมัครงาน</a>
 
         <?php if ($isLoggedIn): ?>
@@ -35,14 +35,18 @@ $ajob_id = isset($_GET['ajob_id']) ? $_GET['ajob_id'] : '';
                     <a class="dropdown-item" href="account_user.php">
                         <span style="margin-right: 8px;">🔍</span>รายละเอียดบัญชี
                     </a>
-                    <a class="dropdown-item" href="รอหน้า">
+                    <a class="dropdown-item" href="#">
                         <span style="margin-right: 8px;">📅</span>รายการจอง
                     </a>
-                    <a class="dropdown-item" href="รอหน้า">
+                    <a class="dropdown-item" href="#">
                         <span style="margin-right: 8px;">📜</span>ประวัติการจอง
                     </a>
                     <a class="dropdown-item" href="private_agency.php">
+<<<<<<< HEAD
                         <span style="margin-right: 8px;">🏣</span>ข้อมูลหน่วยงาน
+=======
+                        <span style="margin-right: 8px;">🏢</span>ข้อมูลหน่วยงาน
+>>>>>>> 50dae1c27ae46b769439d6fd394359053061a2f5
                     </a>
                     <a class="dropdown-item" href="../../process/logout.php">
                         <span style="margin-right: 8px;">🔓</span>ออกจากระบบ
