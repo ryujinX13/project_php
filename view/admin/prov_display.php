@@ -20,7 +20,6 @@ $isAdminLoggedIn = isset($_SESSION['admin_username']);
         <img src="../../img/logo1.png" alt="Logo">
         <a href="admin_dashboard.php" class="tab-link">หน้าแรก</a>
         <a href="prov_display.php" class="tab-link">ข้อมูลพนักงาน</a>
-        <a href="edit_agency.php" class="tab-link">ข้อมูลหน่วยงาน</a>
         <a href="show_training_record.php" class="tab-link">การอบรม</a>
         <a href="history.html" class="tab-link">รายงาน</a>
         <a href="edit_announce.php" class="tab-link">ประกาศรับสมัครงาน</a>
@@ -29,8 +28,11 @@ $isAdminLoggedIn = isset($_SESSION['admin_username']);
                 <?php echo $_SESSION['admin_username']; ?>
             </button>
             <div class="dropdown-menu" id="dropdownMenu"style="background-color: #f8f9fa; border-radius: 8px;"> 
-                    <a class="dropdown-item" href="account_details.php">
+            <a class="dropdown-item" href="account_admin.php">
                         <span style="margin-right: 8px;">🔍</span>รายละเอียดบัญชี
+                    </a>
+                    <a class="dropdown-item" href="edit_agency.php">
+                        <span style="margin-right: 8px;">🏢</span>จัดการข้อมูลหน่วยงาน
                     </a>
                     <a class="dropdown-item" href="../../process/logout.php">
                         <span style="margin-right: 8px;">🔓</span>ออกจากระบบ

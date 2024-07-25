@@ -1,6 +1,57 @@
 <?php
 session_start();
+include('../../connect/connection.php');
+
+// ตรวจสอบว่าผู้ใช้ล็อคอินอยู่หรือไม่
 $isLoggedIn = isset($_SESSION['username']);
+
+// ตรวจสอบการเชื่อมต่อกับฐานข้อมูล
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// ดึงข้อมูลจากตาราง travel_distance_cost
+$sql = "SELECT Tracost_distance, TraCost_excess FROM travel_distance_cost";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // เก็บข้อมูลในตัวแปร
+    while ($row = $result->fetch_assoc()) {
+        $Tracos_distance = $row['Tracost_distance'];
+        $TraCost_excess = $row['TraCost_excess'];
+    }
+} else {
+    $Tracos_distance = 300; // ค่าเริ่มต้นหากไม่มีข้อมูล
+    $TraCost_excess = 5;    // ค่าเริ่มต้นหากไม่มีข้อมูล
+}
+
+// ดึงข้อมูลจากตาราง rates
+$rate_sql = "SELECT * FROM rates";
+$rate_result = $conn->query($rate_sql);
+$rates = [];
+if ($rate_result->num_rows > 0) {
+    // เก็บข้อมูลในตัวแปร
+    while ($row = $rate_result->fetch_assoc()) {
+        $rates[] = $row;
+    }
+}
+$conn->close();
+
+// ฟังก์ชันเพื่อกำหนดไอคอน
+function getIconClass($rateName) {
+    if (strpos($rateName, 'คลินิกนอกเวลา') !== false) {
+        return 'fas fa-clock';
+    } elseif (strpos($rateName, 'ครึ่งเช้า') !== false) {
+        return 'fas fa-sun';
+    } elseif (strpos($rateName, 'ทั้งวัน') !== false) {
+        return 'fas fa-sun';
+    } elseif (strpos($rateName, 'เวรนอนเฝ้าไข้') !== false) {
+        return 'fas fa-moon';
+    } elseif (strpos($rateName, 'ชั่วโมงละ') !== false) {
+        return 'fas fa-hourglass-half';
+    }
+    return 'fas fa-question';
+}
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +64,6 @@ $isLoggedIn = isset($_SESSION['username']);
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../../css/user/stylesHomepage.css">
     <title>ลูกหลานสำรอง - บริการพาไปหาหมอ ดูแลแทนญาติเหมือนลูกหลานของท่าน</title>
-   
 </head>
 
 <body>
@@ -104,17 +154,9 @@ $isLoggedIn = isset($_SESSION['username']);
             <div class="row">
                 <div class="col-md-6">
                     <ul>
-                        <li class="service-package">แพคเกจคลินิกนอกเวลา 4ชม./400บาท (เริ่ม16.00-20.00น.)</li>
-                        <li class="service-package">แพคเกจครึ่งเช้า 6 ชั่วโมง/ 500 บาท (เริ่ม 07.00-13.00 น.)</li>
-                        <li class="service-package">แพคเกจครึ่งเช้า 8 ชั่วโมง/ 600 บาท (เริ่ม 07.00-15.00 น.)</li>
-                        <li class="service-package">แพคเกจทั้งวัน 10 ชั่วโมง/ 700บาท (เริ่ม 07.00-17.00น.)</li>
-                    </ul>
-                </div>
-                <div class="col-md-6">
-                    <ul>
-                        <li class="service-package">แพคเกจ เวรนอนเฝ้าไข้ 12 ชั่วโมง 600บาท (19.00-07.00 น.)</li>
-                        <li class="service-package">แพคเกจ เวรนอนเฝ้าไข้ 24 ชั่วโมง 1,000บาท (19.00-19.00น.)</li>
-                        <li class="service-package">เกินนั้นคิดชั่วโมงละ 100บาท</li>
+                        <?php foreach ($rates as $rate): ?>
+                        <li class="service-package"><i class="<?php echo getIconClass($rate['Rates_name']); ?>"></i> <?php echo $rate['Rates_name']; ?> <?php echo $rate['Rates_sarary']; ?> บาท (<?php echo $rate['Rates_time']; ?>)</li>
+                        <?php endforeach; ?>
                     </ul>
                 </div>
             </div>
@@ -127,16 +169,14 @@ $isLoggedIn = isset($_SESSION['username']);
                 </div>
                 <div class="col-md-6 order-md-1">
                     <ul>
-                        <li class="service-package">-ระยะทางไม่เกิน 10 กม.แรก เหมาจ่าย 300 บาท (รับและส่ง)</li>
-                        <li class="service-package">-ระยะทางเกิน 10 กม. คิด 10กม.แรก 300บาท<br> หลังจากนั้นจะคิด กม.ละ 5 บาท</li>
+                        <li class="service-package">-ระยะทางไม่เกิน 10 กม.แรก เหมาจ่าย <?php echo $Tracos_distance; ?> บาท (รับและส่ง)</li>
+                        <li class="service-package">-ระยะทางเกิน 10 กม. คิด 10กม.แรก <?php echo $Tracos_distance; ?> บาท<br> หลังจากนั้นจะคิด กม.ละ <?php echo $TraCost_excess; ?> บาท</li>
                         <li class="service-package">-การนับระยะทาง เริ่มจาก ขับรถไปรับที่บ้าน-ไปโรงพยาบาล <br>ส่งกลับบ้าน- ขับรถกลับ</li>
                         <li class="service-package">-หากต้องเสียค่าที่จอดรถ คนไข้เป็นผู้จ่าย</li>
                     </ul>
                 </div>
-                
-
-        
-    </div>
+            </div>
+        </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
@@ -172,9 +212,7 @@ $isLoggedIn = isset($_SESSION['username']);
                     }
                 }
             }
-
     </script>
-
 </body>
 
 </html>
