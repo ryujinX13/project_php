@@ -98,10 +98,13 @@ body {
 
 h2 {
     color: #007bff;
+    font-weight: 400; /* ลดความหนาตัวหนังสือ */
+    font-family: "Mitr", sans-serif;
 }
 
 p {
-    font-size: 16px;
+    font-size: 18px;
+    font-family: "Mitr", sans-serif;
     color: #333;
 }
 

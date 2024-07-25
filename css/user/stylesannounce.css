@@ -121,6 +121,7 @@ main .announcement {
     font-size: 28px;
     margin-bottom: 5px;
     font-family: "Mitr", sans-serif;
+    font-weight: 400; /* ลดความหนาตัวหนังสือ */
 }
 
 .announcement p {
@@ -165,6 +166,7 @@ main .announcement {
     font-family: "Mitr", sans-serif;
     animation: pulse 1.5s infinite;
     font-weight: 700;
+    font-weight: 400; /* ลดความหนาตัวหนังสือ */
 }
 
 @keyframes pulse {
@@ -194,6 +196,7 @@ main .announcement {
     margin-bottom: 10px;
     text-align: center;
     font-family: "Mitr", sans-serif;
+    font-weight: 400; /* ลดความหนาตัวหนังสือ */
 }
 
 .qualifications ul {

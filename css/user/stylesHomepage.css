@@ -72,6 +72,7 @@ header {
     align-items: center;
     justify-content: center;
     height: 150px; /* เพิ่มความสูงให้เหมาะสม */
+    font-weight: 400; /* ลดความหนาตัวหนังสือ */
     
 }
 
@@ -86,6 +87,7 @@ header {
     justify-content: center;
     flex-direction: column; /* ทำให้ข้อความอยู่ในแนวตั้ง */
     min-height: 200px; /* เพิ่มความสูงให้เหมาะสม */
+    
 }
 
 .content-section {
@@ -104,6 +106,7 @@ header {
 h2 {
     color: rgb(55, 98, 157);
     margin-bottom: 20px;
+    font-weight: 400; /* ลดความหนาตัวหนังสือ */
 }
 
 ul {

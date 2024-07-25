@@ -97,6 +97,7 @@ h1 {
     text-align: center;
     color: #000000;
     font-family: "Mitr", sans-serif;
+    font-weight: 400; /* ลดความหนาตัวหนังสือ */
 }
 table {
     width: 100%;
@@ -112,6 +113,7 @@ th, td {
 }
 th {
     background-color: #f4f4f4;
+    
 }
 tr:nth-child(even) {
     background-color: #f9f9f9;

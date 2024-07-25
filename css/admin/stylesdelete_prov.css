@@ -105,7 +105,7 @@ body {
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 600px;
     margin: 50px auto;
     padding: 20px;
     background-color: #fff;
@@ -115,7 +115,8 @@ body {
 }
 
 h2 {
-    color: #007bff;
+    color: #000000;
+    font-weight: 400; /* ลดความหนาตัวหนังสือ */
 }
 
 p {

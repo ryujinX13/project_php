@@ -6,6 +6,7 @@ body {
     background-color: #f5f5f5;
     margin: 0;
     padding: 0;
+    font-weight: 400; /* ลดความหนาตัวหนังสือ */
 }
 
 .tab-bar {
@@ -99,11 +100,13 @@ body {
 
 h2 {
     color: #000000;
+    font-weight: 400; /* ลดความหนาตัวหนังสือ */
 }
 
 p {
     font-size: 16px;
     color: #000000;
+    font-weight: 400; /* ลดความหนาตัวหนังสือ */
 }
 
 .button-container {
