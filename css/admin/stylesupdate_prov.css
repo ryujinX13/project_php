@@ -39,7 +39,7 @@ body {
 
 .tab-link.login {
     background-color: #F4CE14;
-    color: rgb(255, 252, 252);
+    color: white;
     border-radius: 10px;
 }
 
@@ -51,7 +51,7 @@ body {
 
 .tab-link.logout {
     background-color: #F4CE14;
-    color: rgb(255, 255, 255);
+    color: white;
     border-radius: 10px;
 }
 
@@ -74,11 +74,20 @@ body {
 h2 {
     text-align: center;
     font-weight: 400; /* ลดความหนาตัวหนังสือ */
+    margin-bottom: 20px;
+}
+
+form label {
+    display: block;
+    margin-top: 15px; /* ระยะด้านบนของ label */
+    margin-bottom: 5px; /* ระยะด้านล่างของ label */
+    font-size: 16px; /* ขนาดตัวหนังสือ */
 }
 
 input[type="text"],
 input[type="email"],
 input[type="date"],
+input[type="password"],
 select {
     width: calc(100% - 20px);
     padding: 10px;
@@ -150,45 +159,4 @@ input[type="submit"]:hover {
 .dropdown-item:hover {
     background-color: #F4CE14;
     color: white;
-}
-
-form label {
-    display: block;
-    margin-top: 15px; /* ระยะด้านบนของ label */
-    margin-bottom: 0px; /* ระยะด้านล่างของ label */
-    font-size: 16px; /* ขนาดตัวหนังสือ */
-}
-
-h2 {
-    text-align: center;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="date"],
-input[type="checkbox"] {
-    width: calc(100% - 20px);
-    padding: 10px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-input[type="submit"] {
-    width: 20%;
-    padding: 15px;
-    background-color: #F4CE14;
-    border: none;
-    border-radius: 20px;
-    color: white;
-    cursor: pointer;
-    display: block;
-    margin: 20px auto;
-    transition: background-color 0.3s;
-    font-size: 16px;
-}
-
-input[type="submit"]:hover {
-    background-color: #45a049;
 }
