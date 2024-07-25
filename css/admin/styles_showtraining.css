@@ -6,6 +6,7 @@ body {
     background-color: #f5f5f5;
     margin: 0;
     padding: 0;
+    font-weight: 400; /* ลดความหนาตัวหนังสือ */
 }
 
 .tab-bar {
@@ -108,7 +109,8 @@ table {
     margin: 20px 0;
 }
 table, th, td {
-    border: 1px solid #ddd;
+    border: 1px solid #000000;
+    font-weight: 300; /* ลดความหนาตัวหนังสือ */
 }
 th, td {
     padding: 12px;
@@ -123,7 +125,7 @@ tr:nth-child(even) {
 }
 a {
     text-decoration: none;
-    color: #3498db;
+    color: #000000;
 }
 a:hover {
     text-decoration: underline;
