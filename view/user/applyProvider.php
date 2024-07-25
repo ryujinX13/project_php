@@ -42,11 +42,7 @@ $ajob_id = isset($_GET['ajob_id']) ? $_GET['ajob_id'] : '';
                         <span style="margin-right: 8px;">📜</span>ประวัติการจอง
                     </a>
                     <a class="dropdown-item" href="private_agency.php">
-<<<<<<< HEAD
-                        <span style="margin-right: 8px;">🏣</span>ข้อมูลหน่วยงาน
-=======
                         <span style="margin-right: 8px;">🏢</span>ข้อมูลหน่วยงาน
->>>>>>> 50dae1c27ae46b769439d6fd394359053061a2f5
                     </a>
                     <a class="dropdown-item" href="../../process/logout.php">
                         <span style="margin-right: 8px;">🔓</span>ออกจากระบบ
