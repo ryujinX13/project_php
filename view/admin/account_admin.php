@@ -99,14 +99,13 @@ body {
     max-width: 1000px; /* กำหนดความกว้างสูงสุด */
     padding-left: 20px; /* เพิ่ม padding-left */
 }
-
 .menu-container {
     width: 200px;
     background: #fff;
     padding: 10px;
     border-radius: 8px;
     box-shadow: 0 1px 1px rgba(0,0,0,0.1);
-    height: 150px; /* ตั้งค่าความสูงให้ลดลงตามต้องการ */
+    height: 150px; 
 }
 
 .menu-item {
