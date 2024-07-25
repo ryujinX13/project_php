@@ -155,7 +155,7 @@ body {
 
         .sidebar {
             flex: 1;
-            max-width: 300px;
+            max-width: 230px;
             background-color: #fff;
             padding: 5px;
             margin-right: 20px;

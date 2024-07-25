@@ -49,6 +49,7 @@ $result = mysqli_query($conn, $query);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>แก้ไขหน่วยงาน</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&display=swap');
@@ -218,11 +219,11 @@ $result = mysqli_query($conn, $query);
         }
 
         th {
-            background-color: #f2f2f2;
+            background-color:#f1f1f1;
         }
 
         tr:nth-child(even) {
-            background-color: #f9f9f9;
+            background-color: #fff;
         }
 
         .form-container {

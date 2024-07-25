@@ -34,9 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Rates</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&display=swap');
 
@@ -134,13 +132,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         .main-container {
             display: flex;
             width: 100%;
-            max-width: 1500px;
+            max-width: 1300px;
             margin: 20px auto;
             padding: 40px;
             background-color: #fff;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
             background-color: #f1f1f1;
+            margin-top: 20px;
         }
 
         .sidebar {
@@ -148,16 +147,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             max-width: 400px; /* เพิ่มความกว้างจาก 300px เป็น 400px */
             background-color: #fff;
             padding: 5px;
-            margin-right: 20px;
+            margin-right: -70px;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            width: 400px; /* เพิ่มความกว้างจาก 250px เป็น 400px */
+            width: 400%; /* เพิ่มความกว้างจาก 250px เป็น 400px */
+            margin-top: 1px;
+            
+            
         }
 
         .sidebar a {
             display: block;
             padding: 10px;
-            margin-bottom: 10px;
+            margin-bottom: 9px;
             text-decoration: none;
             color: #333;
             border-radius: 4px;
@@ -189,9 +191,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
 
         table {
-            width: 100%;
+            width: 80%;
             border-collapse: collapse;
             margin-bottom: 20px;
+            margin-left: 8%;
         }
 
         table,
@@ -294,7 +297,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </a>
         </div>
 
-    <div class="container mt-5">
+    <div class="container">
         <h2>จัดการข้อมูลแพคเกจ</h2>
         <table class="table table-bordered">
             <thead>

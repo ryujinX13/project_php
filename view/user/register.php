@@ -139,9 +139,11 @@ $conn->close();
             <label for="username">ชื่อผู้ใช้:</label>
             <input type="text" id="username" name="username" required>
 
-            <label for="password">รหัสผ่าน:</label>
-            <input type="password" id="password" name="password" required>
-
+            <div class="password-container">
+                <label for="password">รหัสผ่าน:</label>
+                <input type="password" id="password" name="password" required>
+                <span onclick="togglePasswordVisibility()">⊙</span>
+            </div>
             <label for="user_name">ชื่อ-นามสกุล:</label>
             <input type="text" id="user_name" name="user_name" required>
 
@@ -169,6 +171,19 @@ $conn->close();
         </form>
         <p>มีบัญชีผู้ใช้อยู่แล้ว? <a href="login.php">เข้าสู่ระบบที่นี่</a>.</p>
     </div>
+    <script>
+function togglePasswordVisibility() {
+    var passwordInput = document.getElementById("password");
+    var toggleIcon = document.querySelector(".password-container span");
+    if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        toggleIcon.textContent = "⊚"; // เปลี่ยนอีโมจิเป็นตาปิด
+    } else {
+        passwordInput.type = "password";
+        toggleIcon.textContent = "⊙"; // เปลี่ยนอีโมจิเป็นตาเปิด
+    }
+}
+</script>
 </body>
 
 </html>

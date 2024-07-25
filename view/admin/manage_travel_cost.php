@@ -29,15 +29,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Travel Cost</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../../css/admin/stylesmanage_travel_cost.css">
+    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&display=swap');
 
-body {
+        body {
     font-family: "Mitr", sans-serif;
+    line-height: 1.6;
     background-color: #f5f5f5;
     margin: 0;
     padding: 0;
@@ -55,7 +54,6 @@ body {
     align-items: center;
     justify-content: center;
     padding: 10px 0;
-    
 }
 
 .tab-bar img {
@@ -126,48 +124,47 @@ body {
 }
 
 .main-container {
-    display: flex;
-    width: 100%;
-    max-width: 1300px;
-    margin: 20px auto;
-    padding: 40px;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    background-color: #f1f1f1;
-}
+            display: flex;
+            width: 100%;
+            max-width: 1320px;
+            margin: 20px auto;
+            padding: 40px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            background-color: #f1f1f1;
+        }
 
-.sidebar {
-    flex: 1;
-    max-width: 300px;
-    background-color: #fff;
-    padding: 5px;
-    margin-right: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 250px;
-}
+        .sidebar {
+            flex: 1;
+            max-width: 230px;
+            background-color: #fff;
+            padding: 5px;
+            margin-right: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 250px;
+        }
 
-.sidebar a {
-    display: block;
-    padding: 10px;
-    margin-bottom: 10px;
-    text-decoration: none;
-    color: #333;
-    border-radius: 4px;
-    transition: background-color 0.3s;
+        .sidebar a {
+            display: block;
+            padding: 10px;
+            margin-bottom: 10px;
+            text-decoration: none;
+            color: #333;
+            border-radius: 4px;
+            transition: background-color 0.3s;
 
-}
+        }
 
-.sidebar a:hover {
-    background-color: #f1f1f1;
-}
+        .sidebar a:hover {
+            background-color: #f1f1f1;
+        }
 
-.sidebar a.active {
-    background-color: #8ab7cc;
-    color: white;
-}
-
+        .sidebar a.active {
+            background-color: #8ab7cc;
+            color: white;
+        }
 .content {
             flex: 2;
             background-color: #fff;
@@ -187,6 +184,7 @@ body {
             width: 100%;
             border-collapse: collapse;
             margin-bottom: 20px;
+            background-color: #fff;
             
         }
         
@@ -206,11 +204,11 @@ body {
         }
 
         th {
-            background-color: #f2f2f2;
+            background-color: #fff;
         }
 
         tr:nth-child(even) {
-            background-color: #f9f9f9;
+            background-color: #fff;
         }
 
         .form-inline {
@@ -318,6 +316,7 @@ body {
             </tbody>
         </table>
     </div>
+    
     <script>
         document.getElementById('dropdownMenuButton').addEventListener('click', function () {
             var dropdownMenu = document.getElementById('dropdownMenu');

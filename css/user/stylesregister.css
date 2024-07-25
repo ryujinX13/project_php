@@ -88,6 +88,23 @@ label {
     font-weight: 500;
     margin-bottom: 5px;
 }
+.password-container {
+    position: relative;
+    display: inline-block;
+}
+
+.password-container input[type="password"],
+.password-container input[type="text"] {
+    padding-right: 30px; /* เพิ่มพื้นที่สำหรับอีโมจิ */
+}
+
+.password-container span {
+    position: absolute;
+    right: 10px; /* ตำแหน่งของอีโมจิด้านขวา */
+    top: 50%;
+    transform: translateY(-35%);
+    cursor: pointer;
+}
 
 input[type="text"],
 input[type="password"],
@@ -134,6 +151,7 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background-color: #0056b3;
 }
+
 
 p {
     text-align: center;
