@@ -23,7 +23,7 @@ $result = $conn->query($sql);
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
+            background-color: #f0f0f0;
             margin: 0;
             padding: 0;
             display: flex;
@@ -33,11 +33,12 @@ $result = $conn->query($sql);
         }
         .container {
             background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 80%;
-            max-width: 900px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 1000px;
             padding: 20px;
+            margin: 20px;
         }
         .profile-header {
             display: flex;
@@ -46,30 +47,41 @@ $result = $conn->query($sql);
             margin-bottom: 20px;
         }
         .profile-header img {
-            width: 100%;
-            height: auto;
+            width: 150px;
+            height: 150px;
             object-fit: cover;
-            margin-bottom: 10px;
+            border-radius: 75px;
+            margin-bottom: 15px;
+            border: 3px solid #ddd;
         }
         .profile-header h1 {
             margin: 0;
-            font-size: 24px;
+            font-size: 28px;
             color: #333;
         }
         .profile-info {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 15px;
         }
         .profile-info div {
             display: flex;
             justify-content: space-between;
-            flex-wrap: wrap;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            font-size: 16px;
+        }
+        .profile-info div:last-child {
+            border-bottom: none;
         }
         .profile-info div span {
             font-weight: bold;
             color: #555;
-            flex: 1 1 30%;
+            flex: 1;
+        }
+        .profile-info div p {
+            margin: 0;
+            color: #666;
         }
     </style>
 </head>
@@ -87,14 +99,13 @@ if ($result->num_rows > 0) {
 <div class="container">
     <div class="profile-header">
         <img src="<?php echo $imageSrc; ?>" alt="รูปภาพหน่วยงาน">
-        <h1>รายละเอียดหน่วยงาน</h1>
+        <h1><?php echo $row['Pva_name']; ?></h1>
     </div>
     <div class="profile-info">
-        <div><span>ชื่อหน่วยงาน:</span> <?php echo $row['Pva_name']; ?></div>
-        <div><span>รายละเอียดหน่วยงาน:</span> <?php echo $row['Pva_detail']; ?></div>
-        <div><span>ที่อยู่หน่วยงาน:</span> <?php echo $row['Pva_address']; ?></div>
-        <div><span>อีเมลหน่วยงาน:</span> <?php echo $row['Pva_email']; ?></div>
-        <div><span>เบอร์โทรศัพท์หน่วยงาน:</span> <?php echo $row['Pva_phone']; ?></div>
+        <div><span>รายละเอียดหน่วยงาน:</span> <p><?php echo $row['Pva_detail']; ?></p></div>
+        <div><span>ที่อยู่หน่วยงาน:</span> <p><?php echo $row['Pva_address']; ?></p></div>
+        <div><span>อีเมลหน่วยงาน:</span> <p><?php echo $row['Pva_email']; ?></p></div>
+        <div><span>เบอร์โทรศัพท์หน่วยงาน:</span> <p><?php echo $row['Pva_phone']; ?></p></div>
     </div>
 </div>
 

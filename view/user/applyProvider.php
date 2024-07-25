@@ -23,7 +23,7 @@ $ajob_id = isset($_GET['ajob_id']) ? $_GET['ajob_id'] : '';
         <a href="../../index.php" class="tab-link">หน้าแรก</a>
         <a href="booking.php" class="tab-link">การจอง</a>
         <a href="#" class="tab-link">รายการจอง</a>
-        <a href="#" class="tab-link">ประวัติ</a>
+        <a href="#" class="tab-link">ประวัติการจอง</a>
         <a href="../user/announce.php" class="tab-link announce">สมัครงาน</a>
 
         <?php if ($isLoggedIn): ?>

@@ -54,7 +54,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 80vh;
-    padding-top: 20px;
+    padding-top: 0px;
 }
 
 .container {
@@ -66,70 +66,66 @@ body {
 
 .form-wrapper {
     width: 100%;
-    max-width: 600px;
+    max-width: 400px;
 }
 
 .card {
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border: none;
+    background: #fff;
     border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
     padding: 20px;
-    background-color: #fff;
+    font-family: "Mitr", sans-serif;
+}
+
+.card-header {
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: "Mitr", sans-serif;
 }
 
 .form-group {
-    margin-bottom: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    margin-bottom: 15px;
 }
 
-.form-group label {
-    margin-bottom: 10px; /* เพิ่มระยะห่างระหว่าง label กับ input */
+.form-label {
+    display: block;
+    margin-bottom: 5px;
 }
 
 .form-control {
     width: 100%;
-    max-width: 300px;
     padding: 10px;
-    border: 1px solid #ced4da;
+    border: 1px solid #ccc;
     border-radius: 5px;
-    transition: border-color 0.3s;
-    font-size: 14px;
+    box-sizing: border-box;
 }
 
-.form-control:focus {
-    color: #495057;
-    background-color: #fff;
-    border-color: #80bdff;
-    outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-}
-
-.btn-primary {
-    background-color: #ffcc00;
-    border-color: #ffcc00;
-    color: #000;
+.btn {
+    width: 50%; /* ลดความกว้างของปุ่มจาก 100% เป็น 50% */
+    padding: 10px; /* ลดขนาด padding ของปุ่ม */
+    background-color: #F4CE14;
+    border: none;
     border-radius: 5px;
-    padding: 10px 20px;
+    color: #fff;
+    font-size: 1rem; /* ลดขนาด font-size ของปุ่ม */
     cursor: pointer;
     transition: background-color 0.3s;
+    display: block; /* เพื่อให้ปุ่มอยู่กึ่งกลาง */
+    margin: 0 auto; /* เพื่อให้ปุ่มอยู่กึ่งกลาง */
     font-family: "Mitr", sans-serif;
 }
 
-.btn-primary:hover {
-    background-color: #ff9900;
-    border-color: #ff9900;
-}
-
-.header-text {
-    color: #222;
-    font-size: 24px;
-    font-weight: 500;
-    text-align: center;
-    margin-bottom: 20px;
+.btn:hover {
+    background-color: #d4b014;
 }
 
 .text-danger {
-    color: #dc3545;
+    color: red;
+}
+
+.text-center {
+    text-align: center;
 }

@@ -29,7 +29,7 @@ $conn->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OTP Verification</title>
+    <title>ยืนยันรหัส OTP</title>
     <link rel="stylesheet" type="text/css" href="../../css/user/stylesotp_verification.css">
 </head>
 

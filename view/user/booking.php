@@ -90,7 +90,7 @@ if (!isset($_SESSION['username'])) {
 
 <body>
     <header>
-        <h1>ลูกหลานไม่ว่าง จ้างหนูพาไปหาหมอ!!!</h1>
+        <h1>ลูกหลานไม่ว่าง จ้างหนูพาไปหาหมอ</h1>
     </header>
     <div class="container">
         <div class="form-section">
