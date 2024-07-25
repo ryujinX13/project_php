@@ -28,9 +28,6 @@
                 <input type="password" id="password" name="password" required placeholder="กรุณากรอกรหัสผ่าน">
                 <input type="submit" value="เข้าสู่ระบบ" name="admin_login">
             </form>
-            <div class="forgot-password">
-                <a href="recover_psw.php">ลืมรหัสผ่าน?</a>
-            </div>
         </div>
     </div>
 </body>

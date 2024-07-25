@@ -4,13 +4,25 @@ include ('../../connect/connection.php');
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT * FROM job_announcement";
-$result = $conn->query($sql);
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $Ajob_opening = $_POST['Ajob_opening'];
+    $Ajob_closing = $_POST['Ajob_closing'];
+    $Ajob_details = $_POST['Ajob_details'];
+
+    $sql = "INSERT INTO job_announcement (Ajob_opening, Ajob_closing, Ajob_details) VALUES ('$Ajob_opening', '$Ajob_closing', '$Ajob_details')";
+
+    if ($conn->query($sql) === TRUE) {
+        echo "<script>alert('เพิ่มประกาศรับสมัครงานเรียบร้อยแล้ว');window.location='edit_announce.php';</script>";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+}
+
+$conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +30,7 @@ $result = $conn->query($sql);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Announcements</title>
+    <title>เพิ่มประกาศรับสมัครงาน</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../../css/admin/stylesedit_announce.css">
@@ -33,7 +45,7 @@ $result = $conn->query($sql);
         <a href="edit_announce.php" class="tab-link">ประกาศรับสมัครงาน</a>
         <div class="dropdown">
             <button class="tab-button dropdown-toggle" type="button" id="dropdownMenuButton">
-                <?php echo isset($_SESSION['admin_username']) ? $_SESSION['admin_username'] : 'Guest'; ?>
+                <?php echo $_SESSION['admin_username']; ?>
             </button>
             <div class="dropdown-menu" id="dropdownMenu"style="background-color: #f8f9fa; border-radius: 8px;"> 
                 <a class="dropdown-item" href="account_admin.php">
@@ -50,38 +62,16 @@ $result = $conn->query($sql);
     </div>
 
     <div class="container">
-        <h2>ตารางประกาศรับสมัครงาน</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>รหัส</th>
-                    <th>วันที่เปิดรับสมัคร</th>
-                    <th>วันที่ปิดรับสมัคร</th>
-                    <th>รายละเอียด</th>
-                    <th>การกระทำ</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php if ($result && $result->num_rows > 0): ?>
-                    <?php while($row = $result->fetch_assoc()): ?>
-                        <tr>
-                            <td><?php echo $row['Ajob_id']; ?></td>
-                            <td><?php echo $row['Ajob_opening']; ?></td>
-                            <td><?php echo $row['Ajob_closing']; ?></td>
-                            <td><?php echo $row['Ajob_details']; ?></td>
-                            <td>
-                                <a href="edit_single_announce.php?id=<?php echo $row['Ajob_id']; ?>">แก้ไข</a>
-                            </td>
-                        </tr>
-                    <?php endwhile; ?>
-                <?php else: ?>
-                    <tr>
-                        <td colspan="5">ไม่มีข้อมูล</td>
-                    </tr>
-                <?php endif; ?>
-            </tbody>
-        </table>
-        <a href="add_announce.php" class="btn btn-primary mt-3">เพิ่มประกาศรับสมัครงาน</a>
+        <h2>เพิ่มประกาศรับสมัครงาน</h2>
+        <form action="add_announce.php" method="post">
+            <label for="Ajob_opening">วันที่เปิดรับสมัคร:</label>
+            <input type="date" id="Ajob_opening" name="Ajob_opening" required>
+            <label for="Ajob_closing">วันที่ปิดรับสมัคร:</label>
+            <input type="date" id="Ajob_closing" name="Ajob_closing" required>
+            <label for="Ajob_details">รายละเอียด:</label>
+            <textarea id="Ajob_details" name="Ajob_details" required></textarea>
+            <input type="submit" value="เพิ่มประกาศ">
+        </form>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -121,5 +111,3 @@ $result = $conn->query($sql);
     </script>
 </body>
 </html>
-
-<?php $conn->close(); ?>

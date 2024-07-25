@@ -40,14 +40,12 @@ $isLoggedIn = isset($_SESSION['username']);
                         <span style="margin-right: 8px;">📜</span>ประวัติการจอง
                     </a>
                     <a class="dropdown-item" href="private_agency.php">
-
                         <span style="margin-right: 8px;">🏢</span>ข้อมูลหน่วยงาน
                     </a>
                     <a class="dropdown-item" href="../../process/logout.php">
                         <span style="margin-right: 8px;">🔓</span>ออกจากระบบ
                     </a>
                 </div>
-                
             </div>
         <?php else: ?>
             <a href="login_level.php" class="tab-link login">เข้าสู่ระบบ</a>
@@ -68,7 +66,8 @@ $isLoggedIn = isset($_SESSION['username']);
                 die("Connection failed: " . $conn->connect_error);
             }
 
-            $sql = "SELECT Ajob_id, Ajob_opening, Ajob_closing, Ajob_details FROM job_announcement WHERE Ajob_id=1";
+            // Query to get the latest job announcement
+            $sql = "SELECT Ajob_id, Ajob_opening, Ajob_closing, Ajob_details FROM job_announcement ORDER BY Ajob_id DESC LIMIT 1";
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {

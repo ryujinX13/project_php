@@ -34,7 +34,7 @@ $result = $conn->query($sql);
             <button class="tab-button dropdown-toggle" type="button" id="dropdownMenuButton">
                 <?php echo $_SESSION['admin_username']; ?>
             </button>
-            <div class="dropdown-menu" id="dropdownMenu"style="background-color: #f8f9fa; border-radius: 8px;"> 
+            <div class="dropdown-menu" id="dropdownMenu" style="background-color: #f8f9fa; border-radius: 8px;"> 
             <span style="margin-right: 8px;">🔍</span>รายละเอียดบัญชี
                     </a>
                     <a class="dropdown-item" href="edit_agency.php">
@@ -46,8 +46,6 @@ $result = $conn->query($sql);
             </div>
         </div>
     </div>
-
-
 
     <div class="container">
     <h1>บันทึกการอบรม</h1>
@@ -66,14 +64,14 @@ $result = $conn->query($sql);
             <?php 
             if ($result->num_rows > 0) {
                 while($row = $result->fetch_assoc()) {
+                    $training_date = empty($row['Training_date']) ? 'ยังไม่รับเข้ารับการอบรม' : $row['Training_date'];
                     echo "<tr>
                         <td>{$row['Training_id']}</td>
-                        <td>{$row['Training_date']}</td>
+                        <td>{$training_date}</td>
                         <td>{$row['Ajob_id']}</td>
                         <td>{$row['Training_time']}</td>
                         <td>{$row['Prov_id']}</td>
                         <td>
-                        
                             <form method='post' action='edit_training_record.php'>
                                 <input type='hidden' name='Training_id' value='{$row['Training_id']}'>
                                 <input type='hidden' name='Training_date' value='{$row['Training_date']}'>
@@ -92,39 +90,37 @@ $result = $conn->query($sql);
     </div>
 
     <script>
-       document.getElementById('dropdownMenuButton').addEventListener('click', function () {
-                var dropdownMenu = document.getElementById('dropdownMenu');
-                dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+        document.getElementById('dropdownMenuButton').addEventListener('click', function () {
+            var dropdownMenu = document.getElementById('dropdownMenu');
+            dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
 
-                // Check if the dropdown menu is out of the viewport
-                const rect = dropdownMenu.getBoundingClientRect();
-                const windowWidth = window.innerWidth;
+            // Check if the dropdown menu is out of the viewport
+            const rect = dropdownMenu.getBoundingClientRect();
+            const windowWidth = window.innerWidth;
 
-                if (rect.right > windowWidth) {
-                    dropdownMenu.style.left = 'auto';
-                    dropdownMenu.style.right = '0';
-                } else if (rect.left < 0) {
-                    dropdownMenu.style.left = '0';
-                    dropdownMenu.style.right = 'auto';
-                } else {
-                    dropdownMenu.style.left = '0';
-                    dropdownMenu.style.right = 'auto';
-                }
-            });
+            if (rect.right > windowWidth) {
+                dropdownMenu.style.left = 'auto';
+                dropdownMenu.style.right = '0';
+            } else if (rect.left < 0) {
+                dropdownMenu.style.left = '0';
+                dropdownMenu.style.right = 'auto';
+            } else {
+                dropdownMenu.style.left = '0';
+                dropdownMenu.style.right = 'auto';
+            }
+        });
 
-            // Close the dropdown menu if the user clicks outside of it
-            window.onclick = function(event) {
-                if (!event.target.matches('.tab-button')) {
-                    var dropdowns = document.getElementsByClassName("dropdown-menu");
-                    for (var i = 0; i < dropdowns.length; i++) {
-                        var openDropdown = dropdowns[i];
-                        if (openDropdown.style.display === 'block') {
-                            openDropdown.style.display = 'none';
-                        }
+        window.onclick = function(event) {
+            if (!event.target.matches('.tab-button')) {
+                var dropdowns = document.getElementsByClassName("dropdown-menu");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.style.display === 'block') {
+                        openDropdown.style.display = 'none';
                     }
                 }
             }
-
+        }
     </script>
 </body>
 </html>
