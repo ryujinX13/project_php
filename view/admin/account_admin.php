@@ -49,7 +49,7 @@ $conn->close();
     <meta charset="UTF-8">
     <title>รายละเอียดผู้ดูแลระบบ</title>
     <style>
-@import url('https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&display=swap');
 
 body {
     font-family: "Mitr", sans-serif;
@@ -57,77 +57,132 @@ body {
     background-color: #f5f5f5;
     margin: 0;
     padding: 0;
-    font-weight: 300; /* ลดความหนาตัวหนังสือ */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-weight: 400; /* ลดความหนาตัวหนังสือ */
 }
 
 .tab-bar {
+    width: 100%;
+    background-color: #8ab7cc;
     display: flex;
     align-items: center;
-    background-color: #8ab7cc;
-    padding: 20px; /* ลด padding */
     justify-content: center;
-    height: 80px; /* ปรับความสูง */
+    padding: 10px 0;
 }
 
 .tab-bar img {
-    height: 60px; /* ปรับความสูงของรูปภาพ */
-    margin-left: 20px; /* ลด margin-left */
+    height: 80px;
+    margin-right: auto;
+    margin-left: 20px;
 }
 
-.back-button {
-    position: absolute;
-    left: 10px; /* ปรับตำแหน่งให้ชิดซ้าย */
-    background: none;
-    border: none;
-    font-size: 2em; /* ปรับขนาด */
-    color: black;
-    cursor: pointer;
-    transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.back-button:hover {
-    color: white;
-    transform: scale(1.1);
-}
-
-.container {
-    display: flex;
-    justify-content: flex-start; /* จัดวางเนื้อหาให้อยู่ทางซ้าย */
-    align-items: flex-start; /* จัดวางเนื้อหาให้อยู่ด้านบน */
-    margin: 40px auto 0; /* ปรับ margin เพื่อเลื่อนเนื้อหาลงมาเล็กน้อย */
-    gap: 20px;
-    max-width: 1000px; /* กำหนดความกว้างสูงสุด */
-    padding-left: 20px; /* เพิ่ม padding-left */
-}
-.menu-container {
-    width: 200px;
-    background: #fff;
-    padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
-    height: 150px; 
-}
-
-.menu-item {
-    display: flex;
-    align-items: center;
-    padding: 5px;
-    margin-bottom: 10px;
-    border-radius: 4px;
+.tab-link {
+    padding: 10px 20px;
     text-decoration: none;
-    color: #333;
-    transition: background-color 0.3s, font-weight 0.3s;
+    color: black;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    margin: 0 10px;
+    transition: background-color 0.3s, border-color 0.3s;
 }
 
-.menu-item img {
-    margin-right: 10px;
-    width: 20px;
-    height: 20px;
+.tab-link:hover {
+    background-color: #ccc;
+    border-color: #bbb;
 }
 
-.menu-item:hover {
-    background-color: #eee;
+.dropdown {
+    position: relative;
+    display: inline-block;
 }
+
+.dropdown .tab-button {
+    background-color: #F4CE14;
+    color: black;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.dropdown .tab-button:hover {
+    background-color: #F4CE14;
+    color: white;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #96B6C5;
+    border-radius: 10px;
+    padding: 10px;
+    z-index: 1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-item {
+    color: black;
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+}
+
+.dropdown-item:hover {
+    background-color: #F4CE14;
+    color: white;
+}
+
+.main-container {
+            display: flex;
+            width: 100%;
+            max-width: 1300px;
+            margin: 20px auto;
+            padding: 40px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            background-color: #f1f1f1;
+        }
+
+        .sidebar {
+            flex: 1;
+            max-width: 300px;
+            background-color: #fff;
+            padding: 5px;
+            margin-right: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 250px;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 10px;
+            margin-bottom: 10px;
+            text-decoration: none;
+            color: #333;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+
+        }
+
+        .sidebar a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .sidebar a.active {
+            background-color: #8ab7cc;
+            color: white;
+        }
 .profile-container {
     background: #fff;
     padding: 20px;
@@ -168,22 +223,47 @@ body {
 </head>
 
 <body>
-    <div class="tab-bar">
-        <button class="back-button" onclick="window.location.href='../user/Homepage.php'">⬅️</button>
+<div class="tab-bar">
         <img src="../../img/logo1.png" alt="Logo">
+        <a href="admin_dashboard.php" class="tab-link">หน้าแรก</a>
+        <a href="prov_display.php" class="tab-link">ข้อมูลพนักงาน</a>
+        <a href="show_training_record.php" class="tab-link">การอบรม</a>
+        <a href="history.html" class="tab-link">รายงาน</a>
+        <a href="edit_announce.php" class="tab-link">ประกาศรับสมัครงาน</a>
+        <div class="dropdown">
+            <button class="tab-button dropdown-toggle" type="button" id="dropdownMenuButton">
+                <?php echo htmlspecialchars($_SESSION['admin_username']); ?>
+            </button>
+            <div class="dropdown-menu" id="dropdownMenu">
+                <a class="dropdown-item" href="account_admin.php">
+                    <span style="margin-right: 8px;">🔍</span>รายละเอียดบัญชี
+                </a>
+                <a class="dropdown-item" href="../../process/logout.php">
+                    <span style="margin-right: 8px;">🔓</span>ออกจากระบบ
+                </a>
+            </div>
+        </div>
     </div>
-    <div class="container">
-        <div class="menu-container">
-            <a href="../user/account_user.php" class="menu-item">
+
+    <div class="main-container">
+    <div class="sidebar">
+            <a href="../admin/account_admin.php" class="menu-item">
                 <span style="margin-right: 8px;">🔍</span>รายละเอียดบัญชี
             </a>
-            <a href="#" class="menu-item">
-                <span style="margin-right: 8px;">🏣</span>ข้อมูลหน่วยงาน
+            <a href="../admin/edit_agency.php" class="menu-item">
+                <span style="margin-right: 8px;">🏢</span>ข้อมูลหน่วยงาน
+            </a>
+            <a href="../admin/manage_travel_cost.php" class="menu-item">
+                <span style="margin-right: 8px;">🚑</span>จัดการข้อมูลระยะทาง
+            </a>
+            <a href="../admin/manage_rates.php" class="menu-item">
+                <span style="margin-right: 8px;">💰</span>จัดการข้อมูลแพคเกจ
             </a>
             <a href="../../process/logout.php" class="menu-item">
                 <span style="margin-right: 8px;">🔓</span>ออกจากระบบ
             </a>
         </div>
+
         <div class="profile-container">
             <h1>รายละเอียดผู้ดูแลระบบ</h1>
             <div class="admin-detail">
@@ -196,6 +276,40 @@ body {
             </div>
         </div>
     </div>
+    <script>
+        document.getElementById('dropdownMenuButton').addEventListener('click', function () {
+            var dropdownMenu = document.getElementById('dropdownMenu');
+            dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+
+            // Check if the dropdown menu is out of the viewport
+            const rect = dropdownMenu.getBoundingClientRect();
+            const windowWidth = window.innerWidth;
+
+            if (rect.right > windowWidth) {
+                dropdownMenu.style.left = 'auto';
+                dropdownMenu.style.right = '0';
+            } else if (rect.left < 0) {
+                dropdownMenu.style.left = '0';
+                dropdownMenu.style.right = 'auto';
+            } else {
+                dropdownMenu.style.left = '0';
+                dropdownMenu.style.right = 'auto';
+            }
+        });
+
+        // Close the dropdown menu if the user clicks outside of it
+        window.onclick = function(event) {
+            if (!event.target.matches('.tab-button')) {
+                var dropdowns = document.getElementsByClassName("dropdown-menu");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.style.display === 'block') {
+                        openDropdown.style.display = 'none';
+                    }
+                }
+            }
+        }
+    </script>
 </body>
 
 </html>

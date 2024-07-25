@@ -311,18 +311,23 @@ $result = mysqli_query($conn, $query);
     </div>
 
     <div class="main-container">
-        <div class="sidebar">
-            <a href="../user/account_user.php" class="menu-item">
+    <div class="sidebar">
+            <a href="../admin/account_admin.php" class="menu-item">
                 <span style="margin-right: 8px;">🔍</span>รายละเอียดบัญชี
             </a>
-            <a href="private_agency.php" class="menu-item">
+            <a href="../admin/edit_agency.php" class="menu-item">
                 <span style="margin-right: 8px;">🏢</span>ข้อมูลหน่วยงาน
+            </a>
+            <a href="../admin/manage_travel_cost.php" class="menu-item">
+                <span style="margin-right: 8px;">🚑</span>จัดการข้อมูลระยะทาง
+            </a>
+            <a href="../admin/manage_rates.php" class="menu-item">
+            <span style="margin-right: 8px;">💰</span>จัดการข้อมูลแพคเกจ
             </a>
             <a href="../../process/logout.php" class="menu-item">
                 <span style="margin-right: 8px;">🔓</span>ออกจากระบบ
             </a>
         </div>
-
         <div class="content">
             <h2>ข้อมูลหน่วยงาน</h2>
             <table>

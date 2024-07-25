@@ -35,10 +35,17 @@ $result = $conn->query($sql);
                 <?php echo $_SESSION['admin_username']; ?>
             </button>
             <div class="dropdown-menu" id="dropdownMenu" style="background-color: #f8f9fa; border-radius: 8px;"> 
-            <span style="margin-right: 8px;">🔍</span>รายละเอียดบัญชี
+            <a class="dropdown-item" href="account_admin.php">
+                        <span style="margin-right: 8px;">🔍</span>รายละเอียดบัญชี
                     </a>
                     <a class="dropdown-item" href="edit_agency.php">
                         <span style="margin-right: 8px;">🏢</span>จัดการข้อมูลหน่วยงาน
+                    </a>
+                    <a class="dropdown-item" href="manage_travel_cost.php">
+                        <span style="margin-right: 8px;">🚑</span>จัดการข้อมูลระยะทาง
+                    </a>
+                    <a class="dropdown-item" href="manage_rates.php">
+                        <span style="margin-right: 8px;">💰</span>จัดการข้อมูลแพคเกจ
                     </a>
                     <a class="dropdown-item" href="../../process/logout.php">
                         <span style="margin-right: 8px;">🔓</span>ออกจากระบบ

@@ -34,6 +34,12 @@ $isAdminLoggedIn = isset($_SESSION['admin_username']);
                     <a class="dropdown-item" href="edit_agency.php">
                         <span style="margin-right: 8px;">🏢</span>จัดการข้อมูลหน่วยงาน
                     </a>
+                    <a class="dropdown-item" href="manage_travel_cost.php">
+                        <span style="margin-right: 8px;">🚑</span>จัดการข้อมูลระยะทาง
+                    </a>
+                    <a class="dropdown-item" href="manage_rates.php">
+                        <span style="margin-right: 8px;">💰</span>จัดการข้อมูลแพคเกจ
+                    </a>
                     <a class="dropdown-item" href="../../process/logout.php">
                         <span style="margin-right: 8px;">🔓</span>ออกจากระบบ
                     </a>
