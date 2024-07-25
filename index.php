@@ -72,8 +72,8 @@ function getIconClass($rate_name) {
         <img src="img/logo1.png" alt="Logo">
         <a href="index.php" class="tab-link">หน้าแรก</a>
         <a href="view/user/booking.php" class="tab-link" id="booking-link">การจอง</a>
-        <a href="view/user/booking_list.php" class="tab-link" id="booking-list-link">รายการจอง</a>
-        <a href="view/user/history.php" class="tab-link" id="history-link">ประวัติการจอง</a>
+        <a href="#" class="tab-link" id="booking-list-link">รายการจอง</a>
+        <a href="#" class="tab-link" id="history-link">ประวัติการจอง</a>
         <a href="view/user/announce.php" class="tab-link announce">สมัครงาน</a>
         <a href="view/user/login_level.php" class="tab-link login">เข้าสู่ระบบ</a>
         <a href="view/user/register.php" class="tab-link register">ลงทะเบียน</a>

@@ -14,8 +14,8 @@
         <img src="../../img/logo1.png" alt="Logo">
         <a href="../../index.php" class="tab-link">หน้าแรก</a>
         <a href="booking.php" class="tab-link">การจอง</a>
-        <a href="booking_list.php" class="tab-link">รายการจอง</a>
-        <a href="history.php" class="tab-link">ประวัติการจอง</a>
+        <a href="#" class="tab-link">รายการจอง</a>
+        <a href="#" class="tab-link">ประวัติการจอง</a>
         <a href="announce.php" class="tab-link">ประกาสรับสมัครงาน</a>
         <a href="login_level.php" class="tab-link login">เข้าสู่ระบบ</a>
         <a href="register.php" class="tab-link register">ลงทะเบียน</a>
