@@ -10,6 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user_id = mysqli_real_escape_string($conn, $_POST['user_id']);
     $username = mysqli_real_escape_string($conn, $_POST['username']);
     $password = $_POST['password'];
+    $confirm_password = $_POST['confirm_password'];
     $user_name = mysqli_real_escape_string($conn, $_POST['user_name']);
     $user_gender = mysqli_real_escape_string($conn, $_POST['user_gender']);
     $user_birthday = mysqli_real_escape_string($conn, $_POST['user_birthday']);
@@ -33,6 +34,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     if (!preg_match("/[0-9]/", $password)) {
         die("รหัสผ่านต้องมีตัวเลข (0-9) อย่างน้อย 1 ตัว");
+    }
+
+    // ตรวจสอบว่ารหัสผ่านตรงกันหรือไม่
+    if ($password !== $confirm_password) {
+        die("รหัสผ่านและยืนยันรหัสผ่านไม่ตรงกัน");
     }
 
     $sql = "INSERT INTO User (User_id, User_Username, User_password, User_name, User_gender, User_birthday, User_addressnow, User_email, User_phone ,User_status) 
@@ -86,6 +92,7 @@ $conn->close();
     <script>
         function validateForm() {
             var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirm_password").value;
             var genderMale = document.getElementById("male").checked;
             var genderFemale = document.getElementById("female").checked;
 
@@ -103,6 +110,10 @@ $conn->close();
             }
             if (!/[0-9]/.test(password)) {
                 alert("รหัสผ่านต้องมีตัวเลข (0-9) อย่างน้อย 1 ตัว");
+                return false;
+            }
+            if (password !== confirmPassword) {
+                alert("รหัสผ่านและยืนยันรหัสผ่านไม่ตรงกัน");
                 return false;
             }
             if (!genderMale && !genderFemale) {
@@ -141,6 +152,9 @@ $conn->close();
 
             <label for="password">รหัสผ่าน:</label>
             <input type="password" id="password" name="password" required>
+
+            <label for="confirm_password">ยืนยันรหัสผ่าน:</label>
+            <input type="password" id="confirm_password" name="confirm_password" required>
 
             <label for="user_name">ชื่อ-นามสกุล:</label>
             <input type="text" id="user_name" name="user_name" required>

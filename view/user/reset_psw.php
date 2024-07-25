@@ -4,32 +4,66 @@ include ('../../connect/connection.php');
 
 if (isset($_POST["reset"])) {
     $user_password = $_POST["password"];
+    $confirm_password = $_POST["confirm_password"];
 
-    if (isset($_SESSION['User_email'])) {
-        $user_email = $_SESSION['User_email'];
+    // ตรวจสอบเงื่อนไขรหัสผ่าน
+    if (strlen($user_password) < 8) {
+        ?>
+        <script>
+            alert("รหัสผ่านต้องมีความยาวอย่างน้อย 8 ตัวอักษร");
+        </script>
+        <?php
+    } elseif (!preg_match("/[A-Z]/", $user_password)) {
+        ?>
+        <script>
+            alert("รหัสผ่านต้องมีตัวอักษรตัวใหญ่ (A-Z) อย่างน้อย 1 ตัว");
+        </script>
+        <?php
+    } elseif (!preg_match("/[a-z]/", $user_password)) {
+        ?>
+        <script>
+            alert("รหัสผ่านต้องมีตัวอักษรตัวเล็ก (a-z) อย่างน้อย 1 ตัว");
+        </script>
+        <?php
+    } elseif (!preg_match("/[0-9]/", $user_password)) {
+        ?>
+        <script>
+            alert("รหัสผ่านต้องมีตัวเลข (0-9) อย่างน้อย 1 ตัว");
+        </script>
+        <?php
+    } elseif ($user_password !== $confirm_password) {
+        ?>
+        <script>
+            alert("รหัสผ่านไม่ตรงกัน โปรดลองอีกครั้ง");
+        </script>
+        <?php
+    } else {
+        if (isset($_SESSION['User_email'])) {
+            $user_email = $_SESSION['User_email'];
 
-        $sql = "UPDATE user SET User_password='$user_password' WHERE User_email='$user_email'";
+            $sql = "UPDATE user SET User_password='$user_password' WHERE User_email='$user_email'";
 
-        if (mysqli_query($conn, $sql)) {
-            ?>
-            <script>
-                window.location.replace("../../index.php");
-                alert("รหัสผ่านของคุณได้รับการรีเซ็ตเรียบร้อยแล้ว");
-            </script>
-            <?php
+            if (mysqli_query($conn, $sql)) {
+                ?>
+                <script>
+                    window.location.replace("../../index.php");
+                    alert("รหัสผ่านของคุณได้รับการรีเซ็ตเรียบร้อยแล้ว");
+                </script>
+                <?php
+            } else {
+                ?>
+                <script>
+                    alert("เกิดข้อผิดพลาดขณะรีเซ็ตรหัสผ่าน โปรดลองอีกครั้ง");
+                </script>
+                <?php
+            }
         } else {
             ?>
             <script>
-                alert("เกิดข้อผิดพลาดขณะรีเซ็ตรหัสผ่าน โปรดลองอีกครั้ง");
+                alert("ไม่ได้กำหนดที่อยู่อีเมล โปรดลองอีกครั้ง");
             </script>
             <?php
         }
-    } else {
-        ?>
-        <script>
-            alert("ไม่ได้กำหนดที่อยู่อีเมล โปรดลองอีกครั้ง");
-        </script>
-        <?php
     }
 }
 ?>
@@ -43,6 +77,22 @@ if (isset($_POST["reset"])) {
     <title>Password Reset Form</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <style>
+        .container {
+            margin-top: 50px;
+        }
+        .card-header {
+            text-align: center;
+        }
+        .form-control {
+            padding-right: 10px; /* Adjust padding to ensure input text is not cut off */
+        }
+        .password-requirements {
+            font-size: 14px;
+            color: red;
+            margin-top: 15px;
+        }
+    </style>
 </head>
 
 <body>
@@ -68,14 +118,26 @@ if (isset($_POST["reset"])) {
                                 <div class="form-group row">
                                     <label for="password" class="col-md-4 col-form-label text-md-right">รหัสผ่านใหม่</label>
                                     <div class="col-md-6">
-                                        <input type="password" id="password" class="form-control" name="password"
-                                            required autofocus>
-                                        <i class="bi bi-eye-slash" id="togglePassword"></i>
+                                        <input type="password" id="password" class="form-control" name="password" required autofocus>
                                     </div>
                                 </div>
-
+                                <div class="form-group row">
+                                    <label for="confirm_password" class="col-md-4 col-form-label text-md-right">ยืนยันรหัสผ่าน</label>
+                                    <div class="col-md-6">
+                                        <input type="password" id="confirm_password" class="form-control" name="confirm_password" required>
+                                    </div>
+                                </div>
                                 <div class="col-md-6 offset-md-4">
-                                    <input type="submit" value="แก้ไข" name="แก้ไข">
+                                    <input type="submit" value="แก้ไข" name="reset" class="btn btn-primary">
+                                </div>
+                                <div class="password-requirements">
+                                    <p>รหัสผ่านต้องมี:</p>
+                                    <ul>
+                                        <li>ความยาวอย่างน้อย 8 ตัวอักษร</li>
+                                        <li>ตัวอักษรตัวใหญ่ (A-Z) อย่างน้อย 1 ตัว</li>
+                                        <li>ตัวอักษรตัวเล็ก (a-z) อย่างน้อย 1 ตัว</li>
+                                        <li>ตัวเลข (0-9) อย่างน้อย 1 ตัว</li>
+                                    </ul>
                                 </div>
                             </form>
                         </div>
@@ -84,20 +146,6 @@ if (isset($_POST["reset"])) {
             </div>
         </div>
     </main>
-
-    <script>
-        const toggle = document.getElementById('togglePassword');
-        const password = document.getElementById('password');
-
-        toggle.addEventListener('click', function () {
-            if (password.type === "password") {
-                password.type = 'text';
-            } else {
-                password.type = 'password';
-            }
-            this.classList.toggle('bi-eye');
-        });
-    </script>
 
 </body>
 
