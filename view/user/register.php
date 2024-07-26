@@ -149,21 +149,10 @@ $conn->close();
 
             <label for="username">ชื่อผู้ใช้:</label>
             <input type="text" id="username" name="username" required>
-
-<<<<<<< HEAD
-            <div class="password-container">
-                <label for="password">รหัสผ่าน:</label>
-                <input type="password" id="password" name="password" required>
-                <span onclick="togglePasswordVisibility()">⊙</span>
-            </div>
-=======
             <label for="password">รหัสผ่าน:</label>
             <input type="password" id="password" name="password" required>
-
             <label for="confirm_password">ยืนยันรหัสผ่าน:</label>
             <input type="password" id="confirm_password" name="confirm_password" required>
-
->>>>>>> 544e9e291bce31cbb75c36093d82e69a81dc7578
             <label for="user_name">ชื่อ-นามสกุล:</label>
             <input type="text" id="user_name" name="user_name" required>
 

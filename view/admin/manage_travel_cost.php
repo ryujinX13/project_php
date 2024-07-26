@@ -3,7 +3,10 @@ session_start();
 include('../../connect/connection.php');
 
 // ตรวจสอบว่าผู้ใช้ล็อคอินอยู่หรือไม่
-if (!isset($_SESSION['username']))
+if (!isset($_SESSION['username'])) {
+    header('Location: login.php'); // Redirect to login page if user is not logged in
+    exit();
+}
 
 // ตรวจสอบการเชื่อมต่อกับฐานข้อมูล
 if ($conn->connect_error) {
@@ -20,7 +23,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $distance = $_POST['distance'];
     $excess = $_POST['excess'];
     $update_sql = "UPDATE travel_distance_cost SET Tracost_distance = '$distance', TraCost_excess = '$excess' WHERE TraCost_id = '$id'";
-   
+
+    if ($conn->query($update_sql) === TRUE) {
+        echo "Record updated successfully";
+    } else {
+        echo "Error updating record: " . $conn->error;
+    }
+    
+    // Refresh the page to reflect the changes
+    header('Location: ' . $_SERVER['PHP_SELF']);
+    exit();
 }
 ?>
 
