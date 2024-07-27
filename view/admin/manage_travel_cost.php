@@ -3,10 +3,8 @@ session_start();
 include('../../connect/connection.php');
 
 // ตรวจสอบว่าผู้ใช้ล็อคอินอยู่หรือไม่
-if (!isset($_SESSION['username'])) {
-    header('Location: login.php'); // Redirect to login page if user is not logged in
-    exit();
-}
+if (!isset($_SESSION['username']))
+
 
 // ตรวจสอบการเชื่อมต่อกับฐานข้อมูล
 if ($conn->connect_error) {
