@@ -12,7 +12,7 @@ if ($conn->connect_error) {
 }
 
 $admin_username = $_SESSION['admin_username'];
-$sql = "SELECT Admin_id, Admin_name, Admin_Username, Admin_address, Admin_phone, Admin_photo FROM admin WHERE Admin_Username = ?";
+$sql = "SELECT Admin_id, Admin_name, Admin_Username, Admin_address, Admin_phone, Admin_password, Admin_photo FROM admin WHERE Admin_Username = ?";
 $stmt = $conn->prepare($sql);
 
 if ($stmt === false) {
@@ -41,13 +41,13 @@ $stmt->close();
 $conn->close();
 
 // ตรวจสอบว่ามีรูปโปรไฟล์หรือไม่
-$admin_photo = $admin['Admin_photo'] ? '../../uploads/' . $admin['Admin_photo'] : '../../img/placeholder.png';
+$admin_photo = !empty($admin['Admin_photo']) ? '../../uploads/' . $admin['Admin_photo'] : '../../img/placeholder.png';
 ?>
 <!DOCTYPE html>
 <html lang="th">
 <head>
     <meta charset="UTF-8">
-    <title>รายละเอียดผู้ดูแลระบบ</title>
+    <title>แก้ไขรายละเอียดผู้ดูแลระบบ</title>
     <link rel="stylesheet" type="text/css" href="../../css/admin/stylesaccount_admin.css">
 </head>
 <body>
@@ -91,16 +91,17 @@ $admin_photo = $admin['Admin_photo'] ? '../../uploads/' . $admin['Admin_photo'] 
             </a>
         </div>
         <div class="profile-container">
-            <h1>รายละเอียดผู้ดูแลระบบ</h1>
-            <div class="admin-detail">
-                <img src="<?php echo htmlspecialchars($admin_photo); ?>" alt="รูปภาพของ <?php echo htmlspecialchars($admin['Admin_name']); ?>" width="150" height="150">
-                <p><strong>รหัสบัตรประจำตัวประชาชน:</strong> <?php echo htmlspecialchars($admin['Admin_id']); ?></p>
-                <p><strong>ชื่อผู้ใช้:</strong> <?php echo htmlspecialchars($admin['Admin_Username']); ?></p>
-                <p><strong>ชื่อ-นามสกุล:</strong> <?php echo htmlspecialchars($admin['Admin_name']); ?></p>
-                <p><strong>ที่อยู่:</strong> <?php echo htmlspecialchars($admin['Admin_address']); ?></p>
-                <p><strong>เบอร์โทรศัพท์:</strong> <?php echo htmlspecialchars($admin['Admin_phone']); ?></p>
-                <a href="edit_admin.php" class="btn-edit">แก้ไขข้อมูล</a>
-            </div>
+            <h1>แก้ไขรายละเอียดผู้ดูแลระบบ</h1>
+            <form action="../../process/update_admin.php" method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="Admin_id" value="<?php echo htmlspecialchars($admin['Admin_id']); ?>">
+                <p><strong>ชื่อผู้ใช้:</strong> <input type="text" name="Admin_Username" value="<?php echo htmlspecialchars($admin['Admin_Username']); ?>" readonly style="border:none; background-color: transparent;"></p>
+                <p><strong>ชื่อ-นามสกุล:</strong> <input type="text" name="Admin_name" value="<?php echo htmlspecialchars($admin['Admin_name']); ?>"></p>
+                <p><strong>ที่อยู่:</strong> <input type="text" name="Admin_address" value="<?php echo htmlspecialchars($admin['Admin_address']); ?>"></p>
+                <p><strong>เบอร์โทรศัพท์:</strong> <input type="text" name="Admin_phone" value="<?php echo htmlspecialchars($admin['Admin_phone']); ?>"></p>
+                <p><strong>รหัสผ่านใหม่:</strong> <input type="password" name="Admin_password" placeholder="กรอกรหัสผ่านใหม่"></p>
+                <p><strong>รูปภาพ:</strong> <input type="file" name="Admin_photo"></p>
+                <p><button type="submit">บันทึก</button></p>
+            </form>
         </div>
     </div>
     <script>
