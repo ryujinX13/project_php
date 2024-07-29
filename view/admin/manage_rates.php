@@ -144,7 +144,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         .sidebar {
             flex: 1;
-            max-width: 400px; /* เพิ่มความกว้างจาก 300px เป็น 400px */
+            max-width: 230px; /* เพิ่มความกว้างจาก 300px เป็น 400px */
             background-color: #fff;
             padding: 5px;
             margin-right: -70px;
@@ -175,12 +175,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             color: white;
         }
 
-        .content {
+        .container {
             flex: 2;
             background-color: #fff;
-            padding: 20px;
+            padding: 10px;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 100px;
+            margin-left: 90px;
         }
 
         h2 {
@@ -191,10 +193,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
 
         table {
-            width: 80%;
+            width: 90%;
             border-collapse: collapse;
             margin-bottom: 20px;
-            margin-left: 8%;
+            margin-left: 5%;
+            
         }
 
         table,
@@ -214,6 +217,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         th {
             background-color: #8ab7cc;
             color: white;
+            text-align: center;
         }
 
         tr:nth-child(even) {
@@ -289,7 +293,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <a href="../admin/manage_travel_cost.php" class="menu-item">
                 <span style="margin-right: 8px;">🚑</span>จัดการข้อมูลระยะทาง
             </a>
-            <a href="../admin/manage_rates.php" class="menu-item">
+            <a href="../admin/manage_rates.php" class="menu-item active">
             <span style="margin-right: 8px;">💰</span>จัดการข้อมูลแพคเกจ
             </a>
             <a href="../../process/logout.php" class="menu-item">

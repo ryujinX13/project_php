@@ -64,16 +64,16 @@ $prov_photo = $prov['Prov_img'] ? 'data:image/jpeg;base64,' . base64_encode($pro
 </div>
 <div class="container d-flex">
     <div class="menu-container">
-        <a href="account_provider.php" class="menu-item">
+        <a href="account_provider.php" class="menu-item active">
             <span style="margin-right: 8px;">🔍</span>รายละเอียดบัญชี
         </a>
-        <a href="#" class="menu-item active">
+        <a href="#" class="menu-item ">
             <span style="margin-right: 8px;">📅</span>รายการจอง
         </a>
         <a href="#" class="menu-item">
             <span style="margin-right: 8px;">📜</span>ประวัติการจอง
         </a>
-        <a href="#" class="menu-item">
+        <a href="#" class="menu-item ">
             <span style="margin-right: 8px;">📜</span>ข้อมูลหน่วยงาน
         </a>
         <a href="../../process/logout.php" class="menu-item">

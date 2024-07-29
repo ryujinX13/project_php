@@ -13,16 +13,22 @@
     <link href="style.css" rel="stylesheet">
     <link rel="icon" href="Favicon.png">
     <style>
-        /* Custom CSS for login form */
+       body{
+        background-color: #f1f1f1;
+       }
         .login-form {
             padding-top: 50px;
             padding-bottom: 50px;
+           
         }
 
         .card-header {
-            background-color: #013A63;
+            background-color: #8ab7cc;
             color: #fff;
             font-weight: bold;
+            font-size: 24px;
+            text-align: center;
+            
         }
 
         .card-body {
@@ -31,8 +37,8 @@
         }
 
         .btn-primary {
-            background-color: #014F86;
-            border-color: #014F86;
+            background-color: #F4CE14;
+            border-color: #fff;
         }
 
         .btn-primary:hover {

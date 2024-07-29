@@ -22,51 +22,24 @@ body {
 .tab-bar img {
     height: 80px;
     margin-right: auto;
-    margin-left: 20px;
+    margin-left: 45%;
+    
 }
 
-.tab-link {
-    padding: 10px 20px;
-    text-decoration: none;
+.back-button {
+    position: absolute;
+    left: 10px;
+    background: none;
+    border: none;
+    font-size: 3em;
     color: black;
-    border: 1px solid transparent;
-    border-radius: 3px;
-    margin: 0 10px;
-    transition: background-color 0.3s, border-color 0.3s;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
-.tab-link:hover {
-    background-color: #ccc;
-    border-color: #bbb;
-}
-
-.tab-link.login {
-    background-color: #F4CE14;
-    color: rgb(255, 252, 252);
-    border-radius: 10px;
-}
-
-.tab-link.register {
-    background-color: #007bff;
+.back-button:hover {
     color: white;
-    border-radius: 10px;
-}
-
-.tab-link.logout {
-    background-color: #F4CE14;
-    color: black;
-    border-radius: 10px;
-}
-
-.tab-link.login:hover,
-.tab-link.register:hover {
-    background-color: #F4CE14;
-    color: white;
-}
-
-.tab-link.logout:hover {
-    background-color: #F4CE14;
-    color: white;
+    transform: scale(1.1);
 }
 
 .container {
@@ -77,6 +50,7 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-top: 15px;
+    margin-top: 40px;
 }
 
 .dropdown {
@@ -129,6 +103,8 @@ body {
 h2 {
     text-align: center;
     font-weight: 400; /* ลดความหนาตัวหนังสือ */
+    font-size: 30px;
+    color: #000;
 }
 
 input[type="text"],
@@ -141,6 +117,8 @@ input[type="checkbox"] {
     box-sizing: border-box;
     border: 1px solid #ccc;
     border-radius: 4px;
+    color: #000;
+
 }
 
 input[type="submit"] {

@@ -70,6 +70,10 @@ body {
 .menu-item:hover {
     background-color: #eee;
 }
+.menu-container .active {
+    background-color: #8ab7cc;
+    color: white;
+}
 
 .profile-container {
     background: #fff;

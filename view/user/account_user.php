@@ -65,10 +65,10 @@ $user_photo = $user['user_photo'] ? '../../uploads/' . $user['user_photo'] : '..
     </div>
     <div class="container d-flex">
         <div class="menu-container">
-            <a href="../user/account_user.php" class="menu-item">
+            <a href="../user/account_user.php" class="menu-item active">
                 <span style="margin-right: 8px;">🔍</span>รายละเอียดบัญชี
             </a>
-            <a href="#" class="menu-item active">
+            <a href="#" class="menu-item ">
                 <span style="margin-right: 8px;">📅</span>รายการจอง
             </a>
             <a href="#" class="menu-item">

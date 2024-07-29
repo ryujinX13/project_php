@@ -22,41 +22,26 @@ body {
 .tab-bar img {
     height: 80px;
     margin-right: auto;
-    margin-left: 20px;
+    margin-left: 45%;
 }
 
-.tab-link {
-    padding: 10px 20px;
-    text-decoration: none;
+.back-button {
+    position: absolute;
+    left: 10px;
+    background: none;
+    border: none;
+    font-size: 3em;
     color: black;
-    border: 1px solid transparent;
-    border-radius: 3px;
-    margin: 0 10px;
-    transition: background-color 0.3s, border-color 0.3s;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
-.tab-link:hover {
-    background-color: #ccc;
-    border-color: #bbb;
-}
-
-.tab-link.login {
-    background-color: #F4CE14;
-    color: black;
-    border-radius: 10px;
-}
-
-.tab-link.register {
-    background-color: #007bff;
+.back-button:hover {
     color: white;
-    border-radius: 10px;
+    transform: scale(1.1);
 }
 
-.tab-link.login:hover,
-.tab-link.register:hover {
-    background-color: #F4CE14;
-    color: white;
-}
+
 
 .dropdown {
     position: relative;
@@ -112,6 +97,7 @@ body {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
+    margin-top: 40px;
 }
 
 h2 {

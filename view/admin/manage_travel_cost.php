@@ -191,10 +191,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
 
         table {
-            width: 100%;
+            width: 92%;
             border-collapse: collapse;
             margin-bottom: 20px;
             background-color: #fff;
+            margin-left: 4%;
             
         }
         
@@ -214,7 +215,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
 
         th {
-            background-color: #fff;
+            background-color: #8ab7cc;
+            color: white;
+            text-align: center;
         }
 
         tr:nth-child(even) {
@@ -280,13 +283,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <a href="../admin/edit_agency.php" class="menu-item">
                 <span style="margin-right: 8px;">🏢</span>ข้อมูลหน่วยงาน
             </a>
-            <a href="../admin/manage_travel_cost.php" class="menu-item">
+            <a href="../admin/manage_travel_cost.php" class="menu-item active">
                 <span style="margin-right: 8px;">🚑</span>จัดการข้อมูลระยะทาง
             </a>
             <a href="../admin/manage_rates.php" class="menu-item">
             <span style="margin-right: 8px;">💰</span>จัดการข้อมูลแพคเกจ
             </a>
-            <a href="../../process/logout.php" class="menu-item">
+            <a href="../../process/logout.php" class="menu-item ">
                 <span style="margin-right: 8px;">🔓</span>ออกจากระบบ
             </a>
         </div>

@@ -101,6 +101,7 @@ body {
 h2 {
     color: #000000;
     font-weight: 400; /* ลดความหนาตัวหนังสือ */
+    font-size: 30px;
 }
 
 p {
@@ -117,7 +118,7 @@ p {
 .button {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: #007bffeb;
     color: #fff;
     text-decoration: none;
     border-radius: 20px;
@@ -126,7 +127,8 @@ p {
 }
 
 .button:hover {
-    background-color: #0056b3;
+    background-color: #F4CE14;
+    color: #000;
 }
 
 /* Dropdown JavaScript */

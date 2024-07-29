@@ -157,35 +157,34 @@ $result = mysqli_query($conn, $query);
         }
 
         .sidebar {
-            flex: 1;
-            max-width: 300px;
-            background-color: #fff;
-            padding: 5px;
-            margin-right: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            width: 250px;
-        }
+    flex: 1;
+    max-width: 230px;
+    background-color: #fff;
+    padding: 5px;
+    margin-right: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 250px;
+}
 
-        .sidebar a {
-            display: block;
-            padding: 10px;
-            margin-bottom: 10px;
-            text-decoration: none;
-            color: #333;
-            border-radius: 4px;
-            transition: background-color 0.3s;
+.sidebar a {
+    display: block;
+    padding: 10px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: #333;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
 
-        }
+.sidebar a:hover {
+    background-color: #f1f1f1;
+}
 
-        .sidebar a:hover {
-            background-color: #f1f1f1;
-        }
-
-        .sidebar a.active {
-            background-color: #8ab7cc;
-            color: white;
-        }
+.sidebar a.active {
+    background-color: #8ab7cc;
+    color: white;
+}
 
         .content {
             flex: 2;
@@ -219,7 +218,9 @@ $result = mysqli_query($conn, $query);
         }
 
         th {
-            background-color:#f1f1f1;
+            background-color: #8ab7cc;
+            color: white;
+            text-align: center;
         }
 
         tr:nth-child(even) {
@@ -316,7 +317,7 @@ $result = mysqli_query($conn, $query);
             <a href="../admin/account_admin.php" class="menu-item">
                 <span style="margin-right: 8px;">🔍</span>รายละเอียดบัญชี
             </a>
-            <a href="../admin/edit_agency.php" class="menu-item">
+            <a href="../admin/edit_agency.php" class="menu-item active">
                 <span style="margin-right: 8px;">🏢</span>ข้อมูลหน่วยงาน
             </a>
             <a href="../admin/manage_travel_cost.php" class="menu-item">

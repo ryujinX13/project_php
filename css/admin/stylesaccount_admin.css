@@ -161,11 +161,16 @@ body {
     margin: 10px 0;
     padding-bottom: 10px;
     border-bottom: 1px solid #e0e0e0;
+    font-weight: 300; /* ลดความหนาตัวหนังสือ */
+    margin-left: 5%;
+    
 }
 
 .profile-container p strong {
     display: inline-block;
     width: 150px;
+    font-weight: 400; /* ลดความหนาตัวหนังสือ */
+    padding: 5px;
 }
 
 .btn-edit {
@@ -177,6 +182,9 @@ body {
     background-color: #8ab7cc;
     border-radius: 5px;
     text-decoration: none;
+    width: 80px;
+    margin-left: 40%;
+    text-align: center;
 }
 
 .btn-edit:hover {

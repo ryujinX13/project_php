@@ -87,7 +87,7 @@ $result = $conn->query($sql);
                 <?php endif; ?>
             </tbody>
         </table>
-        <a href="add_announce.php" class="btn btn-primary mt-3">เพิ่มประกาศรับสมัครงาน</a>
+        <a href="add_announce.php" class="btn">เพิ่มประกาศรับสมัครงาน</a>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

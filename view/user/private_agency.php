@@ -209,7 +209,7 @@ $result = $conn->query($sql);
                     <a class="dropdown-item" href="#">
                         <span style="margin-right: 8px;">📜</span>ประวัติการจอง
                     </a>
-                    <a class="dropdown-item" href="private_agency.php">
+                    <a class="dropdown-item " href="private_agency.php">
                         <span style="margin-right: 8px;">🏢</span>ข้อมูลหน่วยงาน
                     </a>
                     <a class="dropdown-item" href="../../process/logout.php">
@@ -224,7 +224,7 @@ $result = $conn->query($sql);
     </div>
 
     <main>
-        <div class="container">
+       
             <?php
             if ($result->num_rows > 0) {
                 // แสดงผลข้อมูลแต่ละแถว
@@ -233,18 +233,32 @@ $result = $conn->query($sql);
                     $imageData = base64_encode($row['Pva_photo']);
                     $imageSrc = 'data:image/jpeg;base64,'.$imageData;
             ?>
-
+            <div class="container">
             <div class="profile-header">
                 <img src="<?php echo $imageSrc; ?>" alt="รูปภาพหน่วยงาน">
                 <h1>รายละเอียดหน่วยงาน</h1>
             </div>
-            <div class="profile-info">
-                <div><span>ชื่อหน่วยงาน:</span> <?php echo $row['Pva_name']; ?></div>
-                <div><span>รายละเอียดหน่วยงาน:</span> <?php echo $row['Pva_detail']; ?></div>
-                <div><span>ที่อยู่หน่วยงาน:</span> <?php echo $row['Pva_address']; ?></div>
-                <div><span>อีเมลหน่วยงาน:</span> <?php echo $row['Pva_email']; ?></div>
-                <div><span>เบอร์โทรศัพท์หน่วยงาน:</span> <?php echo $row['Pva_phone']; ?></div>
             </div>
+            
+            <div class="profile-info">
+            <div class="container">
+                <div><span>ชื่อหน่วยงาน:</span> <?php echo $row['Pva_name']; ?></div>
+            </div>
+                <div class="container">
+                <div><span>รายละเอียดหน่วยงาน:</span> <?php echo $row['Pva_detail']; ?></div>
+                </div>
+                <div class="container">
+                <div><span>ที่อยู่หน่วยงาน:</span> <?php echo $row['Pva_address']; ?></div>
+                </div>
+                <div class="container">
+                <div><span>อีเมลหน่วยงาน:</span> <?php echo $row['Pva_email']; ?></div>
+                </div>
+                <div class="container">
+                <div><span>เบอร์โทรศัพท์หน่วยงาน:</span> <?php echo $row['Pva_phone']; ?></div>
+                </div>
+            </div>
+            </div>
+        
 
             <?php
                 }

@@ -3,28 +3,37 @@
 
 <head>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&display=swap');
         table {
             width: 100%;
             border-collapse: collapse;
+            font-family: "Mitr", sans-serif;
+            margin-top: 20px;
         }
 
         table, th, td {
             border: 1px solid black;
-            padding: 5px;
+            padding: 10px;
+            font-family: "Mitr", sans-serif;
+            font-weight: 300; /* ลดความหนาตัวหนังสือ */
             
         }
 
         th {
-            background-color: #f2f2f2;
-            font-weight: 400; /* ลดความหนาตัวหนังสือ */
+            background-color: #8ab7cc;
+            font-size: 20px;
+            color: #fff;
+            font-family: "Mitr", sans-serif;
         }
 
         tr:nth-child(even) {
-            background-color: #f2f2f2;
+            background-color: #fff;
+            
         }
 
         tr:hover {
-            background-color: #ddd;
+            background-color: #fff;
+            
         }
     </style>
 </head>

@@ -23,77 +23,31 @@ body {
 .tab-bar img {
     height: 80px;
     margin-right: auto;
-    margin-left: 20px;
+    margin-left: 45%;
 }
 
-.tab-link {
-    padding: 10px 20px;
-    text-decoration: none;
-    color: black;
-    border: 1px solid transparent;
-    border-radius: 3px;
-    margin: 0 10px;
-    transition: background-color 0.3s, border-color 0.3s;
-}
-
-.tab-link:hover {
-    background-color: #ccc;
-    border-color: #bbb;
-}
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown .tab-button {
-    background-color: #F4CE14;
-    color: black;
-    border: none;
-    border-radius: 10px;
-    padding: 10px 20px;
-    margin: 0 10px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.dropdown .tab-button:hover {
-    background-color: #F4CE14;
-    color: white;
-}
-
-.dropdown-menu {
-    display: none;
+.back-button {
     position: absolute;
-    background-color: #96B6C5;
-    border-radius: 10px;
-    padding: 10px;
-    z-index: 1;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.dropdown-item {
+    left: 10px;
+    background: none;
+    border: none;
+    font-size: 3em;
     color: black;
-    padding: 10px;
-    text-decoration: none;
-    display: block;
-    transition: background-color 0.3s;
-    border-radius: 5px;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
-.dropdown-item:hover {
-    background-color: #F4CE14;
+.back-button:hover {
     color: white;
+    transform: scale(1.1);
 }
-
 
 .container {
     background: white;
-    padding: 30px;
+    padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    width: 400px;
     margin: 50px auto;
     text-align: center;
 }
@@ -102,6 +56,7 @@ h1 {
     text-align: center;
     color: #000000;
     font-weight: 400; /* ลดความหนาตัวหนังสือ */
+    font-size: 30px;
 }
 
 label {
@@ -111,7 +66,7 @@ label {
 }
 
 input[type="date"], input[type="number"] {
-    width: calc(100% - 20px);
+    width: calc(100% - 40%);
     padding: 10px;
     margin: 10px 0;
     border-radius: 10px;
@@ -125,7 +80,7 @@ button {
     margin: 20px auto 10px;
     border-radius: 10px;
     border: 1px solid #ccc;
-    background-color: #3cb93c;
+    background-color: #F4CE14;;
     color: white;
     cursor: pointer;
     display: block;
