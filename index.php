@@ -11,7 +11,7 @@ if ($conn->connect_error) {
 }
 
 // ดึงข้อมูลจากตาราง travel_distance_cost
-$sql = "SELECT Tracost_distance, TraCost_excess FROM travel_distance_cost";
+$sql = "SELECT Tracost_distance, TraCost_excess, Tracost_flatrate FROM travel_distance_cost";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -19,10 +19,12 @@ if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         $Tracos_distance = $row['Tracost_distance'];
         $TraCost_excess = $row['TraCost_excess'];
+        $Tracost_flatrate = $row['Tracost_flatrate'];
     }
 } else {
     $Tracos_distance = 300; // ค่าเริ่มต้นหากไม่มีข้อมูล
     $TraCost_excess = 5;    // ค่าเริ่มต้นหากไม่มีข้อมูล
+    $Tracost_flatrate = 10; // ค่าเริ่มต้นหากไม่มีข้อมูล (เพิ่มค่าเริ่มต้นสำหรับ Tracost_flatrate)
 }
 
 // ดึงข้อมูลจากตาราง rates
@@ -169,8 +171,8 @@ function getIconClass($rate_name) {
                 <div class="text-content">
                     <h2>ค่าเดินทางรับส่งคนไข้คิดตามระยะทาง</h2>
                     <ul>
-                        <li>ระยะทางไม่เกิน 10 กม.แรก เหมาจ่าย <?php echo $Tracos_distance; ?> บาท (รับและส่ง)</li>
-                        <li>ระยะทางเกิน 10 กม. คิด 10กม.แรก <?php echo $Tracos_distance; ?> บาท <br>หลังจากนั้นจะคิด กม.ละ <?php echo $TraCost_excess; ?> บาท</li>
+                        <li>ระยะทางไม่เกิน <?php echo $Tracost_flatrate; ?> กม.แรก เหมาจ่าย <?php echo $Tracos_distance; ?> บาท (รับและส่ง)</li>
+                        <li>ระยะทางเกิน <?php echo $Tracost_flatrate; ?> กม. คิด <?php echo $Tracost_flatrate; ?>กม. แรก <?php echo $Tracos_distance; ?> บาท <br>หลังจากนั้นจะคิด กม.ละ <?php echo $TraCost_excess; ?> บาท</li>
                         <li>การนับระยะทาง เริ่มจากขับรถไปรับที่บ้าน- ไปโรงพยาบาล<br> ส่งกลับบ้าน- ขับรถกลับ</li>
                         <li>หากต้องเสียค่าที่จอดรถ คนไข้เป็นผู้จ่าย</li>
                     </ul>
