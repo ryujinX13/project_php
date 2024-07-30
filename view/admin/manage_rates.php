@@ -3,7 +3,10 @@ session_start();
 include('../../connect/connection.php');
 
 // ตรวจสอบว่าผู้ใช้ล็อคอินอยู่หรือไม่
-if (!isset($_SESSION['username']))
+if (!isset($_SESSION['admin_username'])) {
+    header("Location: admin_login.php");
+    exit();
+}
 
 // ตรวจสอบการเชื่อมต่อกับฐานข้อมูล
 if ($conn->connect_error) {
@@ -19,8 +22,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $id = $_POST['id'];
     $name = $_POST['name'];
     $sarary = $_POST['sarary'];
-    $time = $_POST['time'];
-    $update_sql = "UPDATE rates SET Rates_name = '$name', Rates_sarary = '$sarary', Rates_time = '$time' WHERE Rates_id = '$id'";
+    $time_go = $_POST['time_go'];
+    $time_return = $_POST['time_return'];
+    $update_sql = "UPDATE rates SET Rates_name = '$name', Rates_sarary = '$sarary', Rates_time_go = '$time_go', Rates_time_return = '$time_return' WHERE Rates_id = '$id'";
     if ($conn->query($update_sql) === TRUE) {
         echo "Record updated successfully";
     } else {
@@ -38,7 +42,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&display=swap');
 
-       
         body {
             font-family: "Mitr", sans-serif;
             line-height: 1.6;
@@ -144,22 +147,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         .sidebar {
             flex: 1;
-            max-width: 230px; /* เพิ่มความกว้างจาก 300px เป็น 400px */
+            max-width: 230px;
             background-color: #fff;
             padding: 5px;
-            margin-right: -70px;
+            margin-right: 20px;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            width: 400%; /* เพิ่มความกว้างจาก 250px เป็น 400px */
-            margin-top: 1px;
-            
-            
+            width: 250px;
         }
 
         .sidebar a {
             display: block;
             padding: 10px;
-            margin-bottom: 9px;
+            margin-bottom: 10px;
             text-decoration: none;
             color: #333;
             border-radius: 4px;
@@ -181,14 +181,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             padding: 10px;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            width: 100px;
-            margin-left: 90px;
         }
 
         h2 {
             color: #000;
             text-align: center;
-            font-weight: 400; /* ลดความหนาตัวหนังสือ */
+            font-weight: 400;
             margin-bottom: 30px;
         }
 
@@ -197,19 +195,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             border-collapse: collapse;
             margin-bottom: 20px;
             margin-left: 5%;
-            
         }
 
-        table,
-        th,
-        td {
+        table, th, td {
             border: 1px solid #ddd;
-            font-weight: 400; /* ลดความหนาตัวหนังสือ */
+            font-weight: 400;
             color: #000;
         }
 
-        th,
-        td {
+        th, td {
             padding: 10px;
             text-align: left;
         }
@@ -230,7 +224,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
 
         .form-inline input[type="text"],
-        .form-inline input[type="number"] {
+        .form-inline input[type="number"],
+        .form-inline input[type="time"] {
             width: 150px;
             margin-bottom: 10px;
             padding: 5px;
@@ -261,45 +256,45 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body>
 
 <div class="tab-bar">
-        <img src="../../img/logo1.png" alt="Logo">
-        <a href="admin_dashboard.php" class="tab-link">หน้าแรก</a>
-        <a href="prov_display.php" class="tab-link">ข้อมูลพนักงาน</a>
-        <a href="show_training_record.php" class="tab-link">การอบรม</a>
-        <a href="history.html" class="tab-link">รายงาน</a>
-        <a href="edit_announce.php" class="tab-link">ประกาศรับสมัครงาน</a>
-        <div class="dropdown">
-            <button class="tab-button dropdown-toggle" type="button" id="dropdownMenuButton">
-                <?php echo htmlspecialchars($_SESSION['admin_username']); ?>
-            </button>
-            <div class="dropdown-menu" id="dropdownMenu">
-                <a class="dropdown-item" href="account_admin.php">
-                    <span style="margin-right: 8px;">🔍</span>รายละเอียดบัญชี
-                </a>
-                <a class="dropdown-item" href="../../process/logout.php">
-                    <span style="margin-right: 8px;">🔓</span>ออกจากระบบ
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <div class="main-container">
-    <div class="sidebar">
-            <a href="../admin/account_admin.php" class="menu-item">
+    <img src="../../img/logo1.png" alt="Logo">
+    <a href="admin_dashboard.php" class="tab-link">หน้าแรก</a>
+    <a href="prov_display.php" class="tab-link">ข้อมูลพนักงาน</a>
+    <a href="show_training_record.php" class="tab-link">การอบรม</a>
+    <a href="history.html" class="tab-link">รายงาน</a>
+    <a href="edit_announce.php" class="tab-link">ประกาศรับสมัครงาน</a>
+    <div class="dropdown">
+        <button class="tab-button dropdown-toggle" type="button" id="dropdownMenuButton">
+            <?php echo htmlspecialchars($_SESSION['admin_username']); ?>
+        </button>
+        <div class="dropdown-menu" id="dropdownMenu">
+            <a class="dropdown-item" href="account_admin.php">
                 <span style="margin-right: 8px;">🔍</span>รายละเอียดบัญชี
             </a>
-            <a href="../admin/edit_agency.php" class="menu-item">
-                <span style="margin-right: 8px;">🏢</span>ข้อมูลหน่วยงาน
-            </a>
-            <a href="../admin/manage_travel_cost.php" class="menu-item">
-                <span style="margin-right: 8px;">🚑</span>จัดการข้อมูลระยะทาง
-            </a>
-            <a href="../admin/manage_rates.php" class="menu-item active">
-            <span style="margin-right: 8px;">💰</span>จัดการข้อมูลแพคเกจ
-            </a>
-            <a href="../../process/logout.php" class="menu-item">
+            <a class="dropdown-item" href="../../process/logout.php">
                 <span style="margin-right: 8px;">🔓</span>ออกจากระบบ
             </a>
         </div>
+    </div>
+</div>
+
+<div class="main-container">
+    <div class="sidebar">
+        <a href="../admin/account_admin.php" class="menu-item">
+            <span style="margin-right: 8px;">🔍</span>รายละเอียดบัญชี
+        </a>
+        <a href="../admin/edit_agency.php" class="menu-item">
+            <span style="margin-right: 8px;">🏢</span>ข้อมูลหน่วยงาน
+        </a>
+        <a href="../admin/manage_travel_cost.php" class="menu-item">
+            <span style="margin-right: 8px;">🚑</span>จัดการข้อมูลระยะทาง
+        </a>
+        <a href="../admin/manage_rates.php" class="menu-item active">
+            <span style="margin-right: 8px;">💰</span>จัดการข้อมูลแพคเกจ
+        </a>
+        <a href="../../process/logout.php" class="menu-item">
+            <span style="margin-right: 8px;">🔓</span>ออกจากระบบ
+        </a>
+    </div>
 
     <div class="container">
         <h2>จัดการข้อมูลแพคเกจ</h2>
@@ -309,7 +304,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <th>รหัส</th>
                     <th>ชื่อแพคเกจ</th>
                     <th>ราคา</th>
-                    <th>เวลา</th>
+                    <th>เวลาเริ่มต้น</th>
+                    <th>เวลาสิ้นสุด</th>
                     <th>แก้ไข</th>
                 </tr>
             </thead>
@@ -321,61 +317,63 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         echo "<td>" . $row['Rates_id'] . "</td>";
                         echo "<td>" . $row['Rates_name'] . "</td>";
                         echo "<td>" . $row['Rates_sarary'] . "</td>";
-                        echo "<td>" . $row['Rates_time'] . "</td>";
+                        echo "<td>" . $row['Rates_time_go'] . "</td>";
+                        echo "<td>" . $row['Rates_time_return'] . "</td>";
                         echo "<td>
                                 <form action='' method='POST'>
                                     <input type='hidden' name='id' value='" . $row['Rates_id'] . "'>
                                     <input type='text' name='name' value='" . $row['Rates_name'] . "' required>
                                     <input type='number' name='sarary' value='" . $row['Rates_sarary'] . "' required>
-                                    <input type='text' name='time' value='" . $row['Rates_time'] . "' required>
+                                    <input type='time' name='time_go' value='" . $row['Rates_time_go'] . "' required>
+                                    <input type='time' name='time_return' value='" . $row['Rates_time_return'] . "' required>
                                     <button type='submit' class='btn btn-primary'>บันทึก</button>
                                 </form>
                               </td>";
                         echo "</tr>";
                     }
                 } else {
-                    echo "<tr><td colspan='5'>No records found</td></tr>";
+                    echo "<tr><td colspan='6'>No records found</td></tr>";
                 }
                 ?>
             </tbody>
         </table>
     </div>
-    <script>
-        document.getElementById('dropdownMenuButton').addEventListener('click', function () {
-            var dropdownMenu = document.getElementById('dropdownMenu');
-            dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+</div>
+<script>
+    document.getElementById('dropdownMenuButton').addEventListener('click', function () {
+        var dropdownMenu = document.getElementById('dropdownMenu');
+        dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
 
-            // Check if the dropdown menu is out of the viewport
-            const rect = dropdownMenu.getBoundingClientRect();
-            const windowWidth = window.innerWidth;
+        // Check if the dropdown menu is out of the viewport
+        const rect = dropdownMenu.getBoundingClientRect();
+        const windowWidth = window.innerWidth;
 
-            if (rect.right > windowWidth) {
-                dropdownMenu.style.left = 'auto';
-                dropdownMenu.style.right = '0';
-            } else if (rect.left < 0) {
-                dropdownMenu.style.left = '0';
-                dropdownMenu.style.right = 'auto';
-            } else {
-                dropdownMenu.style.left = '0';
-                dropdownMenu.style.right = 'auto';
-            }
-        });
+        if (rect.right > windowWidth) {
+            dropdownMenu.style.left = 'auto';
+            dropdownMenu.style.right = '0';
+        } else if (rect.left < 0) {
+            dropdownMenu.style.left = '0';
+            dropdownMenu.style.right = 'auto';
+        } else {
+            dropdownMenu.style.left = '0';
+            dropdownMenu.style.right = 'auto';
+        }
+    });
 
-        // Close the dropdown menu if the user clicks outside of it
-        window.onclick = function(event) {
-            if (!event.target.matches('.tab-button')) {
-                var dropdowns = document.getElementsByClassName("dropdown-menu");
-                for (var i = 0; i < dropdowns.length; i++) {
-                    var openDropdown = dropdowns[i];
-                    if (openDropdown.style.display === 'block') {
-                        openDropdown.style.display = 'none';
-                    }
+    // Close the dropdown menu if the user clicks outside of it
+    window.onclick = function(event) {
+        if (!event.target.matches('.tab-button')) {
+            var dropdowns = document.getElementsByClassName("dropdown-menu");
+            for (var i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.style.display === 'block') {
+                    openDropdown.style.display = 'none';
                 }
             }
         }
-    </script>
+    }
+</script>
 </body>
-
 </html>
 
 <?php

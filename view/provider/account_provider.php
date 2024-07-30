@@ -1,10 +1,10 @@
 <?php
 session_start();
-include ('../../connect/connection.php');
+include('../../connect/connection.php');
 
 // ตรวจสอบว่าผู้ใช้ล็อคอินอยู่หรือไม่
-if (!isset($_SESSION['username'])) {
-    header('Location: login.php'); // เปลี่ยนเส้นทางไปยังหน้า login หากผู้ใช้ยังไม่ได้ล็อคอิน
+if (!isset($_SESSION['provider_username'])) {
+    header('Location: prov_login.php'); // เปลี่ยนเส้นทางไปยังหน้า login หากผู้ใช้ยังไม่ได้ล็อคอิน
     exit;
 }
 
@@ -13,7 +13,7 @@ if ($conn->connect_error) {
 }
 
 // ดึงข้อมูลของผู้ให้บริการที่ล็อคอินอยู่
-$prov_username = $_SESSION['username']; // ใช้ session username
+$prov_username = $_SESSION['provider_username']; // ใช้ session username
 $sql = "SELECT Prov_id, Prov_Username, Prov_password, Prov_name, 
         Prov_gender, Prov_birthday, Prov_addressnow, Prov_email, 
         Prov_phone, Prov_train, Prov_img FROM provider WHERE Prov_Username = ?";
@@ -92,7 +92,7 @@ $prov_photo = $prov['Prov_img'] ? 'data:image/jpeg;base64,' . base64_encode($pro
         <p><strong>อีเมล์:</strong> <?php echo htmlspecialchars($prov['Prov_email']); ?></p>
         <p><strong>เบอร์โทรศัพท์:</strong> <?php echo htmlspecialchars($prov['Prov_phone']); ?></p>
         <p><strong>สถานะการอบรม:</strong> <?php echo $prov['Prov_train'] == '1' ? 'ผ่าน' : 'ไม่ผ่าน'; ?></p>
-        <a href="edit_profile.php" class="edit-button">แก้ไขข้อมูล</a>
+        <a href="edit_provider.php" class="edit-button">แก้ไขข้อมูล</a>
     </div>
 </div>
 

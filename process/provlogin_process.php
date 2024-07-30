@@ -19,7 +19,7 @@ $result = $stmt->get_result();
 if ($result->num_rows > 0) {
     // ตั้งค่า session หรือ redirect ไปยังหน้าที่ต้องการ
     session_start();
-    $_SESSION['username'] = $username;
+    $_SESSION['provider_username'] = $username;
     echo "เข้าสู่ระบบสำเร็จ";
     // ตัวอย่างการ redirect ไปยังหน้า account_provider.php
     header("Location: ../view/provider/account_provider.php");
