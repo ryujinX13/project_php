@@ -52,6 +52,12 @@ function getIconClass($rateName) {
     }
     return 'fas fa-question';
 }
+
+// ฟังก์ชันเพื่อจัดการเวลาให้อยู่ในรูปแบบ HH:MM
+function formatTime($time) {
+    $time_parts = explode(':', $time);
+    return $time_parts[0] . ':' . $time_parts[1];
+}
 ?>
 
 <!DOCTYPE html>
@@ -155,7 +161,7 @@ function getIconClass($rateName) {
                 <div class="col-md-6">
                     <ul>
                         <?php foreach ($rates as $rate): ?>
-                        <li class="service-package"><i class="<?php echo getIconClass($rate['Rates_name']); ?>"></i> <?php echo $rate['Rates_name']; ?> <?php echo $rate['Rates_sarary']; ?> บาท (<?php echo $rate['Rates_time']; ?>)</li>
+                        <li class="service-package"><i class="<?php echo getIconClass($rate['Rates_name']); ?>"></i> <?php echo $rate['Rates_name']; ?> <?php echo $rate['Rates_sarary']; ?> บาท (เริ่ม <?php echo formatTime($rate['Rates_time_go']); ?> - <?php echo formatTime($rate['Rates_time_return']); ?>)</li>
                         <?php endforeach; ?>
                     </ul>
                 </div>

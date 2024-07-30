@@ -55,6 +55,12 @@ function getIconClass($rate_name) {
     }
     return 'fas fa-question'; // Default icon if not found
 }
+
+// ฟังก์ชันเพื่อจัดการเวลาให้อยู่ในรูปแบบ HH:MM
+function formatTime($time) {
+    $time_parts = explode(':', $time);
+    return $time_parts[0] . ':' . $time_parts[1];
+}
 ?>
 
 <!DOCTYPE html>
@@ -162,7 +168,7 @@ function getIconClass($rate_name) {
                 <div class="package-item">
                     <i class="<?php echo getIconClass($rate['Rates_name']); ?>"></i>
                     <h3><?php echo $rate['Rates_name']; ?></h3>
-                    <p><?php echo $rate['Rates_sarary']; ?> บาท (<?php echo $rate['Rates_time']; ?>)</p>
+                    <p><?php echo $rate['Rates_sarary']; ?> บาท (เริ่ม <?php echo formatTime($rate['Rates_time_go']); ?> - <?php echo formatTime($rate['Rates_time_return']); ?>)</p>
                 </div>
                 <?php endforeach; ?>
             </div>
