@@ -59,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // เตรียมคำสั่ง SQL และ bind ค่า
         $sql = $conn->prepare("INSERT INTO User (User_id, User_Username, User_password, User_name, User_gender, User_birthday, User_addressnow, User_email, User_phone ,User_status) 
                                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 0)");
-        $sql->bind_param("ssssssssss", $user_id, $username, $hashed_password, $user_name, $user_gender, $user_birthday, $user_addressnow, $user_email, $user_phone);
+        $sql->bind_param("sssssssss", $user_id, $username, $hashed_password, $user_name, $user_gender, $user_birthday, $user_addressnow, $user_email, $user_phone);
 
         // ดำเนินการคำสั่ง SQL
         if ($sql->execute() === TRUE) {

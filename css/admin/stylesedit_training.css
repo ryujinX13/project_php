@@ -89,9 +89,23 @@ button {
 
 
 .back-button {
-    margin-bottom: 20px;
-    border: none;
+    position: absolute;
     background: none;
+    border: none;
+    color: rgb(255, 255, 255);
     cursor: pointer;
-    font-size: 3em;
+    transition: color 0.3s ease, transform 0.3s ease;
+    font-size: 2em;
+    margin-left: 36%;
+    margin-top: -1%;
+    outline: none; 
+}
+
+.back-button:focus {
+    outline: none; /
+}
+
+.back-button:hover {
+    color: white;
+    transform: scale(1.1);
 }

@@ -41,41 +41,164 @@ if (isset($_GET['id'])) {
     <title>Edit Announcement</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../../css/admin/stylesedit_announce.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&display=swap');
+
+body {
+    font-family: "Mitr", sans-serif;
+    line-height: 1.6;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+.tab-bar {
+    position: relative; 
+    z-index: 10; 
+    display: flex;
+    align-items: center;
+    background-color: #8ab7cc;
+    padding: 10px 0;
+    justify-content: center;
+    font-family: "Mitr", sans-serif;
+}
+
+.tab-bar img {
+    height: 80px;
+    margin-right: auto;
+    margin-left: 45%;
+}
+
+
+
+.container {
+    max-width: 1400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h2 {
+    color: #000000;
+    font-weight: 400; /* ลดความหนาตัวหนังสือ */
+    font-size: 30px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+label {
+    margin: 10px 0 10px;
+}
+
+input[type="text"],
+input[type="date"],
+textarea {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 80%;
+}
+
+textarea {
+    height: 150px;
+}
+
+input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+
+th, td {
+    padding: 10px;
+    border: 1px solid #000000;
+    text-align: left;
+    background-color: #fff;
+  
+    font-size: 16px;
+    
+    
+}
+
+th {
+    background-color: #8ab7cc;
+    color: #fff;
+    font-weight: bold;
+    font-weight: 400; /* ลดความหนาตัวหนังสือ */
+    text-align: center;
+    font-size: 16px;
+}
+.btn{
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bffeb;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 20px;
+    margin: 5px;
+    transition: background-color 0.3s ease;
+}
+.btn:hover {
+    background-color: #F4CE14;
+    color: #000;
+}
+.back-button {
+    position: absolute;
+    left: 10px;
+    background: none;
+    border: none;
+    font-size: 3em;
+    color: black;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
+    margin-left: 5%;
+    outline: none; 
+}
+
+.back-button:focus {
+    outline: none; /
+}
+
+.back-button:hover {
+    color: white;
+    transform: scale(1.1);
+}
+
+    </style>
 </head>
 <body>
 <div class="tab-bar">
         <img src="../../img/logo1.png" alt="Logo">
-        <a href="admin_dashboard.php" class="tab-link">หน้าแรก</a>
-        <a href="prov_display.php" class="tab-link">ข้อมูลพนักงาน</a>
-        <a href="show_training_record.php" class="tab-link">การอบรม</a>
-        <a href="history.html" class="tab-link">รายงาน</a>
-        <a href="edit_announce.php" class="tab-link">ประกาศรับสมัครงาน</a>
-        <div class="dropdown">
-            <button class="tab-button dropdown-toggle" type="button" id="dropdownMenuButton">
-                <?php echo isset($_SESSION['admin_username']) ? $_SESSION['admin_username'] : 'Guest'; ?>
-            </button>
-            <div class="dropdown-menu" id="dropdownMenu"style="background-color: #f8f9fa; border-radius: 8px;"> 
-            <a class="dropdown-item" href="account_admin.php">
-                        <span style="margin-right: 8px;">🔍</span>รายละเอียดบัญชี
-                    </a>
-                    <a class="dropdown-item" href="edit_agency.php">
-                        <span style="margin-right: 8px;">🏢</span>จัดการข้อมูลหน่วยงาน
-                    </a>
-                    <a class="dropdown-item" href="manage_travel_cost.php">
-                        <span style="margin-right: 8px;">🚑</span>จัดการข้อมูลระยะทาง
-                    </a>
-                    <a class="dropdown-item" href="manage_rates.php">
-                        <span style="margin-right: 8px;">💰</span>จัดการข้อมูลแพคเกจ
-                    </a>
-                    <a class="dropdown-item" href="../../process/logout.php">
-                        <span style="margin-right: 8px;">🔓</span>ออกจากระบบ
-                    </a>
             </div>
         </div>
     </div>
 
     <div class="container">
+        <button class="back-button" onclick="window.location.href='edit_announce.php'">⬅️</button>
         <h2>แก้ไขประกาศรับสมัครงาน</h2>
         <form action="edit_single_announce.php" method="post">
             <input type="hidden" name="Ajob_id" value="<?php echo $row['Ajob_id']; ?>">

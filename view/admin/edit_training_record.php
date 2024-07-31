@@ -30,11 +30,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
 <div class="tab-bar">
         <img src="../../img/logo1.png" alt="Logo">
-        <button class="back-button" onclick="window.location.href='prov_display.php'">⬅️</button>
     </div>
 
 
     <div class="container">
+    <button class="back-button" onclick="window.location.href='show_training_record.php'">⬅️</button>
     <h1>แก้ไขการอบรม</h1>
     
     <form method="post" action="../../process/save_training_record.php">

@@ -25,9 +25,10 @@ $conn->close();
 <body>
     <div class="tab-bar">
         <img src="../../img/logo1.png" alt="Logo">
-        <button class="back-button" onclick="window.location.href='prov_display.php'">⬅️</button>
+       
     </div>
     <div class="container">
+    <button class="back-button" onclick="window.location.href='prov_display.php'">⬅️</button>
         <h2>ลบผู้ให้บริการ</h2>
         <form method="post" action="../../process/deleteProv_process.php">
             รหัสผู้ให้บริการ: <input type="text" name="Prov_id" placeholder="กรอกรหัสผู้ให้บริการที่นี่"><br>

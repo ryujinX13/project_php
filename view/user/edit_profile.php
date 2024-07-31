@@ -74,13 +74,14 @@ $conn->close();
 
 .back-button {
     position: absolute;
-    left: 10px; 
+    left: 33%; 
     background: none;
     border: none;
-    font-size: 3em;
+    font-size: 2em;
     color: black;
     cursor: pointer;
     transition: color 0.3s ease, transform 0.3s ease;
+    margin-top: 0%;
 }
 
 .back-button:hover {
@@ -172,11 +173,12 @@ $conn->close();
 </head>
 <body>
 <div class="tab-bar">
-        <button class="back-button" onclick="window.location.href='../user/account_user.php'">⬅️</button>
+        
         <img src="../../img/logo1.png" alt="Logo" style="margin-left: 10px;">
         
     </div>
     <div class="container">
+    <button class="back-button" onclick="window.location.href='../user/account_user.php'">⬅️</button>
         <h1>แก้ไขข้อมูลผู้ใช้งาน</h1>
         <form action="../../process/updateUser_profile.php" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
             <div class="form-group">

@@ -10,7 +10,7 @@
 
 <body>
     <div class="tab-bar">
-        <button class="back-button" onclick="window.location.href='login_level.php'">⬅️</button>
+        <button class="back-button" onclick="window.location.href='../../index.php'">⬅️</button>
         <img src="../../img/logo1.png" alt="Logo" style="margin-left: 10px;">
     </div>
 

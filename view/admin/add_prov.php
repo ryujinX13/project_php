@@ -26,10 +26,10 @@ $conn->close();
 
     <div class="tab-bar">
         <img src="../../img/logo1.png" alt="Logo">
-        <button class="back-button" onclick="window.location.href='prov_display.php'">⬅️</button>
      
     </div>
     <div class="container">
+    <button class="back-button" onclick="window.location.href='prov_display.php'">⬅️</button>
         <h2>เพิ่มผู้ให้บริการ</h2>
         <form method="post" action="../../process/addProv_process.php">
             รหัสบัตรประชาชน: <input type="text" name="Prov_id"><br>

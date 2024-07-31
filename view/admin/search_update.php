@@ -14,10 +14,10 @@ session_start();
 <body>
     <div class="tab-bar">
         <img src="../../img/logo1.png" alt="Logo">
-        <button class="back-button" onclick="window.location.href='prov_display.php'">⬅️</button>
     </div>
 
     <div class="container">
+    <button class="back-button" onclick="window.location.href='prov_display.php'">⬅️</button>
         <h2>ค้นหาผู้ให้บริการ</h2>
         <form method="get" action="update_prov.php"> <!-- เปลี่ยน method เป็น get -->
             <label for="Prov_id">รหัสบัตรประชาชน:</label>

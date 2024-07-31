@@ -161,13 +161,15 @@ $result = $conn->query($sql);
         .profile-header h1 {
             margin: 0;
             font-size: 28px; /* เพิ่มขนาดตัวหนังสือ */
-            color: #333;
+            color: #000;
         }
 
         .profile-info {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 20px;
+            font-size: 16px;
+            color: #000;
         }
 
         .profile-info div {
@@ -178,9 +180,11 @@ $result = $conn->query($sql);
 
         .profile-info div span {
             font-weight: bold;
-            color: #555;
+            color: #000;
             flex: 1 1 30%;
             font-size: 18px; /* เพิ่มขนาดตัวหนังสือ */
+            font-weight: 500; /* ลดความหนาตัวหนังสือ */
+            
         }
     </style>
 </head>

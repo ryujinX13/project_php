@@ -27,13 +27,19 @@ body {
 
 .back-button {
     position: absolute;
-    left: 10px;
+    left: 31%;
     background: none;
     border: none;
-    font-size: 3em;
+    font-size: 2em;
     color: black;
     cursor: pointer;
     transition: color 0.3s ease, transform 0.3s ease;
+    margin-top: -1%;
+    outline: none; 
+}
+
+.back-button:focus {
+    outline: none; /
 }
 
 .back-button:hover {
