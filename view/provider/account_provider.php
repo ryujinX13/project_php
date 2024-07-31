@@ -45,7 +45,7 @@ $stmt->close();
 $conn->close();
 
 // ตรวจสอบว่ามีรูปโปรไฟล์หรือไม่
-$prov_photo = $prov['Prov_img'] ? 'data:image/jpeg;base64,' . base64_encode($prov['Prov_img']) : '../../img/placeholder.png';
+$prov_photo = $prov['Prov_img'] ? '../../uploads/' . htmlspecialchars($prov['Prov_img']) : '../../img/placeholder.png';
 ?>
 <!DOCTYPE html>
 <html lang="th">
@@ -81,7 +81,7 @@ $prov_photo = $prov['Prov_img'] ? 'data:image/jpeg;base64,' . base64_encode($pro
         </a>
     </div>
     <div class="profile-container ml-4">
-        <img src="<?php echo $prov_photo; ?>" alt="รูปภาพของ <?php echo htmlspecialchars($prov['Prov_name']); ?>" style="width: 100px; height: 100px;">
+        <img src="<?php echo $prov_photo; ?>" alt="รูปภาพของ <?php echo htmlspecialchars($prov['Prov_name']); ?>" style="width: 100px; height: 100px; object-fit: cover;">
         <h1>รายละเอียดผู้ให้บริการ</h1>
         <p><strong>รหัสบัตรประจำตัวประชาชน:</strong> <?php echo htmlspecialchars($prov['Prov_id']); ?></p>
         <p><strong>ชื่อผู้ใช้:</strong> <?php echo htmlspecialchars($prov['Prov_Username']); ?></p>

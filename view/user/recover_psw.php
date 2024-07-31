@@ -75,10 +75,10 @@ if (isset($_POST["recover"])) {
     $fetch = $result->fetch_assoc();
 
     if ($result->num_rows <= 0) {
-        echo "<script>alert('Sorry, no email exists');</script>";
+        echo "<script>alert('ขออภัย ไม่พบอีเมล');</script>";
     } elseif ($fetch["User_status"] == 0) {
         echo "<script>
-                alert('Sorry, your account must verify first, before you recover your password!');
+                alert('ขออภัย บัญชีของคุณต้องได้รับการยีนยัน OTP ก่อนจึงจะกู้คืนรหัสผ่านได้!');
                 window.location.replace('otp_verification.php');
               </script>";
     } else {
@@ -103,12 +103,9 @@ if (isset($_POST["recover"])) {
         $mail->isHTML(true);
         $mail->Subject = 'Recover your password';
         $mail->Body = "<b>Dear User</b>
-                       <h3>We received a request to reset your password.</h3>
-                       <p>Kindly click the below link to reset your password</p>
-                       <a href='http://localhost/project_php/view/user/reset_psw.php?token=$token'>Reset Password</a>
-                       <br><br>
-                       <p>With regards,</p>
-                       <b>Programming with Lam</b>";
+                       <h3>เราได้รับคำขอในการรีเซ็ตรหัสผ่านของคุณ</h3>
+                       <p>กรุณาคลิกลิงค์ด้านล่างเพื่อรีเซ็ตรหัสผ่านของคุณ</p>
+                       <a href='http://localhost/project_php/view/user/reset_psw.php?token=$token'>รีเซ็ตรหัสผ่าน</a>";
 
         if (!$mail->send()) {
             echo "<script>alert('Invalid Email');</script>";

@@ -11,7 +11,6 @@ if ($conn->connect_error) {
 
 $Prov_id = $_GET['Prov_id'] ?? ''; // รับค่า Prov_id จาก URL parameter หรือกำหนดให้เป็นค่าว่างถ้าไม่มี
 $Prov_Username = "";
-$Prov_password = "";
 $Prov_email = "";
 $Prov_name = "";
 $Prov_gender = "";
@@ -21,7 +20,7 @@ $Prov_address = "";
 $Prov_addressnow = "";
 $Prov_nationality = "";
 $Prov_religion = "";
-$Prov_train = "";
+$Prov_train = null; // เริ่มต้นด้วยค่า null
 $Prov_phone = "";
 $Prov_study = "";
 
@@ -32,7 +31,6 @@ if (!empty($Prov_id)) {
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
         $Prov_Username = $row['Prov_Username'];
-        $Prov_password = $row['Prov_password'];
         $Prov_email = $row['Prov_email'];
         $Prov_name = $row['Prov_name'];
         $Prov_gender = $row['Prov_gender'];
@@ -82,8 +80,8 @@ $conn->close();
             <input type="text" name="Prov_id" value="<?php echo $Prov_id; ?>" readonly><br>
             <label for="Prov_Username">ชื่อผู้ใช้:</label>
             <input type="text" name="Prov_Username" value="<?php echo $Prov_Username; ?>"><br>
-            <label for="Prov_password">รหัสผ่าน:</label>
-            <input type="text" name="Prov_password" value="<?php echo $Prov_password; ?>"><br>
+            <label for="Prov_password">รหัสผ่านใหม่:</label>
+            <input type="password" name="Prov_password" placeholder="กรุณากรอกรหัสผ่านใหม่หากต้องการเปลี่ยน"><br>
             <label for="Prov_email">Email:</label>
             <input type="email" name="Prov_email" value="<?php echo $Prov_email; ?>"><br>
             <label for="Prov_name">ชื่อ-สกุล:</label>
@@ -108,7 +106,10 @@ $conn->close();
             <label for="Prov_religion">ศาสนา:</label>
             <input type="text" name="Prov_religion" value="<?php echo $Prov_religion; ?>"><br>
             <label for="Prov_train">สถานะการอบรม:</label>
-            <input type="text" name="Prov_train" value="<?php echo $Prov_train; ?>"><br>
+            <select id="Prov_train" name="Prov_train">
+                <option value="0" <?php if ($Prov_train == '0') echo 'selected'; ?>>ไม่ผ่าน</option>
+                <option value="1" <?php if ($Prov_train == '1') echo 'selected'; ?>>ผ่าน</option>
+            </select><br>
             <label for="Prov_phone">เบอร์โทรศัพท์:</label>
             <input type="text" name="Prov_phone" value="<?php echo $Prov_phone; ?>"><br>
             <label for="Prov_study">วุฒิการศึกษา:</label>
@@ -117,41 +118,6 @@ $conn->close();
         </form>
     </div>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
-       document.getElementById('dropdownMenuButton').addEventListener('click', function () {
-                var dropdownMenu = document.getElementById('dropdownMenu');
-                dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
-
-                // Check if the dropdown menu is out of the viewport
-                const rect = dropdownMenu.getBoundingClientRect();
-                const windowWidth = window.innerWidth;
-
-                if (rect.right > windowWidth) {
-                    dropdownMenu.style.left = 'auto';
-                    dropdownMenu.style.right = '0';
-                } else if (rect.left < 0) {
-                    dropdownMenu.style.left = '0';
-                    dropdownMenu.style.right = 'auto';
-                } else {
-                    dropdownMenu.style.left = '0';
-                    dropdownMenu.style.right = 'auto';
-                }
-            });
-
-            // Close the dropdown menu if the user clicks outside of it
-            window.onclick = function(event) {
-                if (!event.target.matches('.tab-button')) {
-                    var dropdowns = document.getElementsByClassName("dropdown-menu");
-                    for (var i = 0; i < dropdowns.length; i++) {
-                        var openDropdown = dropdowns[i];
-                        if (openDropdown.style.display === 'block') {
-                            openDropdown.style.display = 'none';
-                        }
-                    }
-                }
-            }
-
-    </script>
 </body>
 
 </html>

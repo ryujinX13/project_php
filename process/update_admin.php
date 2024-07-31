@@ -13,10 +13,10 @@ if ($conn->connect_error) {
 }
 
 // รับข้อมูลจากฟอร์ม
-$admin_id = $_POST['Admin_id'];
-$admin_name = $_POST['Admin_name'];
-$admin_address = $_POST['Admin_address'];
-$admin_phone = $_POST['Admin_phone'];
+$admin_id = mysqli_real_escape_string($conn, $_POST['Admin_id']);
+$admin_name = mysqli_real_escape_string($conn, $_POST['Admin_name']);
+$admin_address = mysqli_real_escape_string($conn, $_POST['Admin_address']);
+$admin_phone = mysqli_real_escape_string($conn, $_POST['Admin_phone']);
 $admin_password = $_POST['Admin_password'];
 
 // สำหรับการอัพโหลดรูปภาพ
@@ -57,8 +57,10 @@ $sql = "UPDATE admin SET Admin_name = ?, Admin_address = ?, Admin_phone = ?";
 $params = [$admin_name, $admin_address, $admin_phone];
 
 if (!empty($admin_password)) {
+    // เข้ารหัสรหัสผ่านใหม่
+    $hashed_password = password_hash($admin_password, PASSWORD_DEFAULT);
     $sql .= ", Admin_password = ?";
-    $params[] = $admin_password; // ไม่แฮชรหัสผ่าน
+    $params[] = $hashed_password;
 }
 
 if ($profile_pic_path) {
@@ -74,7 +76,7 @@ if ($stmt === false) {
     die("Prepare failed: " . $conn->error);
 }
 
-$param_types = str_repeat('s', count($params));
+$param_types = str_repeat('s', count($params) - 1) . 'i';
 $stmt->bind_param($param_types, ...$params);
 
 if (!$stmt->execute()) {

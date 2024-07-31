@@ -14,9 +14,9 @@ if ($conn->connect_error) {
 
 // รับข้อมูลจากฟอร์ม
 $user_username = $_SESSION['username'];
-$user_birthday = $_POST['User_birthday'];
-$user_addressnow = $_POST['User_addressnow'];
-$user_phone = $_POST['User_phone'];
+$user_birthday = mysqli_real_escape_string($conn, $_POST['User_birthday']);
+$user_addressnow = mysqli_real_escape_string($conn, $_POST['User_addressnow']);
+$user_phone = mysqli_real_escape_string($conn, $_POST['User_phone']);
 $user_password = $_POST['User_password'];
 
 // สำหรับการอัพโหลดรูปภาพ
@@ -40,13 +40,8 @@ if (isset($_FILES['user_photo']) && $_FILES['user_photo']['error'] === UPLOAD_ER
 
 // สร้างคำสั่ง SQL สำหรับอัปเดตข้อมูล
 if (!empty($user_password)) {
-    // ตรวจสอบว่ารหัสผ่านไม่ได้ถูกแฮช
-    if (password_get_info($user_password)['algo'] === 0) {
-        // แฮชรหัสผ่านแบบ plain text
-        $hashed_password = password_hash($user_password, PASSWORD_DEFAULT);
-    } else {
-        $hashed_password = $user_password;
-    }
+    // แฮชรหัสผ่านใหม่
+    $hashed_password = password_hash($user_password, PASSWORD_DEFAULT);
 
     $sql = "UPDATE user SET User_birthday = ?, User_addressnow = ?, User_phone = ?, User_password = ?";
     if ($profile_pic_path) {

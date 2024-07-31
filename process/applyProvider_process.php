@@ -27,28 +27,50 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("เกิดข้อผิดพลาด: เพศไม่ถูกต้อง");
     }
 
-    // ตรวจสอบการอัพโหลดไฟล์และอ่านไฟล์รูปภาพ
-    if (isset($_FILES['prov_img']) && $_FILES['prov_img']['error'] == 0) {
-        $image = $_FILES['prov_img']['tmp_name'];
-        $imgContent = addslashes(file_get_contents($image));
+    // ตรวจสอบว่า email ซ้ำหรือไม่
+    $sql_check_email = $conn->prepare("SELECT Prov_email FROM provider WHERE Prov_email = ?");
+    $sql_check_email->bind_param("s", $prov_email);
+    $sql_check_email->execute();
+    $sql_check_email->store_result();
+
+    if ($sql_check_email->num_rows > 0) {
+        echo '<script>alert("อีเมลนี้ถูกใช้ไปแล้ว กรุณาใช้อีเมลอื่น"); window.history.back();</script>';
+        $sql_check_email->close();
     } else {
-        $imgContent = null;
+        $sql_check_email->close();
+
+        // ตรวจสอบการอัพโหลดไฟล์และอ่านไฟล์รูปภาพ
+        if (isset($_FILES['prov_img']) && $_FILES['prov_img']['error'] == 0) {
+            $image = $_FILES['prov_img']['tmp_name'];
+            $fileName = basename($_FILES['prov_img']['name']);
+            $uploadDir = '../uploads/';
+            $uploadFile = $uploadDir . $fileName;
+
+            // ย้ายไฟล์ไปยังโฟลเดอร์ uploads
+            if (move_uploaded_file($image, $uploadFile)) {
+                $imgContent = $fileName;
+            } else {
+                die("เกิดข้อผิดพลาดในการอัปโหลดรูปภาพ");
+            }
+        } else {
+            $imgContent = null;
+        }
+
+        // เตรียมคำสั่ง SQL และ bind ค่า
+        $sql = $conn->prepare("INSERT INTO provider (Prov_id, Prov_name, Prov_gender, Prov_birthday, Prov_address, Prov_addressnow, Prov_nationality, Prov_religion, Prov_email, Prov_phone, Prov_study, Prov_img) 
+                               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $sql->bind_param("ssssssssssss", $prov_id, $prov_name, $prov_gender, $prov_birthday, $prov_address, $prov_addressnow, $prov_nationality, $prov_religion, $prov_email, $prov_phone, $prov_study, $imgContent);
+
+        // ดำเนินการคำสั่ง SQL
+        if ($sql->execute() === TRUE) {
+            echo '<script>alert("ลงทะเบียนสำเร็จ"); window.location.replace("../index.php");</script>';
+        } else {
+            echo "เกิดข้อผิดพลาด: " . $sql->error;
+        }
+
+        // ปิดคำสั่ง
+        $sql->close();
     }
-
-    // เตรียมคำสั่ง SQL และ bind ค่า
-    $sql = $conn->prepare("INSERT INTO provider (Prov_id, Prov_name, Prov_gender, Prov_birthday, Prov_address, Prov_addressnow, Prov_nationality, Prov_religion, Prov_email, Prov_phone, Prov_study, Prov_img) 
-                           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $sql->bind_param("ssssssssssss", $prov_id, $prov_name, $prov_gender, $prov_birthday, $prov_address, $prov_addressnow, $prov_nationality, $prov_religion, $prov_email, $prov_phone, $prov_study, $imgContent);
-
-    // ดำเนินการคำสั่ง SQL
-    if ($sql->execute() === TRUE) {
-        echo '<script>alert("ลงทะเบียนสำเร็จ"); window.location.replace("../index.php");</script>';
-    } else {
-        echo "เกิดข้อผิดพลาด: " . $sql->error;
-    }
-
-    // ปิดคำสั่ง
-    $sql->close();
 }
 
 // ปิดการเชื่อมต่อฐานข้อมูล

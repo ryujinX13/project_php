@@ -41,7 +41,10 @@ if (isset($_POST["reset"])) {
         if (isset($_SESSION['User_email'])) {
             $user_email = $_SESSION['User_email'];
 
-            $sql = "UPDATE user SET User_password='$user_password' WHERE User_email='$user_email'";
+            // เข้ารหัสรหัสผ่าน
+            $hashed_password = password_hash($user_password, PASSWORD_BCRYPT);
+
+            $sql = "UPDATE user SET User_password='$hashed_password' WHERE User_email='$user_email'";
 
             if (mysqli_query($conn, $sql)) {
                 ?>
