@@ -8,7 +8,6 @@ if (isset($_SESSION['username'])) {
     header("Location: view/user/homepage.php");
     exit();
 }
-?>
 
 // ตรวจสอบการเชื่อมต่อกับฐานข้อมูล
 if ($conn->connect_error) {
