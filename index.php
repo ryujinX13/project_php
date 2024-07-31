@@ -3,28 +3,33 @@ session_start();
 include ('connect/connection.php');
 
 // ตรวจสอบว่าผู้ใช้ล็อคอินอยู่หรือไม่
-if (!isset($_SESSION['username']))
+if (isset($_SESSION['username'])) {
+    // ถ้าเข้าสู่ระบบอยู่ ให้เปลี่ยนเส้นทางไปยังหน้า homepage.php
+    header("Location: view/user/homepage.php");
+    exit();
+}
+?>
 
-    // ตรวจสอบการเชื่อมต่อกับฐานข้อมูล
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
+// ตรวจสอบการเชื่อมต่อกับฐานข้อมูล
+if ($conn->connect_error) {
+die("Connection failed: " . $conn->connect_error);
+}
 
 // ดึงข้อมูลจากตาราง travel_distance_cost
 $sql = "SELECT Tracost_distance, TraCost_excess, Tracost_flatrate FROM travel_distance_cost";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
-    // เก็บข้อมูลในตัวแปร
-    while ($row = $result->fetch_assoc()) {
-        $Tracos_distance = $row['Tracost_distance'];
-        $TraCost_excess = $row['TraCost_excess'];
-        $Tracost_flatrate = $row['Tracost_flatrate'];
-    }
+// เก็บข้อมูลในตัวแปร
+while ($row = $result->fetch_assoc()) {
+$Tracos_distance = $row['Tracost_distance'];
+$TraCost_excess = $row['TraCost_excess'];
+$Tracost_flatrate = $row['Tracost_flatrate'];
+}
 } else {
-    $Tracos_distance = 300; // ค่าเริ่มต้นหากไม่มีข้อมูล
-    $TraCost_excess = 5;    // ค่าเริ่มต้นหากไม่มีข้อมูล
-    $Tracost_flatrate = 10; // ค่าเริ่มต้นหากไม่มีข้อมูล (เพิ่มค่าเริ่มต้นสำหรับ Tracost_flatrate)
+$Tracos_distance = 300; // ค่าเริ่มต้นหากไม่มีข้อมูล
+$TraCost_excess = 5; // ค่าเริ่มต้นหากไม่มีข้อมูล
+$Tracost_flatrate = 10; // ค่าเริ่มต้นหากไม่มีข้อมูล (เพิ่มค่าเริ่มต้นสำหรับ Tracost_flatrate)
 }
 
 // ดึงข้อมูลจากตาราง rates
@@ -32,36 +37,34 @@ $rate_sql = "SELECT * FROM rates";
 $rate_result = $conn->query($rate_sql);
 $rates = [];
 if ($rate_result->num_rows > 0) {
-    // เก็บข้อมูลในตัวแปร
-    while ($row = $rate_result->fetch_assoc()) {
-        $rates[] = $row;
-    }
+// เก็บข้อมูลในตัวแปร
+while ($row = $rate_result->fetch_assoc()) {
+$rates[] = $row;
+}
 }
 $conn->close();
 
 // ฟังก์ชันเพื่อเลือกไอคอนตามชื่อแพ็กเกจ
-function getIconClass($rate_name)
-{
-    $icons = [
-        'คลินิกนอกเวลา' => 'fas fa-clock',
-        'ครึ่งเช้า' => 'fas fa-sun',
-        'ทั้งวัน' => 'fas fa-sun',
-        'เวรนอนเฝ้าไข้' => 'fas fa-moon',
-        'ชั่วโมงละ' => 'fas fa-hourglass-half'
-    ];
-    foreach ($icons as $key => $icon) {
-        if (strpos($rate_name, $key) !== false) {
-            return $icon;
-        }
-    }
-    return 'fas fa-question'; // Default icon if not found
+function getIconClass($rate_name) {
+$icons = [
+'คลินิกนอกเวลา' => 'fas fa-clock',
+'ครึ่งเช้า' => 'fas fa-sun',
+'ทั้งวัน' => 'fas fa-sun',
+'เวรนอนเฝ้าไข้' => 'fas fa-moon',
+'ชั่วโมงละ' => 'fas fa-hourglass-half'
+];
+foreach ($icons as $key => $icon) {
+if (strpos($rate_name, $key) !== false) {
+return $icon;
+}
+}
+return 'fas fa-question'; // Default icon if not found
 }
 
 // ฟังก์ชันเพื่อจัดการเวลาให้อยู่ในรูปแบบ HH:MM
-function formatTime($time)
-{
-    $time_parts = explode(':', $time);
-    return $time_parts[0] . ':' . $time_parts[1];
+function formatTime($time) {
+$time_parts = explode(':', $time);
+return $time_parts[0] . ':' . $time_parts[1];
 }
 ?>
 
