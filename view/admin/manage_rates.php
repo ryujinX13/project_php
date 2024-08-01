@@ -344,7 +344,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         var dropdownMenu = document.getElementById('dropdownMenu');
         dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
 
-        // Check if the dropdown menu is out of the viewport
+        
         const rect = dropdownMenu.getBoundingClientRect();
         const windowWidth = window.innerWidth;
 
@@ -360,7 +360,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     });
 
-    // Close the dropdown menu if the user clicks outside of it
+   
     window.onclick = function(event) {
         if (!event.target.matches('.tab-button')) {
             var dropdowns = document.getElementsByClassName("dropdown-menu");

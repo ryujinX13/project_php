@@ -159,7 +159,7 @@ body {
 
 .profile-container p {
     margin: 10px 0;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
     border-bottom: 1px solid #e0e0e0;
     font-weight: 300; /* ลดความหนาตัวหนังสือ */
     margin-left: 5%;
@@ -170,7 +170,7 @@ body {
     display: inline-block;
     width: 150px;
     font-weight: 400; /* ลดความหนาตัวหนังสือ */
-    padding: 5px;
+    padding: 10px;
 }
 
 .btn-edit {
@@ -179,8 +179,8 @@ body {
     margin-top: 20px;
     padding: 10px 20px;
     color: #fff;
-    background-color: #8ab7cc;
-    border-radius: 5px;
+    background-color: #007bff;
+    border-radius: 15px;
     text-decoration: none;
     width: 80px;
     margin-left: 40%;
@@ -188,5 +188,23 @@ body {
 }
 
 .btn-edit:hover {
-    background-color: #6a98a7;
+    background-color: #e4b800;
+}
+.profile-container button{
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #007bff;
+    border-radius: 15px;
+    text-decoration: none;
+    width: 80px;
+    margin-left: 40%;
+    text-align: center;
+    outline: none; 
+    border: none; 
+}
+.profile-container button:hover {
+    background-color: #e4b800;
 }

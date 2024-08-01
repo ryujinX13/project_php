@@ -136,7 +136,7 @@ input[type="submit"] {
 input[type="submit"] {
     width: 20%;
     padding: 15px;
-    background-color: #F4CE14;
+    background-color: #007bff;
     border: none;
     border-radius: 20px;
     color: white;
@@ -149,7 +149,7 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    background-color: #0056b3;
+    background-color: #F4CE14;
 }
 
 

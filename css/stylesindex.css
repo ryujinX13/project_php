@@ -54,9 +54,12 @@ body {
     border-radius: 10px;
 }
 
-.tab-link.login:hover,
 .tab-link.register:hover {
     background-color: #e4b800;
+    color: white;
+}
+.tab-link.login:hover{
+    background-color: #007bff;
     color: white;
 }
 .content{

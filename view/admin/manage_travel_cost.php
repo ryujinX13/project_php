@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "Error updating record: " . $conn->error;
     }
     
-    // Refresh the page to reflect the changes
+   
     header('Location: ' . $_SERVER['PHP_SELF']);
     exit();
 }
@@ -209,6 +209,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         th, td {
             padding: 10px;
             text-align: left;
+            width: 50px;
         }
 
         th {
@@ -216,33 +217,46 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             color: white;
             text-align: center;
         }
+        td{
+            padding: 10pt;
+        }
 
         tr:nth-child(even) {
             background-color: #fff;
+            
         }
 
         .form-inline {
             display: flex;
             flex-direction: column;
+            
         }
 
         .form-inline input[type="number"] {
             width: 100px;
             margin-right: 10px;
+            
         }
 
         .form-inline button {
             margin-top: 10px;
+            
         }
 
         .btn-primary {
             background-color: #007bff;
-            border-color: #007bff;
+            width: 80px;
+            padding: 10px;
+            border-radius: 10px;
+            outline: none;
+            border: none;
+            color: #fff;
+           
         }
 
         .btn-primary:hover {
-            background-color: #0056b3;
-            border-color: #0056b3;
+            background-color: #e4b800;
+            
         }
     </style>
 </head>
@@ -311,10 +325,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         echo "<td>" . $row['Tracost_flatrate'] . "</td>";
                         echo "<td>
                                 <form action='' method='POST'>
+                                    
                                     <input type='hidden' name='id' value='" . $row['TraCost_id'] . "'>
-                                    <input type='number' name='distance' value='" . $row['Tracost_distance'] . "' required>
-                                    <input type='number' name='excess' value='" . $row['TraCost_excess'] . "' required>
-                                    <input type='number' name='flatrate' value='" . $row['Tracost_flatrate'] . "' required>
+                                    <a>ค่าเดินทาง</a> <input type='number' name='distance' value='" . $row['Tracost_distance'] . "' required><br>
+                                    <a>ค่าเดินทาง</a> <input type='number' name='excess' value='" . $row['TraCost_excess'] . "' required><br>
+                                    <a>ค่าเดินทาง</a> <input type='number' name='flatrate' value='" . $row['Tracost_flatrate'] . "' required>
                                     <button type='submit' class='btn btn-primary'>บันทึก</button>
                                 </form>
                               </td>";
@@ -334,7 +349,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         var dropdownMenu = document.getElementById('dropdownMenu');
         dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
 
-        // Check if the dropdown menu is out of the viewport
+      
         const rect = dropdownMenu.getBoundingClientRect();
         const windowWidth = window.innerWidth;
 
@@ -350,7 +365,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     });
 
-    // Close the dropdown menu if the user clicks outside of it
     window.onclick = function(event) {
         if (!event.target.matches('.tab-button')) {
             var dropdowns = document.getElementsByClassName("dropdown-menu");

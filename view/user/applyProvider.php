@@ -57,53 +57,53 @@ $ajob_id = isset($_GET['ajob_id']) ? $_GET['ajob_id'] : '';
 
     <div class="container">
         <div>
-            <button class="back-button" onclick="window.location.href='../../index.php'">⬅️</button>
+            <button class="back-button" onclick="window.location.href='announce.php'">⬅️</button>
         </div>
         <h1>สมัครงาน</h1>
 
         <form action="../../process/applyProvider_process.php" method="post" enctype="multipart/form-data">
             <input type="hidden" name="ajob_id" value="<?php echo $ajob_id; ?>"> <!-- ส่งค่า ajob_id ผ่านฟอร์ม -->
-            <label for="prov_id">รหัสบัตรประจำตัวประชาชนผู้ให้บริการ :</label>
+            <label for="prov_id">รหัสบัตรประจำตัวประชาชนผู้ให้บริการ :<span style="color: red;">*</label>
             <input type="text" id="prov_id" name="prov_id" required>
 
-            <label for="prov_name">ชื่อสกุล :</label>
+            <label for="prov_name">ชื่อสกุล :<span style="color: red;">*</label>
             <input type="text" id="prov_name" name="prov_name" required>
             <br>
             <div class="gender-label">
-                <span>เพศ:</span>
+                <span>เพศ:<span style="color: red;">*</span>
                 <input type="radio" id="male" class="gender-input" name="prov_gender" value="0" required>
                 <label for="male">ชาย</label>
                 <input type="radio" id="female" class="gender-input" name="prov_gender" value="1" required>
                 <label for="female">หญิง</label>
             </div><br>
 
-            <label for="prov_birthday" class="form-label">วันเกิด :</label>
+            <label for="prov_birthday" class="form-label">วันเกิด :<span style="color: red;">*</label>
             <div class="input-wrapper">
                 <input type="date" id="prov_birthday" name="prov_birthday" class="input-field" required>
             </div>
 
-            <label for="prov_address">ที่อยู่ :</label>
+            <label for="prov_address">ที่อยู่ :<span style="color: red;">*</label>
             <input type="text" id="prov_address" name="prov_address" required>
 
-            <label for="prov_addressnow">ที่อยู่ปัจจุบัน :</label>
+            <label for="prov_addressnow">ที่อยู่ปัจจุบัน :<span style="color: red;">*</label>
             <input type="text" id="prov_addressnow" name="prov_addressnow" required>
 
-            <label for="prov_nationality">สัญชาติ :</label>
+            <label for="prov_nationality">สัญชาติ :<span style="color: red;">*</label>
             <input type="text" id="prov_nationality" name="prov_nationality" required>
 
-            <label for="prov_religion">ศาสนา :</label>
+            <label for="prov_religion">ศาสนา :<span style="color: red;">*</label>
             <input type="text" id="prov_religion" name="prov_religion" required>
 
-            <label for="prov_email">อีเมล์ :</label>
+            <label for="prov_email">อีเมล์ :<span style="color: red;">*</label>
             <input type="email" id="prov_email" name="prov_email" required>
 
-            <label for="prov_phone">เบอร์โทรศัพท์ :</label>
+            <label for="prov_phone">เบอร์โทรศัพท์ :<span style="color: red;">*</label>
             <input type="tel" id="prov_phone" name="prov_phone" required>
 
-            <label for="prov_study">วุฒิการศึกษา :</label>
+            <label for="prov_study">วุฒิการศึกษา :<span style="color: red;">*</label>
             <input type="text" id="prov_study" name="prov_study" required>
 
-            <label for="prov_img">รูปภาพ:</label>
+            <label for="prov_img">รูปภาพ:<span style="color: red;">*</label>
             <input type="file" id="prov_img" name="prov_img" accept="image/*" required>
 
             <input type="submit" value="สมัครงาน">

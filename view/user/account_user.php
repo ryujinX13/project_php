@@ -47,8 +47,14 @@ $conn->close();
 // ตรวจสอบว่ามีรูปโปรไฟล์หรือไม่
 $user_photo = $user['user_photo'] ? '../../uploads/' . $user['user_photo'] : '../../img/placeholder.png';
 ?>
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
     <meta charset="UTF-8">
     <title>รายละเอียดผู้ใช้งาน</title>
@@ -58,11 +64,14 @@ $user_photo = $user['user_photo'] ? '../../uploads/' . $user['user_photo'] : '..
 </head>
 
 <body>
-<div class="tab-bar">
+
+    <div class="tab-bar">
         <button class="back-button" onclick="window.location.href='../user/Homepage.php'">⬅️</button>
         <img src="../../img/logo1.png" alt="Logo" style="margin-left: 10px;">
         
     </div>
+
+
     <div class="container d-flex">
         <div class="menu-container">
             <a href="../user/account_user.php" class="menu-item active">
@@ -80,9 +89,10 @@ $user_photo = $user['user_photo'] ? '../../uploads/' . $user['user_photo'] : '..
             <a href="../../process/logout.php" class="menu-item">
                 <span style="margin-right: 8px;">🔓</span>ออกจากระบบ
             </a>
-            
         </div>
-        <div class="profile-container ml-4">
+        
+
+    <div class="profile-container ml-4">
             <img src="<?php echo htmlspecialchars($user_photo); ?>" alt="รูปภาพของ <?php echo htmlspecialchars($user['User_name']); ?>" style="width: 100px; height: 100px;">
             <h1>รายละเอียดผู้ใช้งาน</h1>
             <p><strong>รหัสบัตรประจำตัวประชาชน:</strong> <?php echo htmlspecialchars($user['User_id']); ?></p>

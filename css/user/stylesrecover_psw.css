@@ -110,19 +110,19 @@ body {
 
 .btn-primary {
     background-color: #ffcc00;
-    border-color: #ffcc00;
-    color: #000;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
+    padding: 10px;
+    border-radius: 10px;
     transition: background-color 0.3s;
     font-family: "Mitr", sans-serif;
+    outline: none; 
+    border: none; 
 }
 
 .btn-primary:hover {
-    background-color: #ff9900;
-    border-color: #ff9900;
+    background-color: #007bff;
+    color: #ffffff;
 }
+
 
 .header-text {
     color: #222;
@@ -134,4 +134,26 @@ body {
 
 .text-danger {
     color: #dc3545;
+}
+
+.back-button {
+    position: absolute;
+    left: 31%;
+    background: none;
+    border: none;
+    font-size: 2em;
+    color: black;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
+    outline: none; 
+    margin-top: -1%;
+    
+}
+
+.back-button:focus {
+    outline: none; /
+}
+.back-button:hover {
+    color: white;
+    transform: scale(1.1);
 }

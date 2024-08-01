@@ -2,7 +2,7 @@
 session_start();
 include ('connect/connection.php');
 
-// ตรวจสอบว่าผู้ใช้ล็อคอินอยู่หรือไม่
+// ตรวจสอบว่าผู้ใช้ล็อคอินหรือไม่
 if (isset($_SESSION['username'])) {
     // ถ้าเข้าสู่ระบบอยู่ ให้เปลี่ยนเส้นทางไปยังหน้า homepage.php
     header("Location: view/user/homepage.php");
@@ -57,7 +57,7 @@ if (strpos($rate_name, $key) !== false) {
 return $icon;
 }
 }
-return 'fas fa-question'; // Default icon if not found
+return 'fas fa-question'; 
 }
 
 // ฟังก์ชันเพื่อจัดการเวลาให้อยู่ในรูปแบบ HH:MM
@@ -67,8 +67,10 @@ return $time_parts[0] . ':' . $time_parts[1];
 }
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
+
 
 <head>
     <meta charset="UTF-8">
@@ -79,6 +81,8 @@ return $time_parts[0] . ':' . $time_parts[1];
     <link rel="stylesheet" type="text/css" href="css/stylesindex.css">
 </head>
 
+
+<!--แท็บบาร์-->
 <body>
     <div class="tab-bar">
         <img src="img/logo1.png" alt="Logo">
@@ -91,6 +95,9 @@ return $time_parts[0] . ':' . $time_parts[1];
         <a href="view/user/register.php" class="tab-link register">ลงทะเบียน</a>
     </div>
 
+
+
+<!--เนื้อหา-->
     <div class="content">
         <header class="header">
             <h1>ลูกหลานสำรองบริการพาผู้สูงอายุไปหาหมอ</h1>
@@ -199,6 +206,8 @@ return $time_parts[0] . ':' . $time_parts[1];
         </div>
     </div>
 
+
+<!--ฟุตเตอร์-->
     <footer>
         <div class="contact-info">
             <p>ติดต่อ-สอบถามยูคลินิกแล็บ</p>

@@ -25,6 +25,7 @@
         <div class="container">
             <div class="form-wrapper">
                 <div class="card">
+                <button class="back-button" onclick="window.location.href='login.php'">⬅️</button>
                     <div class="card-header header-text">ลืมรหัสผ่าน</div>
                     <div class="card-body">
                         <form action="#" method="POST" name="recover_psw" onsubmit="return validateForm()">

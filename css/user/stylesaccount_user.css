@@ -122,11 +122,12 @@ body {
     color: #fff;
     background-color: #007bff;
     border: none;
-    border-radius: 5px;
+    border-radius: 15px;
     margin: 20px auto; /* This will center the button horizontally */
     transition: background-color 0.3s;
 }
 
 .edit-button:hover {
-    background-color: #0056b3;
+    background-color: #e4b800;
+    color: #fff;
 }

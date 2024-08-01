@@ -260,26 +260,32 @@ $result = mysqli_query($conn, $query);
         }
 
         input[type="submit"]:hover {
-            background-color: #45a049;
+            background-color:#e4b800;
         }
       
 
         .notification {
-            padding: 10px;
-            margin-bottom: 20px;
-            border-radius: 4px;
-            text-align: center;
-        }
+    padding: 10px;
+    margin-top: 20px; 
+    border-radius: 4px;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    z-index: 1000; 
+}
 
-        .notification.success {
-            background-color: #4CAF50;
-            color: white;
-        }
+.notification.success {
+    background-color: #96B6C5;;
+    color: white;
+}
 
-        .notification.error {
-            background-color: #f44336;
-            color: white;
-        }
+.notification.error {
+    background-color: #f44336;
+    color: white;
+}
+
 
         .photo img {
             display: block;
@@ -287,6 +293,35 @@ $result = mysqli_query($conn, $query);
             width: 50px;
             height: 50px;
         }
+
+        .form-container {
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            font-family: "Mitr", sans-serif;
+        }
+        label, input, textarea, button {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #ffffff;
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 80px;
+            margin-left: 45%;
+        }
+        input[type="submit"]:hover {
+            background-color: #e4b800;
+        }
+       
     </style>
 </head>
 <body>
@@ -387,7 +422,7 @@ $result = mysqli_query($conn, $query);
                     <input type="text" id="Pva_phone" name="Pva_phone" value="<?php echo htmlspecialchars($agency['Pva_phone']); ?>">
                     <label for="Pva_photo">รูปภาพ:</label>
                     <input type="file" id="Pva_photo" name="Pva_photo">
-                    <input type="submit" name="submit" value="แก้ไข">
+                    <input type="submit" name="submit" value="บันทึก">
                 </form>
             </div>
             <?php } ?>
@@ -399,7 +434,7 @@ $result = mysqli_query($conn, $query);
             var dropdownMenu = document.getElementById('dropdownMenu');
             dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
 
-            // Check if the dropdown menu is out of the viewport
+         
             const rect = dropdownMenu.getBoundingClientRect();
             const windowWidth = window.innerWidth;
 
@@ -415,7 +450,7 @@ $result = mysqli_query($conn, $query);
             }
         });
 
-        // Close the dropdown menu if the user clicks outside of it
+       
         window.onclick = function(event) {
             if (!event.target.matches('.tab-button')) {
                 var dropdowns = document.getElementsByClassName("dropdown-menu");
@@ -428,5 +463,18 @@ $result = mysqli_query($conn, $query);
             }
         }
     </script>
+    <script>
+
+    function hideNotification() {
+        const notification = document.getElementById('notification');
+        if (notification) {
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 3000); 
+        }
+    }
+    hideNotification();
+</script>
+
 </body>
 </html>

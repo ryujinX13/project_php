@@ -103,7 +103,7 @@ $result = $conn->query($sql);
             var dropdownMenu = document.getElementById('dropdownMenu');
             dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
 
-            // Check if the dropdown menu is out of the viewport
+         
             const rect = dropdownMenu.getBoundingClientRect();
             const windowWidth = window.innerWidth;
 

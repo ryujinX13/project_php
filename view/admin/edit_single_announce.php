@@ -163,8 +163,8 @@ th {
     transition: background-color 0.3s ease;
 }
 .btn:hover {
-    background-color: #F4CE14;
-    color: #000;
+    background-color: #45a049;
+
 }
 .back-button {
     position: absolute;
@@ -219,7 +219,7 @@ th {
                 var dropdownMenu = document.getElementById('dropdownMenu');
                 dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
 
-                // Check if the dropdown menu is out of the viewport
+               
                 const rect = dropdownMenu.getBoundingClientRect();
                 const windowWidth = window.innerWidth;
 
@@ -235,7 +235,6 @@ th {
                 }
             });
 
-            // Close the dropdown menu if the user clicks outside of it
             window.onclick = function(event) {
                 if (!event.target.matches('.tab-button')) {
                     var dropdowns = document.getElementsByClassName("dropdown-menu");

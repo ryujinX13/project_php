@@ -88,7 +88,7 @@ if (isset($_POST["reset"])) {
             text-align: center;
         }
         .form-control {
-            padding-right: 10px; /* Adjust padding to ensure input text is not cut off */
+            padding-right: 10px;
         }
         .password-requirements {
             font-size: 14px;

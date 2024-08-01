@@ -89,9 +89,11 @@ if (!isset($_SESSION['username'])) {
 </head>
 
 <body>
+
     <header>
         <h1>ลูกหลานไม่ว่าง จ้างหนูพาไปหาหมอ</h1>
     </header>
+
     <div class="container">
         <div class="form-section">
             <form action="../../process/process_booking.php" method="post">
@@ -101,8 +103,9 @@ if (!isset($_SESSION['username'])) {
                 <input type="time" id="appointment_time" name="appointment_time" required>
                 <input type="submit" value="ค้นหาผู้ดูแล">
             </form>
-        </div>
-        <div class="service-section">
+    </div>
+
+    <div class="service-section">
             <div class="service">
                 <img src="service1.jpg" alt="แพคเกจพาผู้ป่วยออกนอกบ้าน">
                 <p>แพคเกจพาผู้ป่วยออกนอกบ้าน 4 ชั่วโมง 16:00-20:00 ค่าบริการ 400 บาท</p>
@@ -128,6 +131,7 @@ if (!isset($_SESSION['username'])) {
                 <p>แพคเกจนอนโรงพยาบาลได้ เวลา 24 ชั่วโมง 19:00-19:00 ค่าบริการ 1,000 บาท</p>
             </div>
         </div>
+        
     </div>
 </body>
 

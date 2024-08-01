@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-// Check if admin is logged in
 $isAdminLoggedIn = isset($_SESSION['admin_username']);
 ?>
 
@@ -64,7 +63,7 @@ $isAdminLoggedIn = isset($_SESSION['admin_username']);
                 var dropdownMenu = document.getElementById('dropdownMenu');
                 dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
 
-                // Check if the dropdown menu is out of the viewport
+            
                 const rect = dropdownMenu.getBoundingClientRect();
                 const windowWidth = window.innerWidth;
 
@@ -80,7 +79,7 @@ $isAdminLoggedIn = isset($_SESSION['admin_username']);
                 }
             });
 
-            // Close the dropdown menu if the user clicks outside of it
+            
             window.onclick = function(event) {
                 if (!event.target.matches('.tab-button')) {
                     var dropdowns = document.getElementsByClassName("dropdown-menu");

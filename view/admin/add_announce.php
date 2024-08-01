@@ -155,8 +155,8 @@ th {
     transition: background-color 0.3s ease;
 }
 .btn:hover {
-    background-color: #F4CE14;
-    color: #000;
+    background-color: 45a049;
+
 }
 .back-button {
     position: absolute;

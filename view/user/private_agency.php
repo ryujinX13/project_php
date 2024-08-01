@@ -150,12 +150,12 @@ $result = $conn->query($sql);
         }
 
         .profile-header img {
-            width: 70%; /* ปรับขนาดเป็น 50% ของความกว้างของ container */
+            width: 70%; 
             max-width: 500px; /* กำหนดขนาดสูงสุดของรูปภาพ */
             height: auto; /* ให้ความสูงอัตโนมัติเพื่อรักษาสัดส่วนของรูปภาพ */
-            object-fit: cover; /* ให้ครอบคลุมพื้นที่ของ element และรักษาสัดส่วนของรูปภาพ */
+            object-fit: cover; /* ให้ครอบคลุมพื้นที่ของและรักษาสัดส่วนของรูปภาพ */
             margin-bottom: 10px;
-            border-radius: 15px; /* เพิ่มขอบมนให้กับรูปภาพ */
+            border-radius: 15px; 
         }
 
         .profile-header h1 {
@@ -182,8 +182,8 @@ $result = $conn->query($sql);
             font-weight: bold;
             color: #000;
             flex: 1 1 30%;
-            font-size: 18px; /* เพิ่มขนาดตัวหนังสือ */
-            font-weight: 500; /* ลดความหนาตัวหนังสือ */
+            font-size: 18px; 
+            font-weight: 500; /* ความหนา*/
             
         }
     </style>

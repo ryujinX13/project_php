@@ -44,50 +44,55 @@ if ($user === null) {
 $stmt->close();
 $conn->close();
 ?>
+
+
+
 <!DOCTYPE html>
 <html lang="th">
 <head>
     <meta charset="UTF-8">
     <title>แก้ไขข้อมูลผู้ใช้งาน</title>
-    <style>
-       body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    background-color: #f5f5f5;
-    margin: 0;
-    padding: 0;
-}
-    .tab-bar {
-    display: flex;
-    align-items: center;
-    background-color: #8ab7cc;
-    padding: 20px 20px;
-    justify-content: center;
-    height: 70px;
-}
 
-.tab-bar img {
-    height: 100px; 
-    margin-left: 50px; 
-}
+    
+        <style>
+body {
+        font-family: 'Arial', sans-serif;
+        line-height: 1.6;
+        background-color: #f5f5f5;
+        margin: 0;
+        padding: 0;
+    }
+        .tab-bar {
+            display: flex;
+            align-items: center;
+            background-color: #8ab7cc;
+            padding: 20px 20px;
+            justify-content: center;
+            height: 70px;
+    }
+
+        .tab-bar img {
+            height: 100px; 
+            margin-left: 50px; 
+    }
 
 
-.back-button {
-    position: absolute;
-    left: 33%; 
-    background: none;
-    border: none;
-    font-size: 2em;
-    color: black;
-    cursor: pointer;
-    transition: color 0.3s ease, transform 0.3s ease;
-    margin-top: 0%;
-}
+        .back-button {
+            position: absolute;
+            left: 33%; 
+            background: none;
+            border: none;
+            font-size: 2em;
+            color: black;
+            cursor: pointer;
+            transition: color 0.3s ease, transform 0.3s ease;
+            margin-top: 0%;
+    }
 
-.back-button:hover {
-    color: white;
-    transform: scale(1.1);
-}
+        .back-button:hover {
+            color: white;
+            transform: scale(1.1);
+    }
 
         .container {
             background-color: #fff;
@@ -98,52 +103,55 @@ $conn->close();
             width: 100%;
             margin: auto;
             margin-top: 20px;
-        }
+    }
 
-        h1 {
-            text-align: center;
-            margin-bottom: 20px;
-            color: #333;
-        }
+            h1 {
+                text-align: center;
+                margin-bottom: 20px;
+                color: #333;
+            }
 
-        .form-group {
-            margin-bottom: 15px;
-        }
+            .form-group {
+                margin-bottom: 15px;
+            }
 
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            color: #333;
-        }
+            .form-group label {
+                display: block;
+                margin-bottom: 5px;
+                color: #333;
+            }
 
-        .form-group input {
-            width: 100%;
-            padding: 10px;
-            box-sizing: border-box;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
-        }
+            .form-group input {
+                width: 100%;
+                padding: 10px;
+                box-sizing: border-box;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                font-size: 16px;
+            }
 
-        .form-group button {
-            display: block;
-            width: 20%;
-            padding: 12px;
-            font-size: 16px;
-            text-align: center;
-            text-decoration: none;
-            color: #fff;
-            background-color: #007bff;
-            border: none;
-            border-radius: 5px;
-            margin: 20px auto;
-            transition: background-color 0.3s;
-        }
+            .form-group button {
+                display: block;
+                width: 20%;
+                padding: 12px;
+                font-size: 16px;
+                text-align: center;
+                text-decoration: none;
+                color: #fff;
+                background-color: #007bff;
+                border: none;
+                border-radius: 15px;
+                margin: 20px auto;
+                transition: background-color 0.3s;
+            }
 
-        .form-group button:hover {
-            background-color: #0056b3;
-        }
+            .form-group button:hover {
+                background-color: #e4b800;
+                color: #fff;
+            }
     </style>
+
+
     <script>
         function validateForm() {
             var password = document.getElementById("User_password").value;
@@ -170,7 +178,9 @@ $conn->close();
             return true;
         }
     </script>
+
 </head>
+
 <body>
 <div class="tab-bar">
         

@@ -166,55 +166,45 @@ $conn->close();
         </div>
         <h1>ลงทะเบียน</h1>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" onsubmit="return validateForm()">
-            <label for="user_id">เลขบัตรประจำตัวประชาชน:</label>
-            <input type="text" id="user_id" name="user_id" required>
+        <label for="user_id">เลขบัตรประจำตัวประชาชน:<span style="color: red;">*</span></label>
+        <input type="text" id="user_id" name="user_id" required>
 
-            <label for="username">ชื่อผู้ใช้:</label>
-            <input type="text" id="username" name="username" required>
-            <label for="password">รหัสผ่าน:</label>
-            <input type="password" id="password" name="password" required>
-            <label for="confirm_password">ยืนยันรหัสผ่าน:</label>
-            <input type="password" id="confirm_password" name="confirm_password" required>
-            <label for="user_name">ชื่อ-นามสกุล:</label>
-            <input type="text" id="user_name" name="user_name" required>
+        <label for="username">ชื่อผู้ใช้:<span style="color: red;">*</span></label>
+        <input type="text" id="username" name="username" required>
+        
+        <label for="password">รหัสผ่าน:<span style="color: red;">*</span></label> <small>อย่างน้อย 8 ตัว A-a และตัวเลข</small>
+        <input type="password" id="password" name="password" required pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}" title="อย่างน้อย 8 ตัว A-a และตัวเลข">
 
-            <label for="user_gender">เพศ:</label>
-            <div class="gender-select">
-                <input type="radio" id="male" name="user_gender" value="0">
-                <label for="male">ชาย</label>
-                <input type="radio" id="female" name="user_gender" value="1">
-                <label for="female">หญิง</label>
-            </div>
+        <label for="confirm_password">ยืนยันรหัสผ่าน:<span style="color: red;">*</span></label>
+        <input type="password" id="confirm_password" name="confirm_password" required>
+        
+        <label for="user_name">ชื่อ-นามสกุล:<span style="color: red;">*</span></label>
+        <input type="text" id="user_name" name="user_name" required>
 
-            <label for="user_birthday">วันเกิด:</label>
-            <input type="date" id="user_birthday" name="user_birthday" required>
+        <label for="user_gender">เพศ:<span style="color: red;">*</span></label>
+        <div class="gender-select">
+            <input type="radio" id="male" name="user_gender" value="0" required>
+            <label for="male">ชาย</label>
+            <input type="radio" id="female" name="user_gender" value="1" required>
+            <label for="female">หญิง</label>
+        </div>
 
-            <label for="user_addressnow">ที่อยู่ปัจจุบัน:</label>
-            <textarea id="user_addressnow" name="user_addressnow" required></textarea>
+        <label for="user_birthday">วันเกิด:<span style="color: red;">*</span></label>
+        <input type="date" id="user_birthday" name="user_birthday" required>
 
-            <label for="user_email">อีเมล์:</label>
-            <input type="email" id="user_email" name="user_email" required>
+        <label for="user_addressnow">ที่อยู่ปัจจุบัน:<span style="color: red;">*</span></label>
+        <textarea id="user_addressnow" name="user_addressnow" required></textarea>
 
-            <label for="user_phone">เบอร์โทรศัพท์:</label>
-            <input type="tel" id="user_phone" name="user_phone" required>
+        <label for="user_email">อีเมล์:<span style="color: red;">*</span></label>
+        <input type="email" id="user_email" name="user_email" required>
+
+        <label for="user_phone">เบอร์โทรศัพท์:<span style="color: red;">*</span></label>
+        <input type="tel" id="user_phone" name="user_phone" required>
 
             <input type="submit" value="ลงทะเบียน">
         </form>
         <p>มีบัญชีผู้ใช้อยู่แล้ว? <a href="login.php">เข้าสู่ระบบที่นี่</a>.</p>
     </div>
-    <script>
-function togglePasswordVisibility() {
-    var passwordInput = document.getElementById("password");
-    var toggleIcon = document.querySelector(".password-container span");
-    if (passwordInput.type === "password") {
-        passwordInput.type = "text";
-        toggleIcon.textContent = "⊚"; // เปลี่ยนอีโมจิเป็นตาปิด
-    } else {
-        passwordInput.type = "password";
-        toggleIcon.textContent = "⊙"; // เปลี่ยนอีโมจิเป็นตาเปิด
-    }
-}
-</script>
 </body>
 
 </html>
