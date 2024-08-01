@@ -26,6 +26,7 @@
                 <input type="text" id="username" name="username" required placeholder="กรุณากรอกชื่อผู้ใช้">
                 <label for="password">รหัสผ่าน:</label>
                 <input type="password" id="password" name="password" required placeholder="กรุณากรอกรหัสผ่าน">
+                <input type="checkbox" id="show-password" class="checkbox">
                 <input type="submit" value="เข้าสู่ระบบ" name="admin_login">
             </form>
         </div>
@@ -41,6 +42,16 @@
                 event.preventDefault();
                 $('#loginModal').modal('show');
             });
+        });
+    </script>
+    <script>
+        document.getElementById('show-password').addEventListener('change', function() {
+            var passwordInput = document.getElementById('password');
+            if (this.checked) {
+                passwordInput.type = 'text';
+            } else {
+                passwordInput.type = 'password';
+            }
         });
     </script>
 </body>

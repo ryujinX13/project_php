@@ -17,23 +17,23 @@ body {
 }
 
 .tab-bar img {
-    height: 100px; /* กำหนดความสูงของรูปภาพ */
-    margin-left: 50px; /* เพิ่ม margin-left เพื่อขยับรูปไปทางซ้าย */
+    height: 100px; 
+    margin-left: 50px; 
 }
 
 
 .tab-bar h1 {
     margin: 0;
     color: black;
-    margin-bottom: 10px; /* เพิ่ม margin-bottom เพื่อระยะห่างกับปุ่ม */
+    margin-bottom: 10px; 
 }
 
 .back-button {
     position: absolute;
-    left: 10px; /* Adjust as necessary */
+    left: 10px;
     background: none;
     border: none;
-    font-size: 3em; /* Adjust size as needed */
+    font-size: 3em; 
     color: black;
     cursor: pointer;
     transition: color 0.3s ease, transform 0.3s ease;
@@ -122,4 +122,10 @@ input[type="submit"]:hover {
 .tab-link.register:hover {
     background-color: #F4CE14;
     color: white;
+}
+
+.checkbox {
+    position: absolute;
+    right: 655px; /* ระยะห่างจากขอบด้านขวา */
+    top: 445px; /* ระยะห่างจากขอบด้านบน */
 }

@@ -8,6 +8,7 @@ body {
     box-sizing: border-box;
     position: relative;
     overflow: hidden;
+    
 }
 
 body::before {
@@ -155,3 +156,11 @@ label {
 .register a:hover {
     font-family: "Mitr", sans-serif;
 }
+
+.checkbox {
+    position: absolute;
+    right: 230px; /* ระยะห่างจากขอบด้านขวา */
+    top: 413px; /* ระยะห่างจากขอบด้านบน */
+}
+
+

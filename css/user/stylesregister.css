@@ -207,3 +207,18 @@ p a:hover {
     transform: scale(1.1);
 }
 
+.password-container {
+    position: relative;
+    display: inline-block;
+}
+.password-container input[type="password"],
+.password-container input[type="text"] {
+    width: 100%;
+    padding-right: 30px; 
+}
+.password-container input[type="checkbox"] {
+    position: absolute;
+    right: 10px;
+    top: 30%;
+    transform: translateY(-50%);
+}
