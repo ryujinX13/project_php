@@ -228,50 +228,32 @@ $result = $conn->query($sql);
     </div>
 
     <main>
-       
-            <?php
-            if ($result->num_rows > 0) {
-                // แสดงผลข้อมูลแต่ละแถว
-                while($row = $result->fetch_assoc()) {
-                    // แปลง binary data เป็นรูปภาพ base64
-                    $imageData = base64_encode($row['Pva_photo']);
-                    $imageSrc = 'data:image/jpeg;base64,'.$imageData;
-            ?>
-            <div class="container">
+        <?php
+        if ($result->num_rows > 0) {
+            // แสดงผลข้อมูลแต่ละแถว
+            while($row = $result->fetch_assoc()) {
+                $imageSrc = "../../" . $row['Pva_photo']; // แสดงที่อยู่รูปภาพจากโฟลเดอร์ uploads
+        ?>
+        <div class="container">
             <div class="profile-header">
                 <img src="<?php echo $imageSrc; ?>" alt="รูปภาพหน่วยงาน">
                 <h1>รายละเอียดหน่วยงาน</h1>
             </div>
-            </div>
-            
             <div class="profile-info">
-            <div class="container">
                 <div><span>ชื่อหน่วยงาน:</span> <?php echo $row['Pva_name']; ?></div>
-            </div>
-                <div class="container">
                 <div><span>รายละเอียดหน่วยงาน:</span> <?php echo $row['Pva_detail']; ?></div>
-                </div>
-                <div class="container">
                 <div><span>ที่อยู่หน่วยงาน:</span> <?php echo $row['Pva_address']; ?></div>
-                </div>
-                <div class="container">
                 <div><span>อีเมลหน่วยงาน:</span> <?php echo $row['Pva_email']; ?></div>
-                </div>
-                <div class="container">
                 <div><span>เบอร์โทรศัพท์หน่วยงาน:</span> <?php echo $row['Pva_phone']; ?></div>
-                </div>
             </div>
-            </div>
-        
-
-            <?php
-                }
-            } else {
-                echo "<div class='container'><div class='profile-header'><h1>ไม่มีข้อมูล</h1></div></div>";
-            }
-            $conn->close();
-            ?>
         </div>
+        <?php
+            }
+        } else {
+            echo "<div class='container'><div class='profile-header'><h1>ไม่มีข้อมูล</h1></div></div>";
+        }
+        $conn->close();
+        ?>
     </main>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

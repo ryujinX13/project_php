@@ -13,7 +13,7 @@ if ($conn->connect_error) {
 }
 
 // ดึงข้อมูลจากตาราง travel_distance_cost
-$sql = "SELECT TraCost_id, Tracost_distance, TraCost_excess FROM travel_distance_cost";
+$sql = "SELECT * FROM travel_distance_cost";
 $result = $conn->query($sql);
 
 // อัพเดทข้อมูลเมื่อมีการส่งข้อมูลจากฟอร์ม
@@ -214,7 +214,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             color: white;
             text-align: center;
         }
-
         td {
             padding: 10pt;
         }

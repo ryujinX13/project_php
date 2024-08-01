@@ -19,19 +19,21 @@ if (isset($_POST['submit'])) {
     $address = $_POST['Pva_address'];
     $email = $_POST['Pva_email'];
     $phone = $_POST['Pva_phone'];
-    $flatrate = $_POST['Pva_flatrate'];
     $timeToTrain = $_POST['Pva_Time_to_train'];
 
     // Handle file upload
     if (!empty($_FILES['Pva_photo']['name'])) {
-        $photo = addslashes(file_get_contents($_FILES['Pva_photo']['tmp_name']));
-        $query = "UPDATE private_agency SET Pva_name = ?, Pva_detail = ?, Pva_address = ?, Pva_email = ?, Pva_phone = ?, Pva_flatrate = ?, Pva_Time_to_train = ?, Pva_photo = ? WHERE Pva_id = ?";
+        $target_dir = "../../uploads/";
+        $target_file = $target_dir . basename($_FILES["Pva_photo"]["name"]);
+        move_uploaded_file($_FILES["Pva_photo"]["tmp_name"], $target_file);
+        $photo_path = "uploads/" . basename($_FILES["Pva_photo"]["name"]);
+        $query = "UPDATE private_agency SET Pva_name = ?, Pva_detail = ?, Pva_address = ?, Pva_email = ?, Pva_phone = ?, Pva_Time_to_train = ?, Pva_photo = ? WHERE Pva_id = ?";
         $stmt = $conn->prepare($query);
-        $stmt->bind_param('sssssiisi', $name, $detail, $address, $email, $phone, $flatrate, $timeToTrain, $photo, $id);
+        $stmt->bind_param('sssssiss', $name, $detail, $address, $email, $phone, $timeToTrain, $photo_path, $id);
     } else {
-        $query = "UPDATE private_agency SET Pva_name = ?, Pva_detail = ?, Pva_address = ?, Pva_email = ?, Pva_phone = ?, Pva_flatrate = ?, Pva_Time_to_train = ? WHERE Pva_id = ?";
+        $query = "UPDATE private_agency SET Pva_name = ?, Pva_detail = ?, Pva_address = ?, Pva_email = ?, Pva_phone = ?, Pva_Time_to_train = ? WHERE Pva_id = ?";
         $stmt = $conn->prepare($query);
-        $stmt->bind_param('sssssiii', $name, $detail, $address, $email, $phone, $flatrate, $timeToTrain, $id);
+        $stmt->bind_param('sssssii', $name, $detail, $address, $email, $phone, $timeToTrain, $id);
     }
 
     if ($stmt->execute()) {
@@ -375,7 +377,6 @@ $result = mysqli_query($conn, $query);
                     <th>ที่อยู่</th>
                     <th>อีเมล</th>
                     <th>โทรศัพท์</th>
-                    <th>ค่าเหมาจ่าย</th>
                     <th>เวลาอบรม</th>
                     <th>รูปภาพ</th>
                     <th>จัดการ</th>
@@ -388,11 +389,10 @@ $result = mysqli_query($conn, $query);
                     <td><?php echo htmlspecialchars($row['Pva_address']); ?></td>
                     <td><?php echo htmlspecialchars($row['Pva_email']); ?></td>
                     <td><?php echo htmlspecialchars($row['Pva_phone']); ?></td>
-                    <td><?php echo htmlspecialchars($row['Pva_flatrate']); ?></td>
                     <td><?php echo htmlspecialchars($row['Pva_Time_to_train']); ?></td>
                     <td class="photo">
                         <?php if ($row['Pva_photo']): ?>
-                            <img src="data:image/jpeg;base64,<?php echo base64_encode($row['Pva_photo']); ?>" alt="รูปภาพหน่วยงาน">
+                            <img src="../../<?php echo $row['Pva_photo']; ?>" alt="รูปภาพหน่วยงาน">
                         <?php endif; ?>
                     </td>
                     <td><a href="edit_agency.php?id=<?php echo htmlspecialchars($row['Pva_id']); ?>">แก้ไข</a></td>
@@ -424,8 +424,6 @@ $result = mysqli_query($conn, $query);
                     <input type="email" id="Pva_email" name="Pva_email" value="<?php echo htmlspecialchars($agency['Pva_email']); ?>">
                     <label for="Pva_phone">โทรศัพท์:</label>
                     <input type="text" id="Pva_phone" name="Pva_phone" value="<?php echo htmlspecialchars($agency['Pva_phone']); ?>">
-                    <label for="Pva_flatrate">ค่าเหมาจ่าย:</label>
-                    <input type="number" id="Pva_flatrate" name="Pva_flatrate" value="<?php echo htmlspecialchars($agency['Pva_flatrate']); ?>">
                     <label for="Pva_Time_to_train">เวลาอบรม:</label>
                     <input type="number" id="Pva_Time_to_train" name="Pva_Time_to_train" value="<?php echo htmlspecialchars($agency['Pva_Time_to_train']); ?>">
                     <label for="Pva_photo">รูปภาพ:</label>
