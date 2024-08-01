@@ -1,8 +1,8 @@
 <?php
 session_start();
-include ('connect/connection.php');
+include('connect/connection.php');
 
-// ตรวจสอบว่าผู้ใช้ล็อคอินหรือไม่
+// ตรวจสอบว่าผู้ใช้ล็อคอินอยู่หรือไม่
 if (isset($_SESSION['username'])) {
     // ถ้าเข้าสู่ระบบอยู่ ให้เปลี่ยนเส้นทางไปยังหน้า homepage.php
     header("Location: view/user/homepage.php");
@@ -11,24 +11,35 @@ if (isset($_SESSION['username'])) {
 
 // ตรวจสอบการเชื่อมต่อกับฐานข้อมูล
 if ($conn->connect_error) {
-die("Connection failed: " . $conn->connect_error);
+    die("Connection failed: " . $conn->connect_error);
 }
 
 // ดึงข้อมูลจากตาราง travel_distance_cost
-$sql = "SELECT Tracost_distance, TraCost_excess, Tracost_flatrate FROM travel_distance_cost";
+$sql = "SELECT Tracost_distance, TraCost_excess FROM travel_distance_cost";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
-// เก็บข้อมูลในตัวแปร
-while ($row = $result->fetch_assoc()) {
-$Tracos_distance = $row['Tracost_distance'];
-$TraCost_excess = $row['TraCost_excess'];
-$Tracost_flatrate = $row['Tracost_flatrate'];
-}
+    // เก็บข้อมูลในตัวแปร
+    while ($row = $result->fetch_assoc()) {
+        $Tracos_distance = $row['Tracost_distance'];
+        $TraCost_excess = $row['TraCost_excess'];
+    }
 } else {
-$Tracos_distance = 300; // ค่าเริ่มต้นหากไม่มีข้อมูล
-$TraCost_excess = 5; // ค่าเริ่มต้นหากไม่มีข้อมูล
-$Tracost_flatrate = 10; // ค่าเริ่มต้นหากไม่มีข้อมูล (เพิ่มค่าเริ่มต้นสำหรับ Tracost_flatrate)
+    $Tracos_distance = 300; // ค่าเริ่มต้นหากไม่มีข้อมูล
+    $TraCost_excess = 5; // ค่าเริ่มต้นหากไม่มีข้อมูล
+}
+
+// ดึงข้อมูลจากตาราง private_agency
+$sql = "SELECT Pva_flatrate FROM private_agency";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // เก็บข้อมูลในตัวแปร
+    while ($row = $result->fetch_assoc()) {
+        $Pva_flatrate = $row['Pva_flatrate'];
+    }
+} else {
+    $Pva_flatrate = 10; // ค่าเริ่มต้นหากไม่มีข้อมูล (เพิ่มค่าเริ่มต้นสำหรับ Pva_flatrate)
 }
 
 // ดึงข้อมูลจากตาราง rates
@@ -36,41 +47,39 @@ $rate_sql = "SELECT * FROM rates";
 $rate_result = $conn->query($rate_sql);
 $rates = [];
 if ($rate_result->num_rows > 0) {
-// เก็บข้อมูลในตัวแปร
-while ($row = $rate_result->fetch_assoc()) {
-$rates[] = $row;
-}
+    // เก็บข้อมูลในตัวแปร
+    while ($row = $rate_result->fetch_assoc()) {
+        $rates[] = $row;
+    }
 }
 $conn->close();
 
 // ฟังก์ชันเพื่อเลือกไอคอนตามชื่อแพ็กเกจ
 function getIconClass($rate_name) {
-$icons = [
-'คลินิกนอกเวลา' => 'fas fa-clock',
-'ครึ่งเช้า' => 'fas fa-sun',
-'ทั้งวัน' => 'fas fa-sun',
-'เวรนอนเฝ้าไข้' => 'fas fa-moon',
-'ชั่วโมงละ' => 'fas fa-hourglass-half'
-];
-foreach ($icons as $key => $icon) {
-if (strpos($rate_name, $key) !== false) {
-return $icon;
-}
-}
-return 'fas fa-question'; 
+    $icons = [
+        'คลินิกนอกเวลา' => 'fas fa-clock',
+        'ครึ่งเช้า' => 'fas fa-sun',
+        'ทั้งวัน' => 'fas fa-sun',
+        'เวรนอนเฝ้าไข้' => 'fas fa-moon',
+        'ชั่วโมงละ' => 'fas fa-hourglass-half'
+    ];
+    foreach ($icons as $key => $icon) {
+        if (strpos($rate_name, $key) !== false) {
+            return $icon;
+        }
+    }
+    return 'fas fa-question'; // Default icon if not found
 }
 
 // ฟังก์ชันเพื่อจัดการเวลาให้อยู่ในรูปแบบ HH:MM
 function formatTime($time) {
-$time_parts = explode(':', $time);
-return $time_parts[0] . ':' . $time_parts[1];
+    $time_parts = explode(':', $time);
+    return $time_parts[0] . ':' . $time_parts[1];
 }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
-
 
 <head>
     <meta charset="UTF-8">
@@ -81,8 +90,6 @@ return $time_parts[0] . ':' . $time_parts[1];
     <link rel="stylesheet" type="text/css" href="css/stylesindex.css">
 </head>
 
-
-<!--แท็บบาร์-->
 <body>
     <div class="tab-bar">
         <img src="img/logo1.png" alt="Logo">
@@ -95,9 +102,6 @@ return $time_parts[0] . ':' . $time_parts[1];
         <a href="view/user/register.php" class="tab-link register">ลงทะเบียน</a>
     </div>
 
-
-
-<!--เนื้อหา-->
     <div class="content">
         <header class="header">
             <h1>ลูกหลานสำรองบริการพาผู้สูงอายุไปหาหมอ</h1>
@@ -192,9 +196,9 @@ return $time_parts[0] . ':' . $time_parts[1];
                 <div class="text-content">
                     <h2>ค่าเดินทางรับส่งคนไข้คิดตามระยะทาง</h2>
                     <ul>
-                        <li>ระยะทางไม่เกิน <?php echo $Tracost_flatrate; ?> กม.แรก เหมาจ่าย
+                        <li>ระยะทางไม่เกิน <?php echo $Pva_flatrate; ?> กม.แรก เหมาจ่าย
                             <?php echo $Tracos_distance; ?> บาท (รับและส่ง)</li>
-                        <li>ระยะทางเกิน <?php echo $Tracost_flatrate; ?> กม. คิด <?php echo $Tracost_flatrate; ?>กม. แรก
+                        <li>ระยะทางเกิน <?php echo $Pva_flatrate; ?> กม. คิด <?php echo $Pva_flatrate; ?>กม. แรก
                             <?php echo $Tracos_distance; ?> บาท <br>หลังจากนั้นจะคิด กม.ละ
                             <?php echo $TraCost_excess; ?> บาท</li>
                         <li>การนับระยะทาง เริ่มจากขับรถไปรับที่บ้าน- ไปโรงพยาบาล<br> ส่งกลับบ้าน- ขับรถกลับ</li>
@@ -206,14 +210,11 @@ return $time_parts[0] . ':' . $time_parts[1];
         </div>
     </div>
 
-
-<!--ฟุตเตอร์-->
     <footer>
         <div class="contact-info">
             <p>ติดต่อ-สอบถามยูคลินิกแล็บ</p>
             <p>📞 <a href="tel:093-5017778">093-5017778</a></p>
-            <p><a href="https://line.me/R/ti/p/@ulab" target="_blank"><img src="img/Line.png" alt="Line Icon"> @ulab</a>
-            </p>
+            <p><a href="https://line.me/R/ti/p/@ulab" target="_blank"><img src="img/Line.png" alt="Line Icon"> @ulab</a></p>
             <p>📧 <a href="mailto:ucliniclab@gmail.com">ucliniclab@gmail.com</a></p>
         </div>
 

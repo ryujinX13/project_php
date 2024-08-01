@@ -15,14 +15,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $training_time = $_POST['Training_time'];
     $prov_id = $_POST['Prov_id'];
 
-    // อัปเดตข้อมูลการอบรม
-    $sql = "UPDATE training_record SET Training_date='$training_date', Training_time='$training_time' WHERE Training_id='$training_id'";
-    if ($conn->query($sql) === TRUE) {
-        $sql_check = "SELECT training_Time_to_train FROM training_record WHERE Training_id='$training_id'";
-        $result = $conn->query($sql_check);
-        if ($result->num_rows > 0) {
-            $row = $result->fetch_assoc();
-            if ($training_time == $row['training_Time_to_train']) {
+    // ดึงค่าของ Pva_Time_to_train จากตาราง private_agency
+    $sql_check = "SELECT Pva_Time_to_train FROM private_agency WHERE Pva_id=(SELECT Pva_id FROM training_record WHERE Training_id='$training_id')";
+    $result = $conn->query($sql_check);
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $max_training_time = $row['Pva_Time_to_train'];
+
+        // ตรวจสอบว่าชั่วโมงการอบรมไม่เกินค่า Pva_Time_to_train
+        if ($training_time > $max_training_time) {
+            die("ชั่วโมงการอบรมไม่สามารถเกิน " . $max_training_time . " ชั่วโมง");
+        }
+
+        // อัปเดตข้อมูลการอบรม
+        $sql = "UPDATE training_record SET Training_date='$training_date', Training_time='$training_time' WHERE Training_id='$training_id'";
+        if ($conn->query($sql) === TRUE) {
+            if ($training_time == $max_training_time) {
                 // อัปเดตข้อมูล provider
                 $sql_prov = "UPDATE provider SET Prov_train=1, Prov_datejob=CURDATE() WHERE Prov_id='$prov_id'";
                 if ($conn->query($sql_prov) === TRUE) {
@@ -83,10 +91,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     echo "Error updating provider record: " . $conn->error;
                 }
             }
+        } else {
+            echo "Error updating record: " . $conn->error;
         }
-        echo "Record updated successfully";
-    } else {
-        echo "Error updating record: " . $conn->error;
     }
 
     $conn->close();

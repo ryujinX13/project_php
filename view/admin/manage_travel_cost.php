@@ -2,7 +2,6 @@
 session_start();
 include('../../connect/connection.php');
 
-
 if (!isset($_SESSION['admin_username'])) {
     header("Location: admin_login.php");
     exit();
@@ -14,7 +13,7 @@ if ($conn->connect_error) {
 }
 
 // ดึงข้อมูลจากตาราง travel_distance_cost
-$sql = "SELECT * FROM travel_distance_cost";
+$sql = "SELECT TraCost_id, Tracost_distance, TraCost_excess FROM travel_distance_cost";
 $result = $conn->query($sql);
 
 // อัพเดทข้อมูลเมื่อมีการส่งข้อมูลจากฟอร์ม
@@ -22,8 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $id = $_POST['id'];
     $distance = $_POST['distance'];
     $excess = $_POST['excess'];
-    $flatrate = $_POST['flatrate'];
-    $update_sql = "UPDATE travel_distance_cost SET Tracost_distance = '$distance', TraCost_excess = '$excess', Tracost_flatrate = '$flatrate' WHERE TraCost_id = '$id'";
+    $update_sql = "UPDATE travel_distance_cost SET Tracost_distance = '$distance', TraCost_excess = '$excess' WHERE TraCost_id = '$id'";
 
     if ($conn->query($update_sql) === TRUE) {
         echo "Record updated successfully";
@@ -31,7 +29,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "Error updating record: " . $conn->error;
     }
     
-   
     header('Location: ' . $_SERVER['PHP_SELF']);
     exit();
 }
@@ -217,30 +214,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             color: white;
             text-align: center;
         }
-        td{
+
+        td {
             padding: 10pt;
         }
 
         tr:nth-child(even) {
             background-color: #fff;
-            
         }
 
         .form-inline {
             display: flex;
             flex-direction: column;
-            
         }
 
         .form-inline input[type="number"] {
             width: 100px;
             margin-right: 10px;
-            
         }
 
         .form-inline button {
             margin-top: 10px;
-            
         }
 
         .btn-primary {
@@ -251,12 +245,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             outline: none;
             border: none;
             color: #fff;
-           
         }
 
         .btn-primary:hover {
             background-color: #e4b800;
-            
         }
     </style>
 </head>
@@ -310,7 +302,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <th>รหัสค่าระยะทาง</th>
                     <th>ค่าเดินทาง</th>
                     <th>ค่าใช้จ่ายส่วนเกิน</th>
-                    <th>ระยะทางเหมาจ่าย</th>
                     <th>แก้ไข</th>
                 </tr>
             </thead>
@@ -322,21 +313,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         echo "<td>" . $row['TraCost_id'] . "</td>";
                         echo "<td>" . $row['Tracost_distance'] . "</td>";
                         echo "<td>" . $row['TraCost_excess'] . "</td>";
-                        echo "<td>" . $row['Tracost_flatrate'] . "</td>";
                         echo "<td>
                                 <form action='' method='POST'>
-                                    
                                     <input type='hidden' name='id' value='" . $row['TraCost_id'] . "'>
                                     <a>ค่าเดินทาง</a> <input type='number' name='distance' value='" . $row['Tracost_distance'] . "' required><br>
-                                    <a>ค่าเดินทาง</a> <input type='number' name='excess' value='" . $row['TraCost_excess'] . "' required><br>
-                                    <a>ค่าเดินทาง</a> <input type='number' name='flatrate' value='" . $row['Tracost_flatrate'] . "' required>
+                                    <a>ค่าใช้จ่ายส่วนเกิน</a> <input type='number' name='excess' value='" . $row['TraCost_excess'] . "' required><br>
                                     <button type='submit' class='btn btn-primary'>บันทึก</button>
                                 </form>
                               </td>";
                         echo "</tr>";
                     }
                 } else {
-                    echo "<tr><td colspan='5'>No records found</td></tr>";
+                    echo "<tr><td colspan='4'>No records found</td></tr>";
                 }
                 ?>
             </tbody>
@@ -349,7 +337,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         var dropdownMenu = document.getElementById('dropdownMenu');
         dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
 
-      
         const rect = dropdownMenu.getBoundingClientRect();
         const windowWidth = window.innerWidth;
 

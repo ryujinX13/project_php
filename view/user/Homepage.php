@@ -25,6 +25,19 @@ if ($result->num_rows > 0) {
     $TraCost_excess = 5;    // ค่าเริ่มต้นหากไม่มีข้อมูล
 }
 
+// ดึงข้อมูลจากตาราง private_agency
+$sql = "SELECT Pva_flatrate FROM private_agency";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // เก็บข้อมูลในตัวแปร
+    while ($row = $result->fetch_assoc()) {
+        $Pva_flatrate = $row['Pva_flatrate'];
+    }
+} else {
+    $Pva_flatrate = 10; // ค่าเริ่มต้นหากไม่มีข้อมูล (เพิ่มค่าเริ่มต้นสำหรับ Pva_flatrate)
+}
+
 // ดึงข้อมูลจากตาราง rates
 $rate_sql = "SELECT * FROM rates";
 $rate_result = $conn->query($rate_sql);
@@ -175,8 +188,8 @@ function formatTime($time) {
                 </div>
                 <div class="col-md-6 order-md-1">
                     <ul>
-                        <li class="service-package">-ระยะทางไม่เกิน 10 กม.แรก เหมาจ่าย <?php echo $Tracos_distance; ?> บาท (รับและส่ง)</li>
-                        <li class="service-package">-ระยะทางเกิน 10 กม. คิด 10กม.แรก <?php echo $Tracos_distance; ?> บาท<br> หลังจากนั้นจะคิด กม.ละ <?php echo $TraCost_excess; ?> บาท</li>
+                        <li class="service-package">-ระยะทางไม่เกิน <?php echo $Pva_flatrate; ?> กม.แรก เหมาจ่าย <?php echo $Tracos_distance; ?> บาท (รับและส่ง)</li>
+                        <li class="service-package">-ระยะทางเกิน <?php echo $Pva_flatrate; ?> กม. คิด <?php echo $Pva_flatrate; ?>กม.แรก <?php echo $Tracos_distance; ?> บาท<br> หลังจากนั้นจะคิด กม.ละ <?php echo $TraCost_excess; ?> บาท</li>
                         <li class="service-package">-การนับระยะทาง เริ่มจาก ขับรถไปรับที่บ้าน-ไปโรงพยาบาล <br>ส่งกลับบ้าน- ขับรถกลับ</li>
                         <li class="service-package">-หากต้องเสียค่าที่จอดรถ คนไข้เป็นผู้จ่าย</li>
                     </ul>

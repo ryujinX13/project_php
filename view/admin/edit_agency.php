@@ -19,17 +19,19 @@ if (isset($_POST['submit'])) {
     $address = $_POST['Pva_address'];
     $email = $_POST['Pva_email'];
     $phone = $_POST['Pva_phone'];
+    $flatrate = $_POST['Pva_flatrate'];
+    $timeToTrain = $_POST['Pva_Time_to_train'];
 
     // Handle file upload
     if (!empty($_FILES['Pva_photo']['name'])) {
         $photo = addslashes(file_get_contents($_FILES['Pva_photo']['tmp_name']));
-        $query = "UPDATE private_agency SET Pva_name = ?, Pva_detail = ?, Pva_address = ?, Pva_email = ?, Pva_phone = ?, Pva_photo = ? WHERE Pva_id = ?";
+        $query = "UPDATE private_agency SET Pva_name = ?, Pva_detail = ?, Pva_address = ?, Pva_email = ?, Pva_phone = ?, Pva_flatrate = ?, Pva_Time_to_train = ?, Pva_photo = ? WHERE Pva_id = ?";
         $stmt = $conn->prepare($query);
-        $stmt->bind_param('ssssssi', $name, $detail, $address, $email, $phone, $photo, $id);
+        $stmt->bind_param('sssssiisi', $name, $detail, $address, $email, $phone, $flatrate, $timeToTrain, $photo, $id);
     } else {
-        $query = "UPDATE private_agency SET Pva_name = ?, Pva_detail = ?, Pva_address = ?, Pva_email = ?, Pva_phone = ? WHERE Pva_id = ?";
+        $query = "UPDATE private_agency SET Pva_name = ?, Pva_detail = ?, Pva_address = ?, Pva_email = ?, Pva_phone = ?, Pva_flatrate = ?, Pva_Time_to_train = ? WHERE Pva_id = ?";
         $stmt = $conn->prepare($query);
-        $stmt->bind_param('sssssi', $name, $detail, $address, $email, $phone, $id);
+        $stmt->bind_param('sssssiii', $name, $detail, $address, $email, $phone, $flatrate, $timeToTrain, $id);
     }
 
     if ($stmt->execute()) {
@@ -49,7 +51,6 @@ $result = mysqli_query($conn, $query);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <title>แก้ไขหน่วยงาน</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&display=swap');
@@ -65,7 +66,7 @@ $result = mysqli_query($conn, $query);
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            font-weight: 400; /* ลดความหนาตัวหนังสือ */
+            font-weight: 400;
         }
 
         .tab-bar {
@@ -157,34 +158,34 @@ $result = mysqli_query($conn, $query);
         }
 
         .sidebar {
-    flex: 1;
-    max-width: 230px;
-    background-color: #fff;
-    padding: 5px;
-    margin-right: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 250px;
-}
+            flex: 1;
+            max-width: 230px;
+            background-color: #fff;
+            padding: 5px;
+            margin-right: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 250px;
+        }
 
-.sidebar a {
-    display: block;
-    padding: 10px;
-    margin-bottom: 10px;
-    text-decoration: none;
-    color: #333;
-    border-radius: 4px;
-    transition: background-color 0.3s;
-}
+        .sidebar a {
+            display: block;
+            padding: 10px;
+            margin-bottom: 10px;
+            text-decoration: none;
+            color: #333;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
 
-.sidebar a:hover {
-    background-color: #f1f1f1;
-}
+        .sidebar a:hover {
+            background-color: #f1f1f1;
+        }
 
-.sidebar a.active {
-    background-color: #8ab7cc;
-    color: white;
-}
+        .sidebar a.active {
+            background-color: #8ab7cc;
+            color: white;
+        }
 
         .content {
             flex: 2;
@@ -197,24 +198,26 @@ $result = mysqli_query($conn, $query);
         h2 {
             color: #000;
             text-align: center;
-            font-weight: 400; /* ลดความหนาตัวหนังสือ */
+            font-weight: 400;
         }
 
         table {
-            width: 1000px;
+            width: 100%;
             border-collapse: collapse;
             margin-bottom: 20px;
         }
 
         table, th, td {
             border: 1px solid #ddd;
-            font-weight: 400; /* ลดความหนาตัวหนังสือ */
+            font-weight: 400;
             color: #000;
         }
 
         th, td {
             padding: 10px;
             text-align: left;
+            vertical-align: top;
+            word-wrap: break-word;
         }
 
         th {
@@ -238,7 +241,7 @@ $result = mysqli_query($conn, $query);
             color: #333;
         }
 
-        input[type="text"], input[type="email"], textarea {
+        input[type="text"], input[type="email"], textarea, input[type="number"] {
             width: 100%;
             padding: 10px;
             margin-bottom: 10px;
@@ -260,32 +263,30 @@ $result = mysqli_query($conn, $query);
         }
 
         input[type="submit"]:hover {
-            background-color:#e4b800;
+            background-color: #e4b800;
         }
-      
 
         .notification {
-    padding: 10px;
-    margin-top: 20px; 
-    border-radius: 4px;
-    text-align: center;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    left: 0;
-    z-index: 1000; 
-}
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 4px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            z-index: 1000;
+        }
 
-.notification.success {
-    background-color: #96B6C5;;
-    color: white;
-}
+        .notification.success {
+            background-color: #96B6C5;
+            color: white;
+        }
 
-.notification.error {
-    background-color: #f44336;
-    color: white;
-}
-
+        .notification.error {
+            background-color: #f44336;
+            color: white;
+        }
 
         .photo img {
             display: block;
@@ -321,7 +322,6 @@ $result = mysqli_query($conn, $query);
         input[type="submit"]:hover {
             background-color: #e4b800;
         }
-       
     </style>
 </head>
 <body>
@@ -348,7 +348,7 @@ $result = mysqli_query($conn, $query);
     </div>
 
     <div class="main-container">
-    <div class="sidebar">
+        <div class="sidebar">
             <a href="../admin/account_admin.php" class="menu-item">
                 <span style="margin-right: 8px;">🔍</span>รายละเอียดบัญชี
             </a>
@@ -359,7 +359,7 @@ $result = mysqli_query($conn, $query);
                 <span style="margin-right: 8px;">🚑</span>จัดการข้อมูลระยะทาง
             </a>
             <a href="../admin/manage_rates.php" class="menu-item">
-            <span style="margin-right: 8px;">💰</span>จัดการข้อมูลแพคเกจ
+                <span style="margin-right: 8px;">💰</span>จัดการข้อมูลแพคเกจ
             </a>
             <a href="../../process/logout.php" class="menu-item">
                 <span style="margin-right: 8px;">🔓</span>ออกจากระบบ
@@ -375,8 +375,10 @@ $result = mysqli_query($conn, $query);
                     <th>ที่อยู่</th>
                     <th>อีเมล</th>
                     <th>โทรศัพท์</th>
+                    <th>ค่าเหมาจ่าย</th>
+                    <th>เวลาอบรม</th>
                     <th>รูปภาพ</th>
-                    <th></th>
+                    <th>จัดการ</th>
                 </tr>
                 <?php while($row = mysqli_fetch_assoc($result)): ?>
                 <tr>
@@ -386,6 +388,8 @@ $result = mysqli_query($conn, $query);
                     <td><?php echo htmlspecialchars($row['Pva_address']); ?></td>
                     <td><?php echo htmlspecialchars($row['Pva_email']); ?></td>
                     <td><?php echo htmlspecialchars($row['Pva_phone']); ?></td>
+                    <td><?php echo htmlspecialchars($row['Pva_flatrate']); ?></td>
+                    <td><?php echo htmlspecialchars($row['Pva_Time_to_train']); ?></td>
                     <td class="photo">
                         <?php if ($row['Pva_photo']): ?>
                             <img src="data:image/jpeg;base64,<?php echo base64_encode($row['Pva_photo']); ?>" alt="รูปภาพหน่วยงาน">
@@ -420,6 +424,10 @@ $result = mysqli_query($conn, $query);
                     <input type="email" id="Pva_email" name="Pva_email" value="<?php echo htmlspecialchars($agency['Pva_email']); ?>">
                     <label for="Pva_phone">โทรศัพท์:</label>
                     <input type="text" id="Pva_phone" name="Pva_phone" value="<?php echo htmlspecialchars($agency['Pva_phone']); ?>">
+                    <label for="Pva_flatrate">ค่าเหมาจ่าย:</label>
+                    <input type="number" id="Pva_flatrate" name="Pva_flatrate" value="<?php echo htmlspecialchars($agency['Pva_flatrate']); ?>">
+                    <label for="Pva_Time_to_train">เวลาอบรม:</label>
+                    <input type="number" id="Pva_Time_to_train" name="Pva_Time_to_train" value="<?php echo htmlspecialchars($agency['Pva_Time_to_train']); ?>">
                     <label for="Pva_photo">รูปภาพ:</label>
                     <input type="file" id="Pva_photo" name="Pva_photo">
                     <input type="submit" name="submit" value="บันทึก">
@@ -434,7 +442,6 @@ $result = mysqli_query($conn, $query);
             var dropdownMenu = document.getElementById('dropdownMenu');
             dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
 
-         
             const rect = dropdownMenu.getBoundingClientRect();
             const windowWidth = window.innerWidth;
 
@@ -450,7 +457,6 @@ $result = mysqli_query($conn, $query);
             }
         });
 
-       
         window.onclick = function(event) {
             if (!event.target.matches('.tab-button')) {
                 var dropdowns = document.getElementsByClassName("dropdown-menu");
@@ -464,17 +470,16 @@ $result = mysqli_query($conn, $query);
         }
     </script>
     <script>
-
-    function hideNotification() {
-        const notification = document.getElementById('notification');
-        if (notification) {
-            setTimeout(() => {
-                notification.style.display = 'none';
-            }, 3000); 
+        function hideNotification() {
+            const notification = document.getElementById('notification');
+            if (notification) {
+                setTimeout(() => {
+                    notification.style.display = 'none';
+                }, 3000); 
+            }
         }
-    }
-    hideNotification();
-</script>
+        hideNotification();
+    </script>
 
 </body>
 </html>

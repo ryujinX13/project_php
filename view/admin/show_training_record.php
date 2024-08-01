@@ -22,7 +22,6 @@ $result = $conn->query($sql);
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../../css/admin/styles_showtraining.css">
     <title>Training Record</title>
-   
 </head>
 <body>
 <div class="tab-bar">
@@ -81,13 +80,7 @@ $result = $conn->query($sql);
                         <td>{$row['Training_time']}</td>
                         <td>{$row['Prov_id']}</td>
                         <td>
-                            <form method='post' action='edit_training_record.php'>
-                                <input type='hidden' name='Training_id' value='{$row['Training_id']}'>
-                                <input type='hidden' name='Training_date' value='{$row['Training_date']}'>
-                                <input type='hidden' name='Training_time' value='{$row['Training_time']}'>
-                                <input type='hidden' name='Prov_id' value='{$row['Prov_id']}'> <!-- เพิ่มฟิลด์นี้ -->
-                                <button type='submit'>✏️</button>
-                            </form>
+                            <a href='edit_training_record.php?Training_id={$row['Training_id']}'>✏️</a>
                         </td>
                     </tr>";
                 }

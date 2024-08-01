@@ -16,7 +16,6 @@
             padding: 10px;
             font-family: "Mitr", sans-serif;
             font-weight: 300; /* ลดความหนาตัวหนังสือ */
-            
         }
 
         th {
@@ -28,12 +27,10 @@
 
         tr:nth-child(even) {
             background-color: #fff;
-            
         }
 
         tr:hover {
             background-color: #fff;
-            
         }
     </style>
 </head>
@@ -71,10 +68,12 @@
                 $prov_train_status = 'ผ่านการอบรม';
             }
 
+            $prov_datejob = is_null($row['Prov_datejob']) ? 'ยังไม่ได้เข้าทำงาน' : $row['Prov_datejob'];
+
             echo "<tr id='row-" . $row['Prov_id'] . "'>";
             echo "<td>" . $row['Prov_id'] . "</td>";
             echo "<td>" . $row['Prov_name'] . "</td>";
-            echo "<td>" . $row['Prov_datejob'] . "</td>";
+            echo "<td>" . $prov_datejob . "</td>";
             echo "<td>" . $prov_train_status . "</td>";
             echo "<td>" . $row['Prov_email'] . "</td>";
             echo "<td>" . $row['Prov_phone'] . "</td>";
