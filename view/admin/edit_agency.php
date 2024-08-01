@@ -57,13 +57,11 @@ $result = mysqli_query($conn, $query);
 
         body {
             font-family: "Mitr", sans-serif;
-            line-height: 1.6;
             background-color: #f5f5f5;
             margin: 0;
             padding: 0;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
             min-height: 100vh;
             font-weight: 400;
@@ -74,14 +72,18 @@ $result = mysqli_query($conn, $query);
             background-color: #8ab7cc;
             display: flex;
             align-items: center;
-            justify-content: center;
-            padding: 10px 0;
+            padding: 10px 20px;
+            box-sizing: border-box;
+            overflow-x: auto; /* อนุญาตให้เลื่อนในแนวนอน */
+            white-space: nowrap; /* ป้องกันการตัดบรรทัด */
+           
         }
 
         .tab-bar img {
             height: 80px;
             margin-right: auto;
-            margin-left: 20px;
+            margin-left: 0px;
+            
         }
 
         .tab-link {
@@ -92,6 +94,7 @@ $result = mysqli_query($conn, $query);
             border-radius: 3px;
             margin: 0 10px;
             transition: background-color 0.3s, border-color 0.3s;
+            white-space: nowrap; /* ป้องกันการตัดบรรทัด */
         }
 
         .tab-link:hover {
@@ -109,10 +112,11 @@ $result = mysqli_query($conn, $query);
             color: black;
             border: none;
             border-radius: 10px;
-            padding: 10px 20px;
+            padding: 10px 2px;
             margin: 0 10px;
             cursor: pointer;
             transition: background-color 0.3s;
+            font-size: 14px;
         }
 
         .dropdown .tab-button:hover {
@@ -144,7 +148,6 @@ $result = mysqli_query($conn, $query);
             background-color: #F4CE14;
             color: white;
         }
-
         .main-container {
             display: flex;
             width: 100%;

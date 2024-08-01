@@ -185,6 +185,7 @@ $result = $conn->query($sql);
             font-size: 18px; 
             font-weight: 500; /* ความหนา*/
             
+            
         }
     </style>
 </head>

@@ -80,7 +80,7 @@ $result = $conn->query($sql);
                         <td>{$row['Training_time']}</td>
                         <td>{$row['Prov_id']}</td>
                         <td>
-                            <a href='edit_training_record.php?Training_id={$row['Training_id']}'>✏️</a>
+                            <a href='edit_training_record.php?Training_id={$row['Training_id']}'>📝</a>
                         </td>
                     </tr>";
                 }
