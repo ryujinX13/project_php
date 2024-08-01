@@ -112,7 +112,7 @@ $conn->close();
             </select><br>
             <label for="Prov_phone">เบอร์โทรศัพท์:</label>
             <input type="text" name="Prov_phone" value="<?php echo $Prov_phone; ?>"><br>
-            <label for="Prov_study">วุฒิการศึกษา:</label>
+            <label for="Prov_study">สถาบันการศึกษา:</label>
             <input type="text" name="Prov_study" value="<?php echo $Prov_study; ?>"><br>
             <input type="submit" value="บันทึก">
         </form>

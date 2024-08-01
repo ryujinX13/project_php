@@ -152,11 +152,11 @@ $conn->close();
     <div class="tab-bar">
         <img src="../../img/logo1.png" alt="Logo">
         <a href="../../index.php" class="tab-link">หน้าแรก</a>
-        <a href="select_provider.php" class="tab-link">การจอง</a>
-        <a href="booking_list.php" class="tab-link">รายการจอง</a>
-        <a href="history.php" class="tab-link">ประวัติการจอง</a>
+        <a href="booking.php" class="tab-link">การจอง</a>
+        <a href="#" class="tab-link">รายการจอง</a>
+        <a href="#.php" class="tab-link">ประวัติการจอง</a>
         <a href="announce.php" class="tab-link">สมัครงาน</a>
-        <a href="login_level.php" class="tab-link login">เข้าสู่ระบบ</a>
+        <a href="login.php" class="tab-link login">เข้าสู่ระบบ</a>
         <a href="register.php" class="tab-link register">ลงทะเบียน</a>
     </div>
 
@@ -166,14 +166,14 @@ $conn->close();
         </div>
         <h1>ลงทะเบียน</h1>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" onsubmit="return validateForm()">
-        <label for="user_id">เลขบัตรประจำตัวประชาชน:<span style="color: red;">*</span></label>
+        <label for="user_id">เลขบัตรประจำตัวประชาชน:<span style="color: red;"> *</span></label>
         <input type="text" id="user_id" name="user_id" required>
 
-        <label for="username">ชื่อผู้ใช้:<span style="color: red;">*</span></label>
+        <label for="username">ชื่อผู้ใช้:<span style="color: red;"> *</span></label>
         <input type="text" id="username" name="username" required>
         
         <form>
-        <label for="password">รหัสผ่าน:<span style="color: red;">*</span></label>
+        <label for="password">รหัสผ่าน:<span style="color: red;"> *</span></label>
         <small>อย่างน้อย 8 ตัว A-a และตัวเลข</small>
         <div class="password-container">
             <input type="password" id="password" name="password" required pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}" title="อย่างน้อย 8 ตัว A-a และตัวเลข">
@@ -182,14 +182,14 @@ $conn->close();
     </form>
 
 
-        <label for="confirm_password">ยืนยันรหัสผ่าน:<span style="color: red;">*</span></label>
+        <label for="confirm_password">ยืนยันรหัสผ่าน:<span style="color: red;"> *</span></label>
         <input type="password" id="confirm_password" name="confirm_password" required>
         
         
-        <label for="user_name">ชื่อ-นามสกุล:<span style="color: red;">*</span></label>
+        <label for="user_name">ชื่อ-นามสกุล:<span style="color: red;"> *</span></label>
         <input type="text" id="user_name" name="user_name" required>
 
-        <label for="user_gender">เพศ:<span style="color: red;">*</span></label>
+        <label for="user_gender">เพศ:<span style="color: red;"> *</span></label>
         <div class="gender-select">
             <input type="radio" id="male" name="user_gender" value="0" required>
             <label for="male">ชาย</label>
@@ -197,16 +197,16 @@ $conn->close();
             <label for="female">หญิง</label>
         </div>
 
-        <label for="user_birthday">วันเกิด:<span style="color: red;">*</span></label>
+        <label for="user_birthday">วันเกิด:<span style="color: red;"> *</span></label>
         <input type="date" id="user_birthday" name="user_birthday" required>
 
-        <label for="user_addressnow">ที่อยู่ปัจจุบัน:<span style="color: red;">*</span></label>
+        <label for="user_addressnow">ที่อยู่ปัจจุบัน:<span style="color: red;"> *</span></label>
         <textarea id="user_addressnow" name="user_addressnow" required></textarea>
 
-        <label for="user_email">อีเมล์:<span style="color: red;">*</span></label>
+        <label for="user_email">อีเมล์:<span style="color: red;"> *</span></label>
         <input type="email" id="user_email" name="user_email" required>
 
-        <label for="user_phone">เบอร์โทรศัพท์:<span style="color: red;">*</span></label>
+        <label for="user_phone">เบอร์โทรศัพท์:<span style="color: red;"> *</span></label>
         <input type="tel" id="user_phone" name="user_phone" required>
 
             <input type="submit" value="ลงทะเบียน">

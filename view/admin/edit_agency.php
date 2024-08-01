@@ -32,7 +32,6 @@ if (isset($_POST['submit'])) {
         $stmt->bind_param('sssssiss', $name, $detail, $address, $email, $phone, $timeToTrain, $photo_path, $id);
     } else {
         $query = "UPDATE private_agency SET Pva_name = ?, Pva_detail = ?, Pva_address = ?, Pva_email = ?, Pva_phone = ?, Pva_Time_to_train = ? WHERE Pva_id = ?";
-        $stmt = $conn->prepare($query);
         $stmt->bind_param('sssssii', $name, $detail, $address, $email, $phone, $timeToTrain, $id);
     }
 
@@ -45,7 +44,6 @@ if (isset($_POST['submit'])) {
 
 $query = "SELECT * FROM private_agency";
 $result = mysqli_query($conn, $query);
-
 ?>
 
 <!DOCTYPE html>
