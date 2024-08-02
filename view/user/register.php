@@ -172,14 +172,12 @@ $conn->close();
         <label for="username">ชื่อผู้ใช้:<span style="color: red;"> *</span></label>
         <input type="text" id="username" name="username" required>
         
-        <form>
+      
         <label for="password">รหัสผ่าน:<span style="color: red;"> *</span></label>
         <small>อย่างน้อย 8 ตัว A-a และตัวเลข</small>
-        <div class="password-container">
-            <input type="password" id="password" name="password" required pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}" title="อย่างน้อย 8 ตัว A-a และตัวเลข">
-            <input type="checkbox" id="show-password">
-        </div>
-    </form>
+        <input type="password" id="password" name="password" required pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}" title="อย่างน้อย 8 ตัว A-a และตัวเลข">
+            
+      
 
 
         <label for="confirm_password">ยืนยันรหัสผ่าน:<span style="color: red;"> *</span></label>
@@ -213,16 +211,7 @@ $conn->close();
         </form>
         <p>มีบัญชีผู้ใช้อยู่แล้ว? <a href="login.php">เข้าสู่ระบบที่นี่</a>.</p>
     </div>
-    <script>
-        document.getElementById('show-password').addEventListener('change', function() {
-            var passwordInput = document.getElementById('password');
-            if (this.checked) {
-                passwordInput.type = 'text';
-            } else {
-                passwordInput.type = 'password';
-            }
-        });
-    </script>
+    
 </body>
 
 </html>
